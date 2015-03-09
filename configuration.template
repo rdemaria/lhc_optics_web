@@ -1,0 +1,125 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<link href="www/_style.css" rel="stylesheet" type="text/css">
+<title>LHC Optics Web Home</title>
+</head>
+
+<h1> LHC Optics Web: {{ scn.label }} - {{ conf.label }} optics</h1>
+
+
+<a  href="../../index.html">Scenarios</a>/
+<a  href="../index.html">{{scn.label}}</a>/
+<hr class="sep">
+
+<h2> Description </h2>
+
+<p> {{ conf.shortdesc }}  </p>
+
+<h2> Data </h2>
+
+<p> Reference MadX sample file:
+<a href="lhc_{{scn.name}}_{{conf.name}}.madx">lhc_{{scn.name}}_{{conf.name}}.madx</a>.
+
+Flatten MadX sample file:
+<a href="lhc_{{scn.name}}_{{conf.name}}.seq">lhc_{{scn.name}}_{{conf.name}}.seq</a>.
+</p>
+
+
+<table border="1" cellpadding="0" cellspacing="0">
+  <tr>
+    <th></th>
+    {% for sel in conf.selection %}
+    <th> {{sel}} </th>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Twiss plot</td>
+    {% for sel in conf.selection %}
+    <td align="center">
+      <a href="twiss_{{sel|lower}}.html">fig</a>
+    </td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Orbit plot</td>
+    {% for sel in conf.selection %}
+    <td align="center">
+      <a href="orbit_{{sel|lower}}.html">fig</a>
+    </td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Aperture plot</td>
+    {% for sel in conf.selection %}
+    <td align="center">
+      <a href="ap_{{sel|lower}}.html">fig</a>
+    </td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Twiss tables (tfs)</td>
+    {% for sel in conf.selection %}
+    <td>
+      {% for bim in ['b1','b2'] %}
+      <a href="twiss_{{sel|lower}}{{bim}}.tfs">{{bim}}</a>
+      {% endfor %}
+    </td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Twiss tables (csv)</td>
+    {% for sel in conf.selection %}
+    <td>
+      {% for bim in ['b1','b2'] %}
+      <a href="twiss_{{sel|lower}}{{bim}}.csv" download>{{bim}}</a>
+      {% endfor %}
+    </td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Aperture tables (tfs)</td>
+    {% for sel in conf.selection %}
+    <td>
+      {% if sel!='LHC' %}
+        {% for bim in ['b1','b2'] %}
+        <a href="ap_{{sel|lower}}{{bim}}.tfs">{{bim}}</a>
+        {% endfor %}
+      {% endif %}
+    </td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Aperture tables (csv)</td>
+    {% for sel in conf.selection %}
+    <td>
+      {% if sel!='LHC' %}
+        {% for bim in ['b1','b2'] %}
+        <a href="ap_{{sel|lower}}{{bim}}.csv" download>{{bim}}</a>
+        {% endfor %}
+      {% endif %}
+    </td>
+    {% endfor %}
+  </tr>
+</table>
+
+<h2> Other configurations </h2>
+
+<p>
+{% for cname in scn.conf_list %}
+{%- if cname!=conf.name %}
+<a href="../{{cname}}/index.html">{{scn.confs[cname].label}}</a>
+{%- if not loop.last %}, {% endif -%}
+{% endif -%}
+{% endfor %}.
+</p>
+
+
+
+<hr class="sep">
+
+<p> Last modification: {{ date }}  &copy; Copyright 2015 CERN
+
+</body> </html>

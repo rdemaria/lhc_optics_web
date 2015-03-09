@@ -1,0 +1,55 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<link href="www/_style.css" rel="stylesheet" type="text/css">
+<title>LHC Optics Web Home</title>
+</head>
+
+<h1> LHC Optics Web: {{ scn.label }} - {{ conf.label }} Orbit Plots</h1>
+
+
+<a  href="../../index.html">Scenarios</a>/
+<a  href="../index.html">{{scn.label}}</a>/
+<a  href="index.html">{{conf.label}}</a>/
+<hr class="sep">
+
+<h2> Description </h2>
+
+<p> {{ conf.shortdesc }}  </p>
+
+
+{% for bim in ['b1','b2'] %}
+<img src="orbit_{{sel|lower}}{{bim}}.png" width="50%" height="50%"/>
+{% endfor %}
+
+
+<h2> Other selections </h2>
+
+<p>
+{% for ssel in conf.selection %}
+{%- if ssel!=sel %}
+<a href="twiss_{{ssel|lower}}.html">{{ssel}}</a>
+{%- if not loop.last %}, {% endif -%}
+{% endif -%}
+{% endfor %}.
+</p>
+
+<h2> Other configurations </h2>
+
+<p>
+{% for cname in scn.conf_list %}
+{%- if cname!=conf.name %}
+<a href="../{{cname}}/twiss_{{sel|lower}}.html">{{scn.confs[cname].label}}</a>
+{%- if not loop.last %}, {% endif -%}
+{% endif -%}
+{% endfor %}.
+</p>
+
+
+<hr class="sep">
+
+<p> Last modification: {{ date }}  &copy; Copyright 2015 CERN
+
+</body> </html>

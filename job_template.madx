@@ -1,0 +1,203 @@
+
+! Links definitions
+option, warn,info;
+{% for key,val in conf.madx_links.items() %}
+system,"ln -fns {{val}} {{key}}";
+{%- endfor %}
+system,"ln -fns {{resdir}} result";
+
+! Sequence definition
+Option, -echo,warn,-info;
+{% for line in conf.madx_sequence %}
+{{line}}
+{%- endfor %}
+
+! Aperture definition
+{% for line in conf.madx_aperture %}
+{{line}}
+{%- endfor %}
+
+
+! Beam definition
+beam, sequence=lhcb1, bv= 1, energy= {{conf.nrj1}},  particle={{conf.part1}},
+  npart={{conf.nb1}},kbunch={{conf.np1}}, ex={{conf.emit1}},ey={{conf.emit1}};
+beam, sequence=lhcb2, bv=-1, energy= {{conf.nrj2}},  particle={{conf.part2}},
+  npart={{conf.nb2}},kbunch={{conf.np2}}, ex={{conf.emit2}},ey={{conf.emit2}};
+
+NRJ=beam%lhcb1->energy;
+
+{% for line in conf.madx_beams %}
+{{line}}
+{%- endfor %}
+
+! Strength definition
+{% for line in conf.madx_strengths %}
+{{line}}
+{%- endfor %}
+
+! Cycle
+seqedit,sequence=lhcb1;flatten;cycle,start=s.ds.l1.b1;endedit;
+seqedit,sequence=lhcb2;flatten;cycle,start=s.ds.l1.b2;endedit;
+
+! Twiss with knobs turned off
+set,format="22.15e";
+select,flag=twiss,clear;
+select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dpy,mux,muy,x,y,px,py;
+{% for bim in ['b1','b2'] %}
+use, sequence=lhc{{bim}};
+twiss, file=result/twiss_ip{{bim}}_flat.tfs;
+{% endfor %}
+
+! Knobs definitions
+{% for line in conf.madx_knobs %}
+{{line}}
+{%- endfor %}
+
+! Twiss with experiments turn off
+on_alice_aux=on_alice; on_lhcb_aux=on_lhcb; on_disp_aux=on_disp;
+on_alice=0; on_lhcb=0;
+{% for bim in ['b1','b2'] %}
+use, sequence=lhc{{bim}};
+twiss, file=result/twiss_ip{{bim}}_noexp.tfs;
+{% endfor %}
+on_alice=on_alice_aux; on_lhcb=on_lhcb_aux; on_disp=on_disp_aux;
+
+! Twiss with experiments turn on
+  set,format="22.15e";
+  select,flag=twiss,clear;
+  select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dpy,mux,muy,x,y,px,py;
+{% for bim in ['b1','b2'] %}
+  use, sequence=lhc{{bim}};
+  twiss, file=result/twiss_ip{{bim}}.tfs;
+{% endfor %}
+
+! Match tune
+
+if ( qxb1 == 0 ) {
+  qxb1=qx1; qxb2=qx2; qyb1=qy1; qyb2=qy2;
+  Qpxb1=qprime; Qpyb1=qprime; Qpxb2=qprime; Qpyb2=qprime;
+};
+
+
+{% for bim in ['b1','b2'] %}
+  !! Match tune and chromaticity for lhc{{bim}}
+  use, sequence=lhc{{bim}};
+  match;
+  global, q1=qx{{bim}}, q2=qy{{bim}};
+  vary,   name=kqtf.{{bim}}, step=1.0E-7 ;
+  vary,   name=kqtd.{{bim}}, step=1.0E-7 ;
+  jacobian,  calls=15, tolerance=1.0E-21;
+  endmatch;
+
+  match;
+  global, dq1=Qpx{{bim}}, dq2=Qpy{{bim}};
+  vary,   name=ksf.{{bim}}, step=1.0E-7 ;
+  vary,   name=ksd.{{bim}}, step=1.0E-7 ;
+  jacobian,  calls=15, tolerance=1.0E-21;
+  endmatch;
+
+  set,format="22.15e";
+  select,flag=twiss,clear;
+  select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
+       s,l,lrad,kick,hkick,vkick,angle,
+       k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
+       x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+       apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol;
+  survey, file=result/survey_lhc{{bim}}.tfs;
+  twiss, file=result/twiss_lhc{{bim}}.tfs;
+
+{% endfor %}
+
+! Aperture calculations
+if(NRJ <3499.99) { COmax:=0.004; dPmax=0.00150; VMAXI=30; SPECIF=7; };
+if(NRJ >3499.99) { COmax:=0.003; dPmax=0.00086; VMAXI=30; SPECIF=7; };
+
+! n1 method design report
+emittance_norm=3.75e-6;
+apbbeat=1.1;
+halor=8.4; halox=7.3; haloy=7.3;
+DParcx=0.273; DParcy=0.273;
+
+! 2014-2015 updated parameters
+if(NRJ >451) {
+emittance_norm=3.5e-6;
+apbbeat=1.1;
+halor=6; halox=6; haloy=6;
+DParcx=0.10; DParcy=0.10;
+COmax=0.002; dPmax=0.0002; VMAXI=30; SPECIF=7;
+} else {
+emittance_norm=3.5e-6;
+apbbeat=1.05;
+halor=6; halox=6; haloy=6;
+DParcx=0.14; DParcy=0.14;
+COmax=0.004; dPmax=0.0006; VMAXI=30; SPECIF=7;
+};
+
+
+value,COmax,dPmax,emittance_norm,apbbeat,halor,halox,haloy,DParcx,DParcy;
+
+system, "cp db5/aperture/offset.ip*b*.tfs  .";
+system, "cp slhc/aperture/offset.ip*b*.tfs .";
+
+{% for bim in ['b1','b2'] %}
+  {% for nir in [1,2,3,4,5,6,7,8] %}
+
+seqedit,sequence=lhc{{bim}};flatten;cycle,start=s.ds.l{{nir}}.{{bim}};flatten;endedit;
+
+
+use,sequence=lhc{{bim}};
+select,flag=twiss,clear;
+select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
+       s,l,lrad,kick,hkick,vkick,angle,
+       k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
+       x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+       apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+      range=s.ds.l{{nir}}.{{bim}}/e.ds.r{{nir}}.{{bim}};
+twiss,file=result/twiss_ir{{nir}}{{bim}}.tfs;
+
+select,flag=aperture,clear;
+select,flag=aperture,column=name,keyword,parent,
+   s,x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+   n1,apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+   k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl;
+aperture,range=s.ds.l{{nir}}.{{bim}}/e.ds.r{{nir}}.{{bim}},
+         offsetelem=./offset.IP{{nir}}.{{bim}}.tfs,
+         cor=COmax, dp=dPmax, spec=SPECIF,interval=1.0,
+         exn=emittance_norm,eyn=emittance_norm,
+         halo={6,halor,halox,haloy},bbeat=apbbeat,
+         dparx=DParcx,dpary=DParcy,
+         file=result/ap_ir{{nir}}{{bim}}.tfs;
+
+  {% endfor %}
+{% endfor %}
+
+
+{% for bim in ['b1','b2'] %}
+  {% for narc1,narc2 in [(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(7,8),(8,1)] %}
+
+seqedit,sequence=lhc{{bim}};cycle,start=e.ds.r{{narc1}}.{{bim}};endedit;
+use,sequence=lhc{{bim}};
+select,flag=twiss,clear;
+select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
+       s,l,lrad,kick,hkick,vkick,angle,
+       k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
+       x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+       apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+       range=e.ds.r{{narc1}}.{{bim}}/s.ds.l{{narc2}}.{{bim}};
+twiss,file=result/twiss_arc{{narc1}}{{narc2}}{{bim}}.tfs;
+
+select,flag=aperture,clear;
+select,flag=aperture,column=name,keyword,parent,
+   s,x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+   n1,apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+   k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl;
+aperture,range=e.ds.r{{narc1}}.{{bim}}/s.ds.l{{narc2}}.{{bim}},
+         cor=COmax, dp=dPmax, spec=SPECIF,interval=1.0,
+         file=result/ap_arc{{narc1}}{{narc2}}{{bim}}.tfs;
+survey,file=result/survey_arc{{narc1}}{{narc2}}{{bim}}.tfs;
+  {% endfor %}
+{% endfor %}
+
+! saving sequence
+save,beam,sequence=lhcb1,lhcb2,file=result/lhc_{{scn.name}}_{{conf.name}}.seq
+

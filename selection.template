@@ -1,0 +1,55 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<link href="www/_style.css" rel="stylesheet" type="text/css">
+<title>LHC Optics Web Home</title>
+</head>
+
+<h1> LHC Optics Web: {{ scn.label }} optics</h1>
+
+<hr>
+<a  href="../index.html"> Scenarios </a>
+
+<hr>
+
+<h2> Description </h2>
+
+<p> {{ scn.longdesc }}  </p>
+
+<h2> Data </h2>
+
+<p>
+
+<table border="1">
+  <tr>
+    <th> Configuration </th>
+    {% for bdata in scn.beamdata %}
+    <th> {{key}} </th>
+    {% endfor %}
+    {% for ip in ['ip1','ip2','ip5','ip8'] %}
+      {% for dn in scn.ipdata %}
+      <th> {{key}} {{ip}} </th>
+      {% endfor %}
+    {% endfor %}
+  </tr>
+  {% for conf in scn.confs %}
+  <tr>
+    <td> <a href="{{conf.name}}/index.html">{{conf.label}}</a>
+         [<a href="{{conf.name}}/job.madx">madx</a>]</td>
+    {% for bdata in conf.settings.beam %}
+    <th> {{ bdata }} </th>
+    {% endfor %}
+    {% for ip in ['ip1','ip2','ip5','ip8'] %}
+      {% for data in conf.settings[ip] %}
+      <th> data </th>
+      {% endfor %}
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+
+<p> Last modification: {{date}}  &copy; Copyright 2015 CERN
+
+</body> </html>

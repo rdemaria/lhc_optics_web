@@ -1,0 +1,1251 @@
+{
+ "hllhc11": {
+  "conf_list": [ "inj", "endoframp", "presqueeze",
+   "round", "flat", "flathv", "sround", "sflat", "sflathv",
+   "ions","inj15","vdm30" ],
+  "confs": {
+   "hllhc11_template": {
+    "madx_aperture": [
+     "call, file=\"db5/aperture/aperture.b1.madx\";",
+     "call, file=\"db5/aperture/aperture.b2.madx\";",
+     "call, file=\"db5/aperture/aper_tol.b1.madx\";",
+     "call, file=\"db5/aperture/aper_tol.b2.madx\";",
+     "call,   file=\"slhc/aperture/aperture_upgrade_IT.madx\";",
+     "call,   file=\"slhc/aperture/aperture_upgrade_MS.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_disp=1;"
+    ],
+    "madx_links": {
+     "db5": "/afs/cern.ch/eng/lhc/optics/V6.503",
+     "slhc": "/afs/cern.ch/eng/lhc/optics/HLLHCV1.1"
+    },
+    "madx_sequence": [
+     "REAL CONST l.TAN = 3.7 ;REAL CONST l.TANAL = l.TAN;",
+     "REAL CONST l.TANAR = l.TAN;REAL CONST l.TANC = l.TAN;",
+     "REAL CONST l.TCT = 1.0;REAL CONST l.TCTH = l.TCT;",
+     "REAL CONST l.TCTVA = l.TCT;",
+     "call, file=\"db5/V6.5.seq\";",
+     "call, file=\"slhc/hllhc_sequence.madx\";"
+    ]
+   },
+   "endoframp": {
+    "label": "End of ramp",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_endoframp.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Optics at the of the ramp.",
+    "template": "hllhc11_template"
+   },
+   "flat": {
+    "label": "Collision Flat",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_flat.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics.",
+    "template": "hllhc11_template"
+   },
+   "flathv": {
+    "label": "Collision Flat HV",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_flathv.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_disp=1;"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics for flat optics inverted crossing planes in IP1 and IP5.",
+    "template": "hllhc11_template"
+   },
+   "inj": {
+    "label": "Injection",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_inj.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;",
+     "on_sep8:=3.5/2;on_x8:=1;on_lhcb :=-7000/450;",
+     "on_disp=0;"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ] },
+    "shortdesc": "Optics at injection.",
+    "template": "hllhc11_template"
+   },
+   "inj15": {
+    "label": "Injection 15m",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_inj15.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;",
+     "on_sep8:=3.5/2;on_x8:=1;on_lhcb :=-7000/450;",
+     "on_disp=0;"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ] },
+    "shortdesc": "High Beta Optics at injection.",
+    "template": "hllhc11_template"
+   },
+   "vdm30": {
+    "label": "VDM optics 30m",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_vdm30.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/7000;on_sol_alice:=0;",
+     "on_sep8:=3.5/2;on_x8:=1;on_lhcb :=-7000/7000;",
+     "on_disp=0;"
+    ],
+    "settings": {
+     "beam1": [ "p",7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p",7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ] },
+    "shortdesc": "High Beta Optics at high energy.",
+    "template": "hllhc11_template"
+   },
+   "inj_flat": {
+    "label": "Injection Flat",
+    "madx_knobs": [
+     "on_sep1:=0;on_x1:=0;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=0;on_x5:=0;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=0;on_x2:=0;on_alice:=0;on_sol_alice:=0;",
+     "on_sep8:=0;on_x8:=0;on_lhcb :=0;",
+     "on_disp=0;"
+    ],
+    "madx_strengths": [
+     "call,file=\"slhc/opt_inj.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "off", "off", "off" ]
+    },
+    "shortdesc": "Optics at injection without crossing angles.",
+    "template": "hllhc11_template"
+   },
+   "ions": {
+    "label": "Low-beta optics",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_ions.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics.",
+    "template": "hllhc11_template"
+   },
+   "presqueeze": {
+    "label": "Presqueeze optics",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_presqueeze.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics.",
+    "template": "hllhc11_template"
+   },
+   "round": {
+    "label": "Collision Round",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_round.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics.",
+    "template": "hllhc11_template"
+   },
+   "sflat": {
+    "label": "Collision Flat",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_sflat.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Ultimate collision optics.",
+    "template": "hllhc11_template"
+   },
+   "sflathv": {
+    "label": "Collision Flat HV",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_sflathv.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_disp=1;"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Ultimate collision optics for flat optics inverted crossing planes in IP1 and IP5.",
+    "template": "hllhc11_template"
+   },
+   "sround": {
+    "label": "Collision Round",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_sround.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Ultimate collision optics.",
+    "template": "hllhc11_template"
+   }
+  },
+  "label": "HL-LHCv1.1",
+  "longdesc": "Optics for  HL-LHC V1.1.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n",
+  "shortdesc": "Optics for HL-LHC V1.1."
+ },
+ "hllhc10": {
+  "conf_list": [ "inj", "endoframp", "presqueeze",
+   "round", "flat", "flathv", "sround", "sflat", "sflathv",
+   "ions"
+  ],
+  "confs": {
+   "endoframp": {
+    "label": "End of ramp",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_endoframp.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Optics at the of the ramp.",
+    "template": "hllhc10_template"
+   },
+   "flat": {
+    "label": "Collision Flat",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_flat.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics.",
+    "template": "hllhc10_template"
+   },
+   "flathv": {
+    "label": "Collision Flat HV",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_flathv.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_disp=1;"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics for flat optics inverted crossing planes in IP1 and IP5.",
+    "template": "hllhc10_template"
+   },
+   "hllhc10_template": {
+    "madx_aperture": [
+     "call, file=\"db5/aperture/aperture.b1.madx\";",
+     "call, file=\"db5/aperture/aperture.b2.madx\";",
+     "call, file=\"db5/aperture/aper_tol.b1.madx\";",
+     "call, file=\"db5/aperture/aper_tol.b2.madx\";",
+     "bs_type=4; ap_mqx=150;",
+     "call,   file=\"slhc/aperture/aperture_upgrade_IT.madx\";",
+     "call,   file=\"slhc/aperture/aperture_upgrade_MS.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_disp=1;"
+    ],
+    "madx_links": {
+     "db5": "/afs/cern.ch/eng/lhc/optics/V6.503",
+     "slhc": "/afs/cern.ch/eng/lhc/optics/HLLHCV1.0"
+    },
+    "madx_sequence": [
+     "call, file=\"db5/V6.5.seq\";",
+     "call, file=\"slhc/hllhc_sequence.madx\";"
+    ]
+   },
+   "inj": {
+    "label": "Injection",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_inj.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;",
+     "on_sep8:=3.5/2;on_x8:=1;on_lhcb :=-7000/450;",
+     "on_disp=1;"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Optics at injection.",
+    "template": "hllhc10_template"
+   },
+   "inj_flat": {
+    "label": "Injection Flat",
+    "madx_knobs": [
+     "on_sep1:=0;on_x1:=0;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=0;on_x5:=0;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=0;on_x2:=0;on_alice:=0;on_sol_alice:=0;",
+     "on_sep8:=0;on_x8:=0;on_lhcb :=0;",
+     "on_disp=0;"
+    ],
+    "madx_strengths": [
+     "call,file=\"slhc/opt_inj.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 450, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "off", "off", "off" ]
+    },
+    "shortdesc": "Optics at injection without crossing angles.",
+    "template": "hllhc10_template"
+   },
+   "ions": {
+    "label": "Low-beta optics",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_ions.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics.",
+    "template": "hllhc10_template"
+   },
+   "presqueeze": {
+    "label": "Presqueeze optics",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_presqueeze.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics.",
+    "template": "hllhc10_template"
+   },
+   "round": {
+    "label": "Collision Round",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_round.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Baseline collision optics.",
+    "template": "hllhc10_template"
+   },
+   "sflat": {
+    "label": "Collision Flat",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_sflat.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Ultimate collision optics.",
+    "template": "hllhc10_template"
+   },
+   "sflathv": {
+    "label": "Collision Flat HV",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_flathv.madx\";"
+    ],
+    "madx_knobs": [
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;",
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;",
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_disp=1;"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Ultimate collision optics for flat optics inverted crossing planes in IP1 and IP5.",
+    "template": "hllhc10_template"
+   },
+   "sround": {
+    "label": "Collision Round",
+    "madx_strengths": [
+     "call,file=\"slhc/opt_sround.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "beam2": [ "p", 7000, 220000000000.0, 2792, 2.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Ultimate collision optics.",
+    "template": "hllhc10_template"
+   }
+  },
+  "label": "HL-LHCv1.0",
+  "longdesc": "Optics for  HL-LHC V1.0.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n",
+  "shortdesc": "Optics for HL-LHC V1.0."
+ },
+ "pprun1": {
+  "conf_list": [
+   "inj_flat", "inj_flat_spec", "inj",
+   "squeeze1", "squeeze2", "squeeze3", "squeeze4", "squeeze5", "squeeze6",
+   "squeeze7", "squeeze8", "squeeze9", "squeeze10", "squeeze11", "squeeze12",
+   "squeeze13", "squeeze14",
+   "endofsqueeze_4tev",
+   "coll_4tev"
+  ],
+  "confs": {
+   "coll_4tev": {
+    "label": "Collision 4TeV",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1;on_x1=    on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2;   on_x2=    on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=    on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=   on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;   on_x8v:=  on_x8vnew*(switch_V_cross8);",
+     "on_sep1=0; on_sep1new=-0.00065/x.ip1;on_sep1=  on_sep1new;",
+     "on_sep2=0; on_sep2new=0.00065/x.ip2; on_sep2=  on_sep2new;",
+     "on_sep5=0; on_sep5new=0.00065/y.ip5; on_sep5=  on_sep5new;",
+     "on_sep8=0; on_sep8new=-0.00065/y.ip8;on_sep8:= on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=0;on_sep8hnew=0.0007/x.ip8; on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call, file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";",
+     "call, file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";",
+     "call, file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call, file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "LHC version 6.503 for 4.0 TeV physics program. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity; Vertical crossing IP8.",
+    "template": "v6503_template"
+   },
+   "endofsqueeze_4tev": {
+    "label": "End of squeeze 4TeV",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call, file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";",
+     "call, file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";",
+     "call, file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call, file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "LHC version 6.503 for 4.0 TeV physics program. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity; Vertical crossing IP8.",
+    "template": "v6503_template"
+   },
+   "inj": {
+    "label": "Injection",
+    "madx_knobs": [
+     "on_x1:=1; on_sep1:=1; on_o1:=0;",
+     "on_x2:=1; on_sep2:=1; on_o2:=0; on_a2:=0;",
+     "on_x5:=1; on_sep5:=1; on_o5:=0;",
+     "on_x8:=1; on_sep8:=1; on_o8:=0; on_a8:=0;",
+     "on_alice:=7000/450;",
+     "on_lhcb :=-7000/450;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 450, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Injection energy, crossing, separations, spectrometers and aperture optimizations, switched on, 50 ns bunch spacing.",
+    "template": "v6503_template"
+   },
+   "inj_flat": {
+    "label": "Injection Flat",
+    "madx_knobs": [
+     "on_x1:=0; on_sep1:=0; on_o1:=0;",
+     "on_x2:=0; on_sep2:=0; on_o2:=0;",
+     "on_x5:=0; on_sep5:=0; on_o5:=0;",
+     "on_x8:=0; on_sep8:=0; on_o8:=0;",
+     "on_alice:=0;",
+     "on_lhcb :=0;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 50000000000.0, 2, 3.5e-06 ],
+     "beam2": [ "p", 450, 50000000000.0, 2, 3.5e-06 ],
+     "exp": [ "off", "off", "off", "off" ]
+    },
+    "shortdesc": "Injection without crossing angles.",
+    "template": "v6503_template"
+   },
+   "inj_flat_spec": {
+    "label": "Injection LHCf",
+    "longdesc": "Injection energy, crossing switched on in IP1 but with negative angle as required by LHCf. he separations, spectrometers and aperture optimizations, are switched on.",
+    "madx_knobs": [
+     "on_x1:=-1; on_sep1:=1; on_o1:=0;",
+     "on_x2:=0;  on_sep2:=1; on_o2:=1; on_a2:=1;",
+     "on_x5:=0;  on_sep5:=1; on_o5:=0;",
+     "on_x8:=0;  on_sep8:=1; on_o8:=1; on_a8:=1;",
+     "on_alice:=7000/450;",
+     "on_lhcb :=7000/450;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 50000000000.0, 43, 3.5e-06 ],
+     "beam2": [ "p", 450, 50000000000.0, 43, 3.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Injection energy, crossing switched on in IP1 but with negative angle as required by LHCf.",
+    "template": "v6503_template"
+   },
+   "squeeze1": {
+    "label": "Squeeze Step 1",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call,file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00951_beta10.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00951_beta10.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta11.00m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta11.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 1 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze10": {
+    "label": "Squeeze Step 10",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.20m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.20m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 10 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze11": {
+    "label": "Squeeze Step 11",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.00m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 11 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze12": {
+    "label": "Squeeze Step 12",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.90m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.90m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 12 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze13": {
+    "label": "Squeeze Step 13",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.80m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.80m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 13 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze14": {
+    "label": "Squeeze Step 14",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.70m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.70m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 14 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze15": {
+    "label": "Squeeze Step 15",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 15 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze16": {
+    "label": "Squeeze Step 16",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 16 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze2": {
+    "label": "Squeeze Step 2",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h0;:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00915_beta9.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00932_beta7.50m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_9.00m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_9.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 2 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze3": {
+    "label": "Squeeze Step 3",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1;on_x1=    on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2;   on_x2=    on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=    on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=   on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;   on_x8v:=  on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=  on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2; on_sep2=  on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5; on_sep5=  on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:= on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1;on_sep8hnew=0.0007/x.ip8; on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00897_beta7.50m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00909_beta6.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_7.00m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_7.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 3 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze4": {
+    "label": "Squeeze Step 4",
+    "madx_knobs": [
+     "on_x1=1;    on_x1new=-0.000145/py.ip1; on_x1=     on_x1new;",
+     "on_x2=1;    on_x2new=+9e-05/py.ip2;    on_x2=     on_x2new;",
+     "on_x5=1;    on_x5new=0.000145/px.ip5;  on_x5=     on_x5new;",
+     "on_x8=1;    on_x8new=-0.00022/px.ip8;  on_x8:=    on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;   on_x8vnew=9e-05/py.ip8;    on_x8v:=   on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1;  on_sep1new=-0.00065/x.ip1; on_sep1=   on_sep1new;",
+     "on_sep2=1;  on_sep2new=0.00065/x.ip2;  on_sep2=   on_sep2new;",
+     "on_sep5=1;  on_sep5new=0.00065/y.ip5;  on_sep5=   on_sep5new;",
+     "on_sep8=1;  on_sep8new=-0.00065/y.ip8; on_sep8:=  on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;  on_sep8h:= on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta6.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00900_beta5.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_4.00m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_4.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 4 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze5": {
+    "label": "Squeeze Step 5",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta5.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00888_beta3.75m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_3.00m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_3.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 5 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze6": {
+    "label": "Squeeze Step 6",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta4.50m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00882_beta3.50m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_2.50m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_2.50m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 6 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze7": {
+    "label": "Squeeze Step 7",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta4.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00878_beta3.25m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_2.00m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_2.00m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 7 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze8": {
+    "label": "Squeeze Step 8",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.50m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.60m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.60m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 8 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "squeeze9": {
+    "label": "Squeeze Step 9",
+    "madx_knobs": [
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
+     "switch_V_cross8=0;",
+     "on_alice:=7000/4000;",
+     "on_lhcb:=-7000/4000;"
+    ],
+    "madx_strengths": [
+     "call, file=\"db5/V6.5.inj_special.str\";",
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.50m.str\";",
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.50m.str\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "beam2": [ "p", 4000, 120000000000.0, 1380, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    },
+    "shortdesc": "Squeeze Step 9 at 4.0 TeV physics program.",
+    "template": "v6503_template"
+   },
+   "v6503_template": {
+    "madx_aperture": [
+     "call, file=\"db5/aperture/aperture.b1.madx\";",
+     "call, file=\"db5/aperture/aperture.b2.madx\";",
+     "call, file=\"db5/aperture/aper_tol.b1.madx\";",
+     "call, file=\"db5/aperture/aper_tol.b2.madx\";"
+    ],
+    "madx_links": {
+     "db5": "/afs/cern.ch/eng/lhc/optics/V6.503"
+    },
+    "madx_sequence": [
+     "call, file=\"db5/V6.5.seq\";"
+    ]
+   }
+  },
+  "label": "LHC Run I protons",
+  "longdesc": "Configuration LHC Run 1 protons. The spectrometer can be powered with positive or negative polarity. References <a href=\"https://edms.cern.ch/file/1059898/3/LHC-OP-ES-0020-rev3.pdf\"> LHC-OP-ES-0020 rev. 3 </a>",
+  "shortdesc": "Optics for LHC Run I protons for physics in 2011-2012."
+ },
+ "opt_med": {
+  "confs": {
+   "coll": {
+    "label": "Collision",
+    "madx_knobs": [
+    "on_sep1:=0;",
+    "on_sep2:=0;",
+    "on_sep5:=0;",
+    "on_sep8:=0;" ],
+    "madx_strengths": [
+     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
+    ],
+    "shortdesc": "LHC collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "template": "med_template"
+   },
+   "squeeze17": {
+    "label": "Squeeze Step",
+    "madx_strengths": [
+     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
+    ],
+    "shortdesc": "LHC pre-collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "template": "med_template"
+   },
+   "squeeze16": {
+    "label": "Squeeze Step",
+    "madx_strengths": [
+     "call, file=\"db5/opt_600_10000_600_3000.madx\";"
+    ],
+    "shortdesc": "LHC pre-collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "template": "med_template"
+   },
+   "squeeze15": {
+    "label": "Squeeze Step",
+    "madx_strengths": [
+     "call, file=\"db5/opt_800_10000_800_3000.madx\";"
+    ],
+    "shortdesc": "LHC pre-collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "template": "med_template"
+   },
+   "squeeze1": {
+    "label": "Start of squeeze",
+    "madx_strengths": [
+     "call, file=\"db5/opt_11000_10000_11000_10000.madx\";"
+    ],
+    "shortdesc": "LHC end of ramp optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "template": "med_template"
+   },
+   "endofsqueeze": {
+    "label": "End of squeeze",
+    "madx_strengths": [
+     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
+    ],
+    "shortdesc": "LHC pre-collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "template": "med_template"
+   },
+   "inj_colltunes": {
+    "label": "Inj. Coll. Tunes",
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj_colltunes.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 120000000000.0, 2748, 3.5e-06 ],
+     "beam2": [ "p", 450, 120000000000.0, 2748, 3.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Alternative injection optics with collistion tunes. Energy, crossing, separations, spectrometers are switched on.",
+    "template": "med_template"
+   },
+   "inj": {
+    "label": "Injection",
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj.madx\";"
+    ],
+    "settings": {
+     "beam1": [ "p", 450, 120000000000.0, 2748, 3.5e-06 ],
+     "beam2": [ "p", 450, 120000000000.0, 2748, 3.5e-06 ],
+     "exp": [ "off", "on", "off", "on" ]
+    },
+    "shortdesc": "Injection energy, crossing, separations, spectrometers switched on.",
+    "template": "med_template"
+   },
+   "inj_nospect": {
+    "label": "Inj. No Spect.",
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj.madx\";"
+    ],
+    "madx_knobs": ["on_alice=0;on_lhcb=0;"],
+    "settings": {
+     "beam1": [ "p", 450, 120000000000.0, 2748, 3.5e-06 ],
+     "beam2": [ "p", 450, 120000000000.0, 2748, 3.5e-06 ],
+     "exp": [ "off", "off", "off", "off" ]
+    },
+    "shortdesc": "Injection energy, crossing, separations, spectrometers switched off.",
+    "template": "med_template"
+   },
+   "med_template": {
+    "madx_aperture": [
+     "call, file=\"db503/aperture/aperture.b1.madx\";",
+     "call, file=\"db503/aperture/aperture.b2.madx\";",
+     "call, file=\"db503/aperture/aper_tol.b1.madx\";",
+     "call, file=\"db503/aperture/aper_tol.b2.madx\";"
+    ],
+    "madx_links": {
+     "db503": "/afs/cern.ch/eng/lhc/optics/V6.503",
+     "db5": "/afs/cern.ch/eng/lhc/optics/runII/opt_med"
+    },
+    "madx_knobs": [],
+    "madx_sequence": [ "call, file=\"db5/lhc_study_20150119.seq\";" ],
+    "settings": {
+     "beam1": [ "p", 6000, 120000000000.0, 2748, 3.5e-06 ],
+     "beam2": [ "p", 6000, 120000000000.0, 2748, 3.5e-06 ],
+     "exp": [ "off", "on", "off", " full neg" ]
+    }
+   }
+  },
+  "conf_list": [
+   "inj", "inj_colltunes", "inj_nospect",
+   "squeeze15", "squeeze16", "squeeze17",
+   "coll"
+  ],
+  "label": "LHC Run II protons (DRAFT)",
+  "longdesc": "Configuration LHC Run 1 protons (DRAFT). The spectrometer can be powered with positive or negative polarity.",
+  "shortdesc": "Optics for LHC Run II protons for physics in 2015."
+ },
+ "scenario_list": [ "pprun1", "opt_med", "hllhc10", "hllhc11"]
+}

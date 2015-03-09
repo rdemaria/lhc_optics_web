@@ -1,0 +1,108 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<link href="www/_style.css" rel="stylesheet" type="text/css">
+<title>LHC Optics Web Home</title>
+</head>
+
+<h1> LHC Optics Web: {{ scn.label }} optics</h1>
+
+<hr>
+<a  href="../index.html">Home</a>
+
+<hr class="sep">
+
+<h2> Description </h2>
+
+<p> {{ scn.longdesc }}  </p>
+
+<h2> Data </h2>
+
+<p>
+
+<table border="1" cellpadding="1" cellspacing="0">
+  <tr>
+    <th rowspan="3" > Configuration </th>
+    <th rowspan="3" > Beam </th>
+    {% for bdata in scn.beam_data %}
+      <th rowspan="2"> {{ bdata }} </th>
+    {% endfor %}
+    {% for ip in scn.ip_names %}
+      <th colspan="7"> {{ ip|upper }} </th>
+    {% endfor %}
+  </tr>
+  <tr>
+    {% for ip in scn.ip_names %}
+      {% for dn in scn.ip_data %}
+      <th> {{ dn|safe }} </th>
+      {% endfor %}
+    {% endfor %}
+  </tr>
+  <tr>
+    {% for bdata in scn.beam_data_unit %}
+      <th> {{ bdata|safe }} </th>
+    {% endfor %}
+    {% for ip in scn.ip_names %}
+      {% for dn in scn.ip_data_unit %}
+      <th> {{ dn|safe }} </th>
+      {% endfor %}
+    {% endfor %}
+  </tr>
+  {% for cname in scn.conf_list %}
+  {% set conf=scn.confs[cname] %}
+  <tr>
+    <td rowspan=2> <a href="{{conf.name}}/index.html">{{conf.label}}</a></td>
+    <td align="center"> 1</td>
+    <td align="right"> {{ conf.part1 }} </td>
+    <td align="right"> {{ conf.nrj1 }} </td>
+    <td align="right"> {{ conf.np1_web }} </td>
+    <td align="right"> {{ conf.nb1 }} </td>
+    <td align="right"> {{ conf.emit_n1_web }} </td>
+    {% for ip in ['ip1b1','ip2b1','ip5b1','ip8b1'] %}
+      {% for data in conf.settings[ip] %}
+      <td align="right"> {{ data }} </td>
+      {% endfor %}
+    {% endfor %}
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="right"> {{ conf.part2 }} </td>
+    <td align="right"> {{ conf.nrj2 }} </td>
+    <td align="right"> {{ conf.np2_web }} </td>
+    <td align="right"> {{ conf.nb2 }} </td>
+    <td align="right"> {{ conf.emit_n2_web }} </td>
+    {% for ip in ['ip1b2','ip2b2','ip5b2','ip8b2'] %}
+      {% for data in conf.settings[ip] %}
+      <td align="right"> {{ data }} </td>
+      {% endfor %}
+    {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+
+<p> Symbols:
+<ul>
+  <li><strong>E</strong>: Energy of the particle in GeV. </li>
+  <li><strong>N<sub>b</sub></strong>: Number of particles per bunch.  </li>
+  <li><strong>k<sub>b</sub></strong>: Number of bunches per beam. </li>
+  <li><strong>&epsilon;</strong>: Normalized emittance. </li>
+  <li><strong>&beta;<sub>x,y</sub></strong>: &beta; functions at the interaction point (IP) </li>
+  <li><strong>x,y</strong>: transverse position at the IP(positive
+  x points outside the ring, positive y is up). </li>
+  <li><strong>p<sub>y</sub></strong>: Crossing angle of Beam 1 at the IP (positve p<sub>x</sub> means moving outside the ring). </li>
+  <li><strong>exp.</strong>: State of the experimental magnets.</li>
+</ul>
+
+</p>
+
+
+
+
+<hr class="sep">
+
+
+<p> Last modification: {{date}}  &copy; Copyright 2015 CERN
+
+</body> </html>
