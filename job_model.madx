@@ -19,9 +19,9 @@ Option, -echo,warn,-info;
 
 ! Beam definition
 beam, sequence=lhcb1, bv= 1, energy= {{conf.nrj1}},  particle={{conf.part1}},
-  npart={{conf.nb1}},kbunch={{conf.np1}}, ex={{conf.emit1}},ey={{conf.emit1}};
+  npart={{conf.np1}},kbunch={{conf.nb1}}, ex={{conf.emit1}},ey={{conf.emit1}};
 beam, sequence=lhcb2, bv=-1, energy= {{conf.nrj2}},  particle={{conf.part2}},
-  npart={{conf.nb2}},kbunch={{conf.np2}}, ex={{conf.emit2}},ey={{conf.emit2}};
+  npart={{conf.np2}},kbunch={{conf.nb2}}, ex={{conf.emit2}},ey={{conf.emit2}};
 
 {% for line in conf.madx_beams %}
 {{line}}
@@ -67,8 +67,6 @@ select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dp
   use, sequence=lhc{{bim}};
   twiss, file=result/twiss_ip{{bim}}.tfs;
 {% endfor %}
-
-stop;
 
 ! Match tune
 

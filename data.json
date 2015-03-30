@@ -196,7 +196,7 @@
     "template": "hllhc11_template"
    },
    "sflat": {
-    "label": "Collision Flat",
+    "label": "Collision sFlat",
     "madx_strengths": [
      "call,file=\"slhc/opt_sflat.madx\";"
     ],
@@ -209,7 +209,7 @@
     "template": "hllhc11_template"
    },
    "sflathv": {
-    "label": "Collision Flat HV",
+    "label": "Collision sFlat HV",
     "madx_strengths": [
      "call,file=\"slhc/opt_sflathv.madx\";"
     ],
@@ -229,7 +229,7 @@
     "template": "hllhc11_template"
    },
    "sround": {
-    "label": "Collision Round",
+    "label": "Collision sRound",
     "madx_strengths": [
      "call,file=\"slhc/opt_sround.madx\";"
     ],
@@ -404,7 +404,7 @@
     "template": "hllhc10_template"
    },
    "sflat": {
-    "label": "Collision Flat",
+    "label": "Collision sFlat",
     "madx_strengths": [
      "call,file=\"slhc/opt_sflat.madx\";"
     ],
@@ -417,7 +417,7 @@
     "template": "hllhc10_template"
    },
    "sflathv": {
-    "label": "Collision Flat HV",
+    "label": "Collision sFlat HV",
     "madx_strengths": [
      "call,file=\"slhc/opt_flathv.madx\";"
     ],
@@ -437,7 +437,7 @@
     "template": "hllhc10_template"
    },
    "sround": {
-    "label": "Collision Round",
+    "label": "Collision sRound",
     "madx_strengths": [
      "call,file=\"slhc/opt_sround.madx\";"
     ],
@@ -1135,7 +1135,7 @@
     "madx_strengths": [
      "call, file=\"db5/opt_400_10000_400_3000.madx\";"
     ],
-    "shortdesc": "LHC collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC collision optics (opt. med) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
     "template": "med_template"
    },
    "squeeze17": {
@@ -1143,7 +1143,7 @@
     "madx_strengths": [
      "call, file=\"db5/opt_400_10000_400_3000.madx\";"
     ],
-    "shortdesc": "LHC pre-collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC pre-collision optics (opt. med) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
     "template": "med_template"
    },
    "squeeze16": {
@@ -1151,7 +1151,7 @@
     "madx_strengths": [
      "call, file=\"db5/opt_600_10000_600_3000.madx\";"
     ],
-    "shortdesc": "LHC pre-collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC pre-collision optics (opt. med) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
     "template": "med_template"
    },
    "squeeze15": {
@@ -1159,7 +1159,7 @@
     "madx_strengths": [
      "call, file=\"db5/opt_800_10000_800_3000.madx\";"
     ],
-    "shortdesc": "LHC pre-collision optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC pre-collision optics (opt. med) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
     "template": "med_template"
    },
    "squeeze1": {
@@ -1167,7 +1167,7 @@
     "madx_strengths": [
      "call, file=\"db5/opt_11000_10000_11000_10000.madx\";"
     ],
-    "shortdesc": "LHC end of ramp optics (opt. med) for 6.0 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC end of ramp optics (opt. med) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
     "template": "med_template"
    },
    "endofsqueeze": {
@@ -1232,8 +1232,8 @@
     "madx_knobs": [],
     "madx_sequence": [ "call, file=\"db5/lhc_study_20150119.seq\";" ],
     "settings": {
-     "beam1": [ "p", 6000, 120000000000.0, 2748, 3.5e-06 ],
-     "beam2": [ "p", 6000, 120000000000.0, 2748, 3.5e-06 ],
+     "beam1": [ "p", 6500, 120000000000.0, 2748, 3.5e-06 ],
+     "beam2": [ "p", 6500, 120000000000.0, 2748, 3.5e-06 ],
      "exp": [ "off", "on", "off", " full neg" ]
     }
    }

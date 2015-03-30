@@ -10,7 +10,6 @@ import matplotlib
 import numpy as np
 
 from pyoptics import *
-import tfsdata
 
 
 class Scenarios(list):
@@ -44,7 +43,7 @@ class Configuration(object):
                     'IR4', 'Arc45', 'IR5', 'Arc56', 'IR6', 'Arc67',
                     'IR7', 'Arc78', 'IR8', 'Arc81']
   _instances={}
-  pmass={'p':0.938}
+  pmass={'p':0.938272046}
   def __init__(self,**data):
     scenario=data['scenario']
     if 'template' in data:
@@ -59,8 +58,10 @@ class Configuration(object):
         self.part1='proton'
       if part2=='p':
         self.part2='proton'
-      self.emit1=self.emit_n1/self.nrj1*self.pmass[part1]
-      self.emit2=self.emit_n2/self.nrj2*self.pmass[part2]
+      self.pmass1=self.pmass[part1]
+      self.pmass2=self.pmass[part2]
+      self.emit1=self.emit_n1/self.nrj1*self.pmass1
+      self.emit2=self.emit_n2/self.nrj2*self.pmass2
       self.np1_web=float(self.np1)/1e11
       self.np2_web=float(self.np2)/1e11
       self.emit_n1_web=self.emit_n1*1e6
@@ -238,13 +239,14 @@ def run_madx(run=False):
       rdata['resdir']=os.path.join(*respath)
       md="%s_%s"%(scn.name,conf.name)
       for out,template in [('job.madx',tmadx),('job_model.madx',tmmod),
-                          # ('lhc_mkseq.madx',tmseq),
+                           ('job_mkseq.madx',tmseq),
                           # ('lhc_mktwiss.madx',tmtwi)
                           ]:
         renderfile(respath,out,template,rdata)
       confdir=os.path.join(basedir,scn.name,conf.name)
       execute_madx([confdir,'job.madx'],scn.name,run=run)
       execute_madx([confdir,'job_model.madx'],scn.name,run=run)
+      execute_madx([confdir,'job_mkseq.madx'],scn.name,run=run)
       #execute_madx([confdir,'lhc_mkseq.madx'],scn.name,run=run)
       for part in ['madx_sequence','madx_aperture',
                    'madx_strengths','madx_knobs']:
@@ -358,18 +360,18 @@ if __name__=='__main__':
   #data=yaml.load(open('data.yaml'))
   data=simplejson.load(open('data.json'))
   scenarios= Scenarios(data)
-  scenarios.pop(0)
-  scenarios.pop(0)
-  scenarios.pop(0)
-  force=True
+  #scenarios.pop(0)
+  #scenarios.pop(0)
+  #scenarios.pop(0)
+  force=False
   rdata={
       'date':time.asctime(),
       'basedir':basedir,
       'scenarios':scenarios}
-  #run_madx(run='lsf')
+  run_madx(run='lsf')
   #run_madx(run='local')
-  #get_data()
-  #run_html()
+  get_data()
+  run_html()
   run_plot()
 
 

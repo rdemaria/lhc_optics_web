@@ -20,9 +20,13 @@ Option, -echo,warn,-info;
 
 ! Beam definition
 beam, sequence=lhcb1, bv= 1, energy= {{conf.nrj1}},  particle={{conf.part1}},
-  npart={{conf.np1}},kbunch={{conf.nb1}}, ex={{conf.emit1}},ey={{conf.emit1}};
+  npart={{conf.np1}},kbunch={{conf.nb1}},
+  ex={{conf.emit_n1}}/{{conf.nrj1}}*{{conf.pmass1}},
+  ey={{conf.emit_n1}}/{{conf.nrj1}}*{{conf.pmass1}};
 beam, sequence=lhcb2, bv=-1, energy= {{conf.nrj2}},  particle={{conf.part2}},
-  npart={{conf.np2}},kbunch={{conf.nb2}}, ex={{conf.emit2}},ey={{conf.emit2}};
+  npart={{conf.np2}},kbunch={{conf.nb2}},
+  ex={{conf.emit_n2}}/{{conf.nrj2}}*{{conf.pmass2}},
+  ey={{conf.emit_n2}}/{{conf.nrj2}}*{{conf.pmass2}};
 
 {% for line in conf.madx_beams %}
 {{line}}
