@@ -92,7 +92,6 @@
   <li><strong>x,y</strong>: transverse position at the IP(positive
   x points outside the ring, positive y is up). </li>
   <li><strong>p<sub>y</sub></strong>: Crossing angle of Beam 1 at the IP (positve p<sub>x</sub> means moving outside the ring). </li>
-  <li><strong>exp.</strong>: State of the experimental magnets.</li>
 </ul>
 
 </p>

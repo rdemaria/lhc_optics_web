@@ -349,8 +349,32 @@ opt2015:
   - squeeze450
   - squeeze400
   - coll400
-  - vdm24
-  - hb90
+  - vdm12500
+  - vdm14500
+  - vdm17000
+  - vdm19000
+  - vdm21000
+  - vdm24000
+  - vdm24000_coll
+  - hb12600
+  - hb14500
+  - hb16700
+  - hb19200
+  - hb22000
+  - hb25000
+  - hb30000
+  - hb33000
+  - hb36000
+  - hb40000
+  - hb43000
+  - hb46000
+  - hb51000
+  - hb54000
+  - hb60000
+  - hb67000
+  - hb75000
+  - hb90000
+  - hb90000_coll
   confs:
     med_template:
       madx_aperture:
@@ -524,17 +548,161 @@ opt2015:
       - call, file="db5/opt_400_10000_400_3000_coll.madx";
       shortdesc: LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.
       template: med_template
-    vdm24:
-      label: Collision VDM (24m)
+    vdm12500:
+      label: VDM (12.5m)
+      madx_strengths:
+      - call, file="db5/opt_12600_12500_12600_12500.madx";
+      shortdesc: LHC VDM in collision optics (12.6m, 12.5m, 12.6m, 12.5m) for 6.5 TeV.
+      template: med_template
+    vdm14500:
+      label: VDM (14.5m)
+      madx_strengths:
+      - call, file="db5/opt_14500_14500_14500_14500.madx";
+      shortdesc: LHC VDM in collision optics (14.5m, 14.5m, 14.5m, 14.5m) for 6.5 TeV.
+      template: med_template
+    vdm17000:
+      label: VDM (17m)
+      madx_strengths:
+      - call, file="db5/opt_16700_17000_16700_17000.madx";
+      shortdesc: LHC VDM in collision optics (16.7m, 17m, 16.7m, 17m) for 6.5 TeV.
+      template: med_template
+    vdm19000:
+      label: VDM (19m)
+      madx_strengths:
+      - call, file="db5/opt_19200_19000_19200_19000.madx";
+      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 19m) for 6.5 TeV.
+      template: med_template
+    vdm21000:
+      label: VDM (21m)
+      madx_strengths:
+      - call, file="db5/opt_19200_19000_19200_21000.madx";
+      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 21m) for 6.5 TeV.
+      template: med_template
+    vdm24000_coll:
+      label: VDM Coll. (24m)
       madx_strengths:
       - call, file="db5/opt_19200_19000_19200_24000_coll.madx";
-      shortdesc: LHC collision optics (24m) for 6.5 TeV.
+      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.
       template: med_template
-    hb90:
-      label: Collision HiBeta (90m)
+    vdm24000:
+      label: VDM (24m)
+      madx_strengths:
+      - call, file="db5/opt_19200_19000_19200_24000_coll.madx";
+      shortdesc: LHC VDM optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.
+      template: med_template
+    hb12600:
+      label: Hibeta (12.6m)
+      madx_strengths:
+      - call, file="db5/opt_12600_10000_12600_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (12.6m, 10m, 12.6m, 10m) for 6.5 TeV.
+      template: med_template
+    hb14500:
+      label: Hibeta (14.5m)
+      madx_strengths:
+      - call, file="db5/opt_14500_10000_14500_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (14.5m, 10m, 14.5m, 10m) for 6.5 TeV.
+      template: med_template
+    hb16700:
+      label: Hibeta (16.7m)
+      madx_strengths:
+      - call, file="db5/opt_16700_10000_16700_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (16.7m, 10m, 16.7m, 10m) for 6.5 TeV.
+      template: med_template
+    hb19200:
+      label: Hibeta (19.2m)
+      madx_strengths:
+      - call, file="db5/opt_19200_10000_19200_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (19.2m, 10m, 19.2m, 10m) for 6.5 TeV.
+      template: med_template
+    hb22000:
+      label: Hibeta (22m)
+      madx_strengths:
+      - call, file="db5/opt_22000_10000_22000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (22m, 10m, 22m, 10m) for 6.5 TeV.
+      template: med_template
+    hb25000:
+      label: Hibeta (25m)
+      madx_strengths:
+      - call, file="db5/opt_25000_10000_25000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (25m, 10m, 25m, 10m) for 6.5 TeV.
+      template: med_template
+    hb30000:
+      label: Hibeta (30m)
+      madx_strengths:
+      - call, file="db5/opt_30000_10000_30000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (30m, 10m, 30m, 10m) for 6.5 TeV.
+      template: med_template
+    hb33000:
+      label: Hibeta (33m)
+      madx_strengths:
+      - call, file="db5/opt_33000_10000_33000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (33m, 10m, 33m, 10m) for 6.5 TeV.
+      template: med_template
+    hb36000:
+      label: Hibeta (36m)
+      madx_strengths:
+      - call, file="db5/opt_36000_10000_36000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (36m, 10m, 36m, 10m) for 6.5 TeV.
+      template: med_template
+    hb40000:
+      label: Hibeta (40m)
+      madx_strengths:
+      - call, file="db5/opt_40000_10000_40000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (40m, 10m, 40m, 10m) for 6.5 TeV.
+      template: med_template
+    hb43000:
+      label: Hibeta (43m)
+      madx_strengths:
+      - call, file="db5/opt_43000_10000_43000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (43m, 10m, 43m, 10m) for 6.5 TeV.
+      template: med_template
+    hb46000:
+      label: Hibeta (46m)
+      madx_strengths:
+      - call, file="db5/opt_46000_10000_46000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (46m, 10m, 46m, 10m) for 6.5 TeV.
+      template: med_template
+    hb51000:
+      label: Hibeta (51m)
+      madx_strengths:
+      - call, file="db5/opt_51000_10000_51000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (51m, 10m, 51m, 10m) for 6.5 TeV.
+      template: med_template
+    hb54000:
+      label: Hibeta (54m)
+      madx_strengths:
+      - call, file="db5/opt_54000_10000_54000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (54m, 10m, 54m, 10m) for 6.5 TeV.
+      template: med_template
+    hb60000:
+      label: Hibeta (60m)
+      madx_strengths:
+      - call, file="db5/opt_60000_10000_60000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (60m, 10m, 60m, 10m) for 6.5 TeV.
+      template: med_template
+    hb67000:
+      label: Hibeta (67m)
+      madx_strengths:
+      - call, file="db5/opt_67000_10000_67000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (67m, 10m, 67m, 10m) for 6.5 TeV.
+      template: med_template
+    hb75000:
+      label: Hibeta (75m)
+      madx_strengths:
+      - call, file="db5/opt_75000_10000_75000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (75m, 10m, 75m, 10m) for 6.5 TeV.
+      template: med_template
+    hb90000:
+      label: Hibeta (90m)
+      madx_strengths:
+      - call, file="db5/opt_90000_10000_90000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (90m, 10m, 90m, 10m) for 6.5 TeV.
+      template: med_template
+    hb90000_coll:
+      label: Hibeta Coll (90m)
       madx_strengths:
       - call, file="db5/opt_90000_10000_90000_10000_hibeta_coll.madx";
-      shortdesc: LHC collision optics (90m) for 6.5 TeV.
+      shortdesc: LHC High Beta in collision optics (90m, 10m, 90m, 10m) for 6.5 TeV.
       template: med_template
 opt_med:
   conf_list:

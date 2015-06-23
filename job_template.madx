@@ -39,7 +39,7 @@ NRJ=beam%lhcb1->energy;
 seqedit,sequence=lhcb1;flatten;cycle,start=s.ds.l1.b1;endedit;
 seqedit,sequence=lhcb2;flatten;cycle,start=s.ds.l1.b2;endedit;
 
-! Twiss with knobs turned off
+! Twiss before customized knobs
 set,format="22.15e";
 select,flag=twiss,clear;
 select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dpy,mux,muy,x,y,px,py;

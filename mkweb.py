@@ -24,9 +24,8 @@ class Scenario(object):
   beam_data_unit=['','GeV','10<sup>11</sup>','','&mu;rad']
   ip_data=['&beta;<sub>x</sub>', '&beta;<sub>y</sub>',
            'x', 'y',
-           'p<sub>x</sub>', 'p<sub>y</sub>',
-           'exp.']
-  ip_data_unit=['m','m','mm', 'mm', '&mu;rad', '&mu;rad','']
+           'p<sub>x</sub>', 'p<sub>y</sub>']
+  ip_data_unit=['m','m','mm', 'mm', '&mu;rad', '&mu;rad']
   ip_names=['ip1','ip2','ip5','ip8']
   def __init__(self,name,**data):
     self.name=name
@@ -77,8 +76,9 @@ class Configuration(object):
       t=optics.open(self.get_twiss_fn(b12))
       for nn,ipn in enumerate([1,2,5,8]):
         print get_ip_data(t,ipn)
-        exp=self.settings['exp'][nn]
-        self.settings['ip%sb%s'%(ipn,b12)]=get_ip_data(t,ipn)+[exp]
+        #exp=self.settings['exp'][nn]
+        #self.settings['ip%sb%s'%(ipn,b12)]=get_ip_data(t,ipn)+[exp]
+        self.settings['ip%sb%s'%(ipn,b12)]=get_ip_data(t,ipn)
     return self
 
 
@@ -335,7 +335,8 @@ def get_data():
           #print get_ip_data(t,ipn)
           exp=conf.settings['exp'][nn]
           ipd=map(s2d_conv,ipdata['ip%sb%s'%(ipn,b12)])
-          conf.settings['ip%sb%s'%(ipn,b12)]=ipd+[exp]
+          #conf.settings['ip%sb%s'%(ipn,b12)]=ipd+[exp]
+          conf.settings['ip%sb%s'%(ipn,b12)]=ipd
 
 def get_ip_data(t,n):
   i=np.where(t//('IP%d'%n))[0][0]
@@ -343,7 +344,7 @@ def get_ip_data(t,n):
   return [s2d_conv(i) for i in data]
 
 def s2d_conv(n):
-  if abs(n)>1e-6:
+  if abs(n)>2e-3:
     n=round(n,-int(np.log10(abs(n)))+2)
   else:
     n=0
