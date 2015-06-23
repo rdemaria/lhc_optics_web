@@ -115,7 +115,7 @@ def execute_madx(path,scnname,run=False):
     elif run=='lsf':
       subname='/afs/cern.ch/work/l/lhcopt/work/bsub_%s_%s'%(scnname,name)
       fh=open(subname,'a+')
-      cmd='bsub -o %s -e %s -q 1nh madx %s\n'%(fulloutname,fulloutname,fullname);
+      cmd='bsub -o %s -e %s -q 8nh madx %s\n'%(fulloutname,fulloutname,fullname);
       fh.write(cmd)
       fh.close()
       print "Execute %s"%subname
@@ -227,6 +227,7 @@ ttwip = templateEnv.get_template("twiss_plot.template")
 torbp = templateEnv.get_template("orbit_plot.template")
 
 def run_madx(run=False):
+  os.system('cp data.json %s'%basedir)
   if run=='lsf':
       os.system('rm /afs/cern.ch/work/l/lhcopt/work/bsub_*')
   for scn in scenarios:
@@ -245,8 +246,8 @@ def run_madx(run=False):
         renderfile(respath,out,template,rdata)
       confdir=os.path.join(basedir,scn.name,conf.name)
       execute_madx([confdir,'job.madx'],scn.name,run=run)
-      execute_madx([confdir,'job_model.madx'],scn.name,run=run)
-      execute_madx([confdir,'job_mkseq.madx'],scn.name,run=run)
+      #execute_madx([confdir,'job_model.madx'],scn.name,run=run)
+      #execute_madx([confdir,'job_mkseq.madx'],scn.name,run=run)
       #execute_madx([confdir,'lhc_mkseq.madx'],scn.name,run=run)
       for part in ['madx_sequence','madx_aperture',
                    'madx_strengths','madx_knobs']:
@@ -329,6 +330,7 @@ def get_data():
           i=np.where(t//('IP%d'%ipn))[0][0]
           iporb=[t.x[i]*1e3,t.y[i]*1e3,t.px[i]*1e6,t.py[i]*1e6]
           ipdata['ip%sb%s'%(ipn,b12)].extend(iporb)
+          print ipn,iporb
         for nn,ipn in enumerate([1,2,5,8]):
           #print get_ip_data(t,ipn)
           exp=conf.settings['exp'][nn]
@@ -338,7 +340,6 @@ def get_data():
 def get_ip_data(t,n):
   i=np.where(t//('IP%d'%n))[0][0]
   data=(t.betx[i],t.bety[i],t.x[i]*1e3,t.y[i]*1e3,t.px[i]*1e6,t.py[i]*1e6)
-  #print data
   return [s2d_conv(i) for i in data]
 
 def s2d_conv(n):
@@ -370,8 +371,8 @@ if __name__=='__main__':
       'scenarios':scenarios}
   run_madx(run='lsf')
   #run_madx(run='local')
-  get_data()
-  run_html()
-  run_plot()
+  #get_data()
+  #run_html()
+  #run_plot()
 
 

@@ -26,7 +26,7 @@
 
 <p> Data files:
 {% for bim,ext in [('b1','tfs'),('b1','csv'),('b2','tfs'),('b2','csv')] %}
-<a href="twiss_{{sel|lower}}{{bim}}.{{ext}}" download>twiss_{{sel|lower}}{{bim}}.{{ext}}</a>
+<a href="{{pname}}_{{sel|lower}}{{bim}}.{{ext}}" download>{{pname}}_{{sel|lower}}{{bim}}.{{ext}}</a>
 {%- if not loop.last %}, {% endif -%}
 {% endfor -%}.
 

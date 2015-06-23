@@ -71,42 +71,44 @@ on_alice=on_alice_aux; on_lhcb=on_lhcb_aux; on_disp=on_disp_aux;
   twiss, file=result/twiss_ip{{bim}}.tfs;
 {% endfor %}
 
-! Match tune
-
-if ( qxb1 == 0 ) {
-  qxb1=qx1; qxb2=qx2; qyb1=qy1; qyb2=qy2;
-  Qpxb1=qprime; Qpyb1=qprime; Qpxb2=qprime; Qpyb2=qprime;
-};
-
-
-{% for bim in ['b1','b2'] %}
-  !! Match tune and chromaticity for lhc{{bim}}
-  use, sequence=lhc{{bim}};
-  match;
-  global, q1=qx{{bim}}, q2=qy{{bim}};
-  vary,   name=kqtf.{{bim}}, step=1.0E-7 ;
-  vary,   name=kqtd.{{bim}}, step=1.0E-7 ;
-  jacobian,  calls=15, tolerance=1.0E-21;
-  endmatch;
-
-  match;
-  global, dq1=Qpx{{bim}}, dq2=Qpy{{bim}};
-  vary,   name=ksf.{{bim}}, step=1.0E-7 ;
-  vary,   name=ksd.{{bim}}, step=1.0E-7 ;
-  jacobian,  calls=15, tolerance=1.0E-21;
-  endmatch;
-
-  set,format="22.15e";
-  select,flag=twiss,clear;
-  select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
-       s,l,lrad,kick,hkick,vkick,angle,
-       k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
-       x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
-       apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol;
-  survey, file=result/survey_lhc{{bim}}.tfs;
-  twiss, file=result/twiss_lhc{{bim}}.tfs;
-
-{% endfor %}
+!{% if conf.matchtunechroma==True %}
+!! Match tune
+!
+!if ( qxb1 == 0 ) {
+!  qxb1=qx1; qxb2=qx2; qyb1=qy1; qyb2=qy2;
+!  Qpxb1=qprime; Qpyb1=qprime; Qpxb2=qprime; Qpyb2=qprime;
+!};
+!
+!
+!{% for bim in ['b1','b2'] %}
+!  !! Match tune and chromaticity for lhc{{bim}}
+!  use, sequence=lhc{{bim}};
+!  match;
+!  global, q1=qx{{bim}}, q2=qy{{bim}};
+!  vary,   name=kqtf.{{bim}}, step=1.0E-7 ;
+!  vary,   name=kqtd.{{bim}}, step=1.0E-7 ;
+!  jacobian,  calls=15, tolerance=1.0E-21;
+!  endmatch;
+!
+!  match;
+!  global, dq1=Qpx{{bim}}, dq2=Qpy{{bim}};
+!  vary,   name=ksf.{{bim}}, step=1.0E-7 ;
+!  vary,   name=ksd.{{bim}}, step=1.0E-7 ;
+!  jacobian,  calls=15, tolerance=1.0E-21;
+!  endmatch;
+!
+!  set,format="22.15e";
+!  select,flag=twiss,clear;
+!  select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
+!       s,l,lrad,kick,hkick,vkick,angle,
+!       k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
+!       x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+!       apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol;
+!  survey, file=result/survey_lhc{{bim}}.tfs;
+!  twiss, file=result/twiss_lhc{{bim}}.tfs;
+!
+!{% endfor %}
+!{% endif %}
 
 ! Aperture calculations
 if(NRJ <3499.99) { COmax:=0.004; dPmax=0.00150; VMAXI=30; SPECIF=7; };
@@ -122,15 +124,15 @@ DParcx=0.273; DParcy=0.273;
 if(NRJ >451) {
 emittance_norm=3.5e-6;
 apbbeat=1.1;
-halor=6; halox=6; haloy=6;
+halor=6.0001; halox=6; haloy=6;
 DParcx=0.10; DParcy=0.10;
-COmax=0.002; dPmax=0.0002; VMAXI=30; SPECIF=7;
+COmax=0.002; dPmax=0.0002; VMAXI=30; SPECIF=12;
 } else {
 emittance_norm=3.5e-6;
 apbbeat=1.05;
-halor=6; halox=6; haloy=6;
+halor=6.0001; halox=6; haloy=6;
 DParcx=0.14; DParcy=0.14;
-COmax=0.004; dPmax=0.0006; VMAXI=30; SPECIF=7;
+COmax=0.004; dPmax=0.0006; VMAXI=30; SPECIF=9;
 };
 
 
@@ -143,7 +145,6 @@ system, "cp slhc/aperture/offset.ip*b*.tfs .";
   {% for nir in [1,2,3,4,5,6,7,8] %}
 
 seqedit,sequence=lhc{{bim}};flatten;cycle,start=s.ds.l{{nir}}.{{bim}};flatten;endedit;
-
 
 use,sequence=lhc{{bim}};
 select,flag=twiss,clear;
@@ -167,6 +168,33 @@ aperture,range=s.ds.l{{nir}}.{{bim}}/e.ds.r{{nir}}.{{bim}},
          halo={6,halor,halox,haloy},bbeat=apbbeat,
          dparx=DParcx,dpary=DParcy,
          file=result/ap_ir{{nir}}{{bim}}.tfs;
+
+    {% for dpp in [0.0006,0.0002,0,-0.0002,-0.0006] %}
+
+use,sequence=lhc{{bim}};
+select,flag=twiss,clear;
+select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
+       s,l,lrad,kick,hkick,vkick,angle,
+       k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
+       x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+       apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+      range=s.ds.l{{nir}}.{{bim}}/e.ds.r{{nir}}.{{bim}};
+twiss,file=result/twiss_ir{{nir}}{{bim}}_{{dpp}}.tfs,deltap={{dpp}};
+
+select,flag=aperture,clear;
+select,flag=aperture,column=name,keyword,parent,
+   s,x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+   n1,apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+   k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl;
+aperture,range=s.ds.l{{nir}}.{{bim}}/e.ds.r{{nir}}.{{bim}},
+         offsetelem=./offset.IP{{nir}}.{{bim}}.tfs,
+         cor=COmax, dp=0, spec=SPECIF,interval=1.0,
+         exn=emittance_norm,eyn=emittance_norm,
+         halo={6,halor,halox,haloy},bbeat=apbbeat,
+         dparx=DParcx,dpary=DParcy,
+         file=result/ap_ir{{nir}}{{bim}}_{{dpp}}.tfs;
+
+    {% endfor %}
 
   {% endfor %}
 {% endfor %}
@@ -197,7 +225,35 @@ aperture,range=e.ds.r{{narc1}}.{{bim}}/s.ds.l{{narc2}}.{{bim}},
          halo={6,halor,halox,haloy},bbeat=apbbeat,
          dparx=DParcx,dpary=DParcy,
          file=result/ap_arc{{narc1}}{{narc2}}{{bim}}.tfs;
-survey,file=result/survey_arc{{narc1}}{{narc2}}{{bim}}.tfs;
+
+
+    {% for dpp in [0.0006,0.0002,0,-0.0002,-0.0006] %}
+
+seqedit,sequence=lhc{{bim}};cycle,start=e.ds.r{{narc1}}.{{bim}};endedit;
+use,sequence=lhc{{bim}};
+select,flag=twiss,clear;
+select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
+       s,l,lrad,kick,hkick,vkick,angle,
+       k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
+       x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+       apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+       range=e.ds.r{{narc1}}.{{bim}}/s.ds.l{{narc2}}.{{bim}};
+twiss,file=result/twiss_arc{{narc1}}{{narc2}}{{bim}}_{{dpp}}.tfs,deltap={{dpp}};
+
+select,flag=aperture,clear;
+select,flag=aperture,column=name,keyword,parent,
+   s,x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+   n1,apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+   k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl;
+aperture,range=e.ds.r{{narc1}}.{{bim}}/s.ds.l{{narc2}}.{{bim}},
+         cor=COmax, dp=0, spec=SPECIF,interval=1.0,
+         exn=emittance_norm,eyn=emittance_norm,
+         halo={6,halor,halox,haloy},bbeat=apbbeat,
+         dparx=DParcx,dpary=DParcy,
+         file=result/ap_arc{{narc1}}{{narc2}}{{bim}}_{{dpp}}.tfs;
+
+    {% endfor %}
+
   {% endfor %}
 {% endfor %}
 
