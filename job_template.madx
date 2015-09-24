@@ -63,12 +63,25 @@ twiss, file=result/twiss_ip{{bim}}_noexp.tfs;
 on_alice=on_alice_aux; on_lhcb=on_lhcb_aux; on_disp=on_disp_aux;
 
 ! Twiss with experiments turn on
-  set,format="22.15e";
-  select,flag=twiss,clear;
-  select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dpy,mux,muy,x,y,px,py;
+set,format="22.15e";
+select,flag=twiss,clear;
+select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dpy,mux,muy,x,y,px,py;
 {% for bim in ['b1','b2'] %}
   use, sequence=lhc{{bim}};
   twiss, file=result/twiss_ip{{bim}}.tfs;
+{% endfor %}
+
+set,format="22.15e";
+select,flag=twiss,clear;
+select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
+     s,l,lrad,kick,hkick,vkick,angle,
+     k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
+     x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+     apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol;
+{% for bim in ['b1','b2'] %}
+  use, sequence=lhc{{bim}};
+  survey, file=result/survey_lhc{{bim}}.tfs;
+  twiss, file=result/twiss_lhc{{bim}}.tfs;
 {% endfor %}
 
 !{% if conf.matchtunechroma==True %}
@@ -96,18 +109,8 @@ on_alice=on_alice_aux; on_lhcb=on_lhcb_aux; on_disp=on_disp_aux;
 !  vary,   name=ksd.{{bim}}, step=1.0E-7 ;
 !  jacobian,  calls=15, tolerance=1.0E-21;
 !  endmatch;
-!
-!  set,format="22.15e";
-!  select,flag=twiss,clear;
-!  select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
-!       s,l,lrad,kick,hkick,vkick,angle,
-!       k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
-!       x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
-!       apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol;
-!  survey, file=result/survey_lhc{{bim}}.tfs;
-!  twiss, file=result/twiss_lhc{{bim}}.tfs;
-!
 !{% endfor %}
+!
 !{% endif %}
 
 ! Aperture calculations

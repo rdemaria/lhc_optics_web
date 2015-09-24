@@ -320,9 +320,8 @@ hllhc11:
       shortdesc: High Beta Optics at high energy.
       template: hllhc11_template
 opt2015:
-  label: LHC Run II protons (TEST)
-  longdesc: Configuration LHC Run II protons (DRAFT). The spectrometer can be powered
-    with positive or negative polarity.
+  label: LHC Run II protons
+  longdesc: Configuration LHC Run II protons.
   shortdesc: Optics for LHC Run II protons for physics in 2015.
   conf_list:
   - inj
@@ -378,15 +377,15 @@ opt2015:
   confs:
     med_template:
       madx_aperture:
-      - call, file="db5/aperture/aperture.b1.madx";
-      - call, file="db5/aperture/aperture.b2.madx";
-      - call, file="db5/aperture/aper_tol.b1.madx";
-      - call, file="db5/aperture/aper_tol.b2.madx";
+      - call, file="db5/aperture/aperture_as-built.b1.madx";
+      - call, file="db5/aperture/aperture_as-built.b2.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
       - call, file="db5/aperture/exp_pipe_model_after_LS1.madx";
       - call, file="db5/aperture/exp_pipe_install_after_LS1.madx";
       madx_knobs: []
       madx_links:
-        db5: /afs/cern.ch/eng/lhc/optics/runII/2015test
+        db5: /afs/cern.ch/eng/lhc/optics/runII/2015
         db503: /afs/cern.ch/eng/lhc/optics/V6.503
       madx_sequence:
       - call, file="db5/aperture/const_for_aperture.madx";
@@ -587,7 +586,7 @@ opt2015:
     vdm24000:
       label: VDM (24m)
       madx_strengths:
-      - call, file="db5/opt_19200_19000_19200_24000_coll.madx";
+      - call, file="db5/opt_19200_19000_19200_24000.madx";
       shortdesc: LHC VDM optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.
       template: med_template
     hb12600:

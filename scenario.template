@@ -30,7 +30,7 @@
       <th rowspan="2"> {{ bdata }} </th>
     {% endfor %}
     {% for ip in scn.ip_names %}
-      <th colspan="7"> {{ ip|upper }} </th>
+      <th colspan="6"> {{ ip|upper }} </th>
     {% endfor %}
   </tr>
   <tr>

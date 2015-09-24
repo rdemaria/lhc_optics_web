@@ -3,8 +3,8 @@ import time
 import copy
 
 import jinja2
-#import yaml
-import simplejson
+import yaml
+import json
 import matplotlib.pyplot as pl
 import matplotlib
 import numpy as np
@@ -246,9 +246,8 @@ def run_madx(run=False):
         renderfile(respath,out,template,rdata)
       confdir=os.path.join(basedir,scn.name,conf.name)
       execute_madx([confdir,'job.madx'],scn.name,run=run)
-      #execute_madx([confdir,'job_model.madx'],scn.name,run=run)
+      execute_madx([confdir,'job_model.madx'],scn.name,run=run)
       #execute_madx([confdir,'job_mkseq.madx'],scn.name,run=run)
-      #execute_madx([confdir,'lhc_mkseq.madx'],scn.name,run=run)
       for part in ['madx_sequence','madx_aperture',
                    'madx_strengths','madx_knobs']:
         pout=[]
@@ -344,14 +343,20 @@ def get_ip_data(t,n):
   return [s2d_conv(i) for i in data]
 
 def s2d_conv(n):
-  if abs(n)>2e-3:
-    n=round(n,-int(np.log10(abs(n)))+2)
+  if abs(n)>0.999:
+    return "%.4g"%n
+  elif abs(n)>1e-3:
+    return "%.3f"%n
   else:
-    n=0
-  s=('%.3f'%n).replace('.000','')
-  if s=='-0':
-    s='0'
-  return s
+    return "0"
+  #if abs(n)>2e-3:
+  #  n=round(n,-int(np.log10(abs(n)))+2)
+  #else:
+  #  n=0
+  #s=('%.3f'%n).replace('.000','')
+  #if s=='-0':
+  #  s='0'
+  #return s
 
 if __name__=='__main__':
   # load web data
@@ -359,8 +364,9 @@ if __name__=='__main__':
   #basedir='/afs/cern.ch/user/r/rdemaria/www/www'
   #basedir='/afs/cern.ch/work/r/rdemaria/public/lhc_optics_web/www'
   basedir='/afs/cern.ch/work/l/lhcopt/public/lhc_optics_web/www'
-  #data=yaml.load(open('data.yaml'))
-  data=simplejson.load(open('data.json'))
+  data=yaml.load(open('datanew.yaml'))
+  #data=yaml.load(open('datathin.yaml'))
+  json.dump(data,open('data.json','w'),indent=True)
   scenarios= Scenarios(data)
   #scenarios.pop(0)
   #scenarios.pop(0)

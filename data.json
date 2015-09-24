@@ -1,1950 +1,1950 @@
 {
  "scenario_list": [
-  "pprun1",
-  "opt2015",
-  "hllhc10",
+  "pprun1", 
+  "opt2015", 
+  "hllhc10", 
   "hllhc11"
- ],
+ ], 
  "pprun1": {
-  "shortdesc": "Optics for LHC Run I protons for physics in 2011-2012.",
+  "shortdesc": "Optics for LHC Run I protons for physics in 2011-2012.", 
   "conf_list": [
-   "inj_flat",
-   "inj_flat_spec",
-   "inj",
-   "squeeze1",
-   "squeeze2",
-   "squeeze3",
-   "squeeze4",
-   "squeeze5",
-   "squeeze6",
-   "squeeze7",
-   "squeeze8",
-   "squeeze9",
-   "squeeze10",
-   "squeeze11",
-   "squeeze12",
-   "squeeze13",
-   "squeeze14",
-   "endofsqueeze_4tev",
+   "inj_flat", 
+   "inj_flat_spec", 
+   "inj", 
+   "squeeze1", 
+   "squeeze2", 
+   "squeeze3", 
+   "squeeze4", 
+   "squeeze5", 
+   "squeeze6", 
+   "squeeze7", 
+   "squeeze8", 
+   "squeeze9", 
+   "squeeze10", 
+   "squeeze11", 
+   "squeeze12", 
+   "squeeze13", 
+   "squeeze14", 
+   "endofsqueeze_4tev", 
    "coll_4tev"
-  ],
-  "label": "LHC Run I protons",
-  "longdesc": "Configuration LHC Run 1 protons. The spectrometer can be powered with positive or negative polarity. References <a href=\"https://edms.cern.ch/file/1059898/3/LHC-OP-ES-0020-rev3.pdf\"> LHC-OP-ES-0020 rev. 3 </a>",
+  ], 
+  "label": "LHC Run I protons", 
+  "longdesc": "Configuration LHC Run 1 protons. The spectrometer can be powered with positive or negative polarity. References <a href=\"https://edms.cern.ch/file/1059898/3/LHC-OP-ES-0020-rev3.pdf\"> LHC-OP-ES-0020 rev. 3 </a>", 
   "confs": {
    "squeeze10": {
-    "shortdesc": "Squeeze Step 10 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 10 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.20m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.20m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.20m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 10"
-   },
+   }, 
    "inj_flat": {
-    "template": "v6503_template",
+    "template": "v6503_template", 
     "madx_knobs": [
-     "on_x1:=0; on_sep1:=0; on_o1:=0;",
-     "on_x2:=0; on_sep2:=0; on_o2:=0;",
-     "on_x5:=0; on_sep5:=0; on_o5:=0;",
-     "on_x8:=0; on_sep8:=0; on_o8:=0;",
-     "on_alice:=0;",
+     "on_x1:=0; on_sep1:=0; on_o1:=0;", 
+     "on_x2:=0; on_sep2:=0; on_o2:=0;", 
+     "on_x5:=0; on_sep5:=0; on_o5:=0;", 
+     "on_x8:=0; on_sep8:=0; on_o8:=0;", 
+     "on_alice:=0;", 
      "on_lhcb :=0;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      50000000000.0,
-      2,
+      "p", 
+      450, 
+      50000000000.0, 
+      2, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      50000000000.0,
-      2,
+      "p", 
+      450, 
+      50000000000.0, 
+      2, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      false,
-      false,
-      false,
+      false, 
+      false, 
+      false, 
       false
      ]
-    },
-    "shortdesc": "Injection without crossing angles.",
+    }, 
+    "shortdesc": "Injection without crossing angles.", 
     "madx_strengths": [
      "call, file=\"db5/V6.5.inj_special.str\";"
-    ],
+    ], 
     "label": "Injection Flat"
-   },
+   }, 
    "squeeze16": {
-    "shortdesc": "Squeeze Step 16 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 16 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
-     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
+     "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";", 
      "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 16"
-   },
+   }, 
    "squeeze14": {
-    "shortdesc": "Squeeze Step 14 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 14 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.70m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.70m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.70m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 14"
-   },
+   }, 
    "squeeze15": {
-    "shortdesc": "Squeeze Step 15 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 15 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 15"
-   },
+   }, 
    "squeeze12": {
-    "shortdesc": "Squeeze Step 12 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 12 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.90m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.90m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.90m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 12"
-   },
+   }, 
    "squeeze13": {
-    "shortdesc": "Squeeze Step 13 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 13 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.80m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.80m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.80m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 13"
-   },
+   }, 
    "inj": {
-    "template": "v6503_template",
+    "template": "v6503_template", 
     "madx_knobs": [
-     "on_x1:=1; on_sep1:=1; on_o1:=0;",
-     "on_x2:=1; on_sep2:=1; on_o2:=0; on_a2:=0;",
-     "on_x5:=1; on_sep5:=1; on_o5:=0;",
-     "on_x8:=1; on_sep8:=1; on_o8:=0; on_a8:=0;",
-     "on_alice:=7000/450;",
+     "on_x1:=1; on_sep1:=1; on_o1:=0;", 
+     "on_x2:=1; on_sep2:=1; on_o2:=0; on_a2:=0;", 
+     "on_x5:=1; on_sep5:=1; on_o5:=0;", 
+     "on_x8:=1; on_sep8:=1; on_o8:=0; on_a8:=0;", 
+     "on_alice:=7000/450;", 
      "on_lhcb :=-7000/450;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      120000000000.0,
-      1380,
+      "p", 
+      450, 
+      120000000000.0, 
+      1380, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      120000000000.0,
-      1380,
+      "p", 
+      450, 
+      120000000000.0, 
+      1380, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
-    },
-    "shortdesc": "Injection energy, crossing, separations, spectrometers and aperture optimizations, switched on, 50 ns bunch spacing.",
+    }, 
+    "shortdesc": "Injection energy, crossing, separations, spectrometers and aperture optimizations, switched on, 50 ns bunch spacing.", 
     "madx_strengths": [
      "call, file=\"db5/V6.5.inj_special.str\";"
-    ],
+    ], 
     "label": "Injection"
-   },
+   }, 
    "squeeze11": {
-    "shortdesc": "Squeeze Step 11 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 11 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.00m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.00m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 11"
-   },
+   }, 
    "squeeze8": {
-    "shortdesc": "Squeeze Step 8 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 8 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.50m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.60m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.50m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.60m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.60m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 8"
-   },
+   }, 
    "v6503_template": {
     "madx_aperture": [
-     "call, file=\"db5/aperture/aperture.b1.madx\";",
-     "call, file=\"db5/aperture/aperture.b2.madx\";",
-     "call, file=\"db5/aperture/aper_tol.b1.madx\";",
+     "call, file=\"db5/aperture/aperture.b1.madx\";", 
+     "call, file=\"db5/aperture/aperture.b2.madx\";", 
+     "call, file=\"db5/aperture/aper_tol.b1.madx\";", 
      "call, file=\"db5/aperture/aper_tol.b2.madx\";"
-    ],
+    ], 
     "madx_sequence": [
      "call, file=\"db5/V6.5.seq\";"
-    ],
+    ], 
     "madx_links": {
      "db5": "/afs/cern.ch/eng/lhc/optics/V6.503"
-    },
+    }, 
     "settings": {
      "beam2": [
-      "p",
-      4000,
-      120000000000.0,
-      1380,
+      "p", 
+      4000, 
+      120000000000.0, 
+      1380, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      4000,
-      120000000000.0,
-      1380,
+      "p", 
+      4000, 
+      120000000000.0, 
+      1380, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
     }
-   },
+   }, 
    "inj_flat_spec": {
-    "template": "v6503_template",
+    "template": "v6503_template", 
     "madx_knobs": [
-     "on_x1:=-1; on_sep1:=1; on_o1:=0;",
-     "on_x2:=0;  on_sep2:=1; on_o2:=1; on_a2:=1;",
-     "on_x5:=0;  on_sep5:=1; on_o5:=0;",
-     "on_x8:=0;  on_sep8:=1; on_o8:=1; on_a8:=1;",
-     "on_alice:=7000/450;",
+     "on_x1:=-1; on_sep1:=1; on_o1:=0;", 
+     "on_x2:=0;  on_sep2:=1; on_o2:=1; on_a2:=1;", 
+     "on_x5:=0;  on_sep5:=1; on_o5:=0;", 
+     "on_x8:=0;  on_sep8:=1; on_o8:=1; on_a8:=1;", 
+     "on_alice:=7000/450;", 
      "on_lhcb :=7000/450;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      50000000000.0,
-      43,
+      "p", 
+      450, 
+      50000000000.0, 
+      43, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      50000000000.0,
-      43,
+      "p", 
+      450, 
+      50000000000.0, 
+      43, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      false,
-      true,
-      false,
+      false, 
+      true, 
+      false, 
       true
      ]
-    },
-    "shortdesc": "Injection energy, crossing switched on in IP1 but with negative angle as required by LHCf.",
+    }, 
+    "shortdesc": "Injection energy, crossing switched on in IP1 but with negative angle as required by LHCf.", 
     "madx_strengths": [
      "call, file=\"db5/V6.5.inj_special.str\";"
-    ],
-    "longdesc": "Injection energy, crossing switched on in IP1 but with negative angle as required by LHCf. he separations, spectrometers and aperture optimizations, are switched on.",
+    ], 
+    "longdesc": "Injection energy, crossing switched on in IP1 but with negative angle as required by LHCf. he separations, spectrometers and aperture optimizations, are switched on.", 
     "label": "Injection LHCf"
-   },
+   }, 
    "squeeze9": {
-    "shortdesc": "Squeeze Step 9 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 9 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.50m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_1.50m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.50m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 9"
-   },
+   }, 
    "squeeze4": {
-    "shortdesc": "Squeeze Step 4 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 4 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta6.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00900_beta5.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_4.00m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta6.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00900_beta5.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_4.00m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_4.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;    on_x1new=-0.000145/py.ip1; on_x1=     on_x1new;",
-     "on_x2=1;    on_x2new=+9e-05/py.ip2;    on_x2=     on_x2new;",
-     "on_x5=1;    on_x5new=0.000145/px.ip5;  on_x5=     on_x5new;",
-     "on_x8=1;    on_x8new=-0.00022/px.ip8;  on_x8:=    on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;   on_x8vnew=9e-05/py.ip8;    on_x8v:=   on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1;  on_sep1new=-0.00065/x.ip1; on_sep1=   on_sep1new;",
-     "on_sep2=1;  on_sep2new=0.00065/x.ip2;  on_sep2=   on_sep2new;",
-     "on_sep5=1;  on_sep5new=0.00065/y.ip5;  on_sep5=   on_sep5new;",
-     "on_sep8=1;  on_sep8new=-0.00065/y.ip8; on_sep8:=  on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;  on_sep8h:= on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;    on_x1new=-0.000145/py.ip1; on_x1=     on_x1new;", 
+     "on_x2=1;    on_x2new=+9e-05/py.ip2;    on_x2=     on_x2new;", 
+     "on_x5=1;    on_x5new=0.000145/px.ip5;  on_x5=     on_x5new;", 
+     "on_x8=1;    on_x8new=-0.00022/px.ip8;  on_x8:=    on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;   on_x8vnew=9e-05/py.ip8;    on_x8v:=   on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1;  on_sep1new=-0.00065/x.ip1; on_sep1=   on_sep1new;", 
+     "on_sep2=1;  on_sep2new=0.00065/x.ip2;  on_sep2=   on_sep2new;", 
+     "on_sep5=1;  on_sep5new=0.00065/y.ip5;  on_sep5=   on_sep5new;", 
+     "on_sep8=1;  on_sep8new=-0.00065/y.ip8; on_sep8:=  on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;  on_sep8h:= on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 4"
-   },
+   }, 
    "squeeze5": {
-    "shortdesc": "Squeeze Step 5 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 5 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta5.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00888_beta3.75m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_3.00m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta5.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00888_beta3.75m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_3.00m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_3.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 5"
-   },
+   }, 
    "squeeze6": {
-    "shortdesc": "Squeeze Step 6 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 6 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta4.50m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00882_beta3.50m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_2.50m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta4.50m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00882_beta3.50m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_2.50m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_2.50m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 6"
-   },
+   }, 
    "squeeze7": {
-    "shortdesc": "Squeeze Step 7 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 7 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta4.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00878_beta3.25m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_2.00m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta4.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00878_beta3.25m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_2.00m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_2.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 7"
-   },
+   }, 
    "squeeze1": {
-    "shortdesc": "Squeeze Step 1 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 1 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call,file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00951_beta10.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00951_beta10.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta11.00m.str\";",
+     "call,file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00951_beta10.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00951_beta10.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta11.00m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta11.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 1"
-   },
+   }, 
    "squeeze2": {
-    "shortdesc": "Squeeze Step 2 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 2 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00915_beta9.00m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00932_beta7.50m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_9.00m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00915_beta9.00m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00932_beta7.50m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_9.00m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_9.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h0;:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h0;:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 2"
-   },
+   }, 
    "squeeze3": {
-    "shortdesc": "Squeeze Step 3 at 4.0 TeV physics program.",
+    "shortdesc": "Squeeze Step 3 at 4.0 TeV physics program.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00897_beta7.50m.str\";",
-     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00909_beta6.00m.str\";",
-     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_7.00m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call,file=\"db5/IR2/3.5TeV/special/ip2_0.00897_beta7.50m.str\";", 
+     "call,file=\"db5/IR8/3.5TeV/special/ip8_0.00909_beta6.00m.str\";", 
+     "call,file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_7.00m.str\";", 
      "call,file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_7.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1;on_x1=    on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2;   on_x2=    on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=    on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=   on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;   on_x8v:=  on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=  on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2; on_sep2=  on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5; on_sep5=  on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:= on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1;on_sep8hnew=0.0007/x.ip8; on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1;on_x1=    on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2;   on_x2=    on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=    on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=   on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;   on_x8v:=  on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=  on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2; on_sep2=  on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5; on_sep5=  on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:= on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1;on_sep8hnew=0.0007/x.ip8; on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Squeeze Step 3"
-   },
+   }, 
    "endofsqueeze_4tev": {
-    "shortdesc": "LHC version 6.503 for 4.0 TeV physics program. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity; Vertical crossing IP8.",
+    "shortdesc": "LHC version 6.503 for 4.0 TeV physics program. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity; Vertical crossing IP8.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call, file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";",
-     "call, file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";",
-     "call, file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call, file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";", 
+     "call, file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";", 
+     "call, file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
      "call, file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);",
-     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;",
-     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;",
-     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;",
-     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2; on_x2=on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;on_x8v:=on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=1; on_sep1new=-0.00065/x.ip1;on_sep1=on_sep1new;", 
+     "on_sep2=1; on_sep2new=0.00065/x.ip2;on_sep2=on_sep2new;", 
+     "on_sep5=1; on_sep5new=0.00065/y.ip5;on_sep5=on_sep5new;", 
+     "on_sep8=1; on_sep8new=-0.00065/y.ip8;on_sep8:=on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=1; on_sep8hnew=0.0007/x.ip8;on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "End of squeeze 4TeV"
-   },
+   }, 
    "coll_4tev": {
-    "shortdesc": "LHC version 6.503 for 4.0 TeV physics program. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity; Vertical crossing IP8.",
+    "shortdesc": "LHC version 6.503 for 4.0 TeV physics program. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity; Vertical crossing IP8.", 
     "madx_strengths": [
-     "call, file=\"db5/V6.5.inj_special.str\";",
-     "call, file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";",
-     "call, file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";",
-     "call, file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";",
+     "call, file=\"db5/V6.5.inj_special.str\";", 
+     "call, file=\"db5/IR1/new_ip1_b2_squeeze/IP1_beta_0.60m.str\";", 
+     "call, file=\"db5/IR5/new_ip5_b2_squeeze/IP5_beta_0.60m.str\";", 
+     "call, file=\"db5/IR2/3.5TeV/special/ip2_0.00889_beta3.00m.str\";", 
      "call, file=\"db5/IR8/3.5TeV/special/ip8_0.00875_beta3.00m.str\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1;on_x1=    on_x1new;",
-     "on_x2=1;   on_x2new=+9e-05/py.ip2;   on_x2=    on_x2new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=    on_x5new;",
-     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=   on_x8new*(1-switch_V_cross8);",
-     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;   on_x8v:=  on_x8vnew*(switch_V_cross8);",
-     "on_sep1=0; on_sep1new=-0.00065/x.ip1;on_sep1=  on_sep1new;",
-     "on_sep2=0; on_sep2new=0.00065/x.ip2; on_sep2=  on_sep2new;",
-     "on_sep5=0; on_sep5new=0.00065/y.ip5; on_sep5=  on_sep5new;",
-     "on_sep8=0; on_sep8new=-0.00065/y.ip8;on_sep8:= on_sep8new*(1-switch_V_cross8);",
-     "on_sep8h=0;on_sep8hnew=0.0007/x.ip8; on_sep8h:=on_sep8hnew*(switch_V_cross8);",
-     "switch_V_cross8=0;",
-     "on_alice:=7000/4000;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1;on_x1=    on_x1new;", 
+     "on_x2=1;   on_x2new=+9e-05/py.ip2;   on_x2=    on_x2new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=    on_x5new;", 
+     "on_x8=1;   on_x8new=-0.00022/px.ip8; on_x8:=   on_x8new*(1-switch_V_cross8);", 
+     "on_x8v=1;  on_x8vnew=9e-05/py.ip8;   on_x8v:=  on_x8vnew*(switch_V_cross8);", 
+     "on_sep1=0; on_sep1new=-0.00065/x.ip1;on_sep1=  on_sep1new;", 
+     "on_sep2=0; on_sep2new=0.00065/x.ip2; on_sep2=  on_sep2new;", 
+     "on_sep5=0; on_sep5new=0.00065/y.ip5; on_sep5=  on_sep5new;", 
+     "on_sep8=0; on_sep8new=-0.00065/y.ip8;on_sep8:= on_sep8new*(1-switch_V_cross8);", 
+     "on_sep8h=0;on_sep8hnew=0.0007/x.ip8; on_sep8h:=on_sep8hnew*(switch_V_cross8);", 
+     "switch_V_cross8=0;", 
+     "on_alice:=7000/4000;", 
      "on_lhcb:=-7000/4000;"
-    ],
-    "template": "v6503_template",
+    ], 
+    "template": "v6503_template", 
     "label": "Collision 4TeV"
    }
   }
- },
+ }, 
  "opt2015": {
-  "shortdesc": "Optics for LHC Run II protons for physics in 2015.",
+  "shortdesc": "Optics for LHC Run II protons for physics in 2015.", 
   "conf_list": [
-   "inj",
-   "inj_colltunes",
-   "squeeze11000",
-   "squeeze9000",
-   "squeeze7000",
-   "squeeze4000",
-   "squeeze3000",
-   "squeeze2500",
-   "squeeze2000",
-   "squeeze1500",
-   "squeeze1200",
-   "squeeze1000",
-   "squeeze900",
-   "squeeze800",
-   "coll800",
-   "squeeze700",
-   "squeeze650",
-   "squeeze600",
-   "coll600",
-   "squeeze550",
-   "squeeze500",
-   "squeeze450",
-   "squeeze400",
-   "coll400",
-   "vdm12500",
-   "vdm14500",
-   "vdm17000",
-   "vdm19000",
-   "vdm21000",
-   "vdm24000",
-   "vdm24000_coll",
-   "hb12600",
-   "hb14500",
-   "hb16700",
-   "hb19200",
-   "hb22000",
-   "hb25000",
-   "hb30000",
-   "hb33000",
-   "hb36000",
-   "hb40000",
-   "hb43000",
-   "hb46000",
-   "hb51000",
-   "hb54000",
-   "hb60000",
-   "hb67000",
-   "hb75000",
-   "hb90000",
+   "inj", 
+   "inj_colltunes", 
+   "squeeze11000", 
+   "squeeze9000", 
+   "squeeze7000", 
+   "squeeze4000", 
+   "squeeze3000", 
+   "squeeze2500", 
+   "squeeze2000", 
+   "squeeze1500", 
+   "squeeze1200", 
+   "squeeze1000", 
+   "squeeze900", 
+   "squeeze800", 
+   "coll800", 
+   "squeeze700", 
+   "squeeze650", 
+   "squeeze600", 
+   "coll600", 
+   "squeeze550", 
+   "squeeze500", 
+   "squeeze450", 
+   "squeeze400", 
+   "coll400", 
+   "vdm12500", 
+   "vdm14500", 
+   "vdm17000", 
+   "vdm19000", 
+   "vdm21000", 
+   "vdm24000", 
+   "vdm24000_coll", 
+   "hb12600", 
+   "hb14500", 
+   "hb16700", 
+   "hb19200", 
+   "hb22000", 
+   "hb25000", 
+   "hb30000", 
+   "hb33000", 
+   "hb36000", 
+   "hb40000", 
+   "hb43000", 
+   "hb46000", 
+   "hb51000", 
+   "hb54000", 
+   "hb60000", 
+   "hb67000", 
+   "hb75000", 
+   "hb90000", 
    "hb90000_coll"
-  ],
-  "label": "LHC Run II protons (TEST)",
-  "longdesc": "Configuration LHC Run II protons (DRAFT). The spectrometer can be powered with positive or negative polarity.",
+  ], 
+  "label": "LHC Run II protons", 
+  "longdesc": "Configuration LHC Run II protons.", 
   "confs": {
    "squeeze650": {
-    "shortdesc": "LHC squeeze optics (0.65m, 10m, 0.65m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.65m, 10m, 0.65m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_650_10000_650_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.65m)"
-   },
+   }, 
    "squeeze450": {
-    "shortdesc": "LHC squeeze optics (0.45m, 10m, 0.45m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.45m, 10m, 0.45m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_450_10000_450_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.45m)"
-   },
+   }, 
    "squeeze3000": {
-    "shortdesc": "LHC squeeze optics (3m, 10m, 3m, 6m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (3m, 10m, 3m, 6m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_3000_10000_3000_6000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (3m)"
-   },
+   }, 
    "squeeze1500": {
-    "shortdesc": "LHC squeeze optics (1.5m, 10m, 1.5m, 3.5m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (1.5m, 10m, 1.5m, 3.5m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_1500_10000_1500_3500.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (1.5m)"
-   },
+   }, 
    "hb25000": {
-    "shortdesc": "LHC High Beta optics (25m, 10m, 25m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (25m, 10m, 25m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_25000_10000_25000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (25m)"
-   },
+   }, 
    "squeeze1200": {
-    "shortdesc": "LHC squeeze optics (1.2m, 10m, 1.2m, 3.25m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (1.2m, 10m, 1.2m, 3.25m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_1200_10000_1200_3250.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (1.2m)"
-   },
+   }, 
    "med_template": {
-    "template": "med_template",
-    "madx_knobs": [],
+    "template": "med_template", 
+    "madx_knobs": [], 
     "settings": {
      "beam2": [
-      "p",
-      6500,
-      "1.2e11",
-      2748,
+      "p", 
+      6500, 
+      "1.2e11", 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      6500,
-      "1.2e11",
-      2748,
+      "p", 
+      6500, 
+      "1.2e11", 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
-    },
+    }, 
     "madx_aperture": [
-     "call, file=\"db5/aperture/aperture.b1.madx\";",
-     "call, file=\"db5/aperture/aperture.b2.madx\";",
-     "call, file=\"db5/aperture/aper_tol.b1.madx\";",
-     "call, file=\"db5/aperture/aper_tol.b2.madx\";",
-     "call, file=\"db5/aperture/exp_pipe_model_after_LS1.madx\";",
+     "call, file=\"db5/aperture/aperture_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aperture_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_model_after_LS1.madx\";", 
      "call, file=\"db5/aperture/exp_pipe_install_after_LS1.madx\";"
-    ],
+    ], 
     "madx_sequence": [
-     "call, file=\"db5/aperture/const_for_aperture.madx\";",
+     "call, file=\"db5/aperture/const_for_aperture.madx\";", 
      "call, file=\"db5/lhc_as-built.seq\";"
-    ],
+    ], 
     "madx_links": {
-     "db503": "/afs/cern.ch/eng/lhc/optics/V6.503",
-     "db5": "/afs/cern.ch/eng/lhc/optics/runII/2015test"
+     "db503": "/afs/cern.ch/eng/lhc/optics/V6.503", 
+     "db5": "/afs/cern.ch/eng/lhc/optics/runII/2015"
     }
-   },
+   }, 
    "hb54000": {
-    "shortdesc": "LHC High Beta optics (54m, 10m, 54m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (54m, 10m, 54m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_54000_10000_54000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (54m)"
-   },
+   }, 
    "hb67000": {
-    "shortdesc": "LHC High Beta optics (67m, 10m, 67m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (67m, 10m, 67m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_67000_10000_67000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (67m)"
-   },
+   }, 
    "squeeze2500": {
-    "shortdesc": "LHC squeeze optics (2.5m, 10m, 2.5m, 5m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (2.5m, 10m, 2.5m, 5m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_2500_10000_2500_5000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (2.5m)"
-   },
+   }, 
    "squeeze11000": {
-    "shortdesc": "LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_11000_10000_11000_10000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (11m)"
-   },
+   }, 
    "hb51000": {
-    "shortdesc": "LHC High Beta optics (51m, 10m, 51m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (51m, 10m, 51m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_51000_10000_51000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (51m)"
-   },
+   }, 
    "hb14500": {
-    "shortdesc": "LHC High Beta optics (14.5m, 10m, 14.5m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (14.5m, 10m, 14.5m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_14500_10000_14500_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (14.5m)"
-   },
+   }, 
    "squeeze4000": {
-    "shortdesc": "LHC squeeze optics (4m, 10m, 4m, 7m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (4m, 10m, 4m, 7m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_4000_10000_4000_7000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (4m)"
-   },
+   }, 
    "hb40000": {
-    "shortdesc": "LHC High Beta optics (40m, 10m, 40m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (40m, 10m, 40m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_40000_10000_40000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (40m)"
-   },
+   }, 
    "vdm14500": {
-    "shortdesc": "LHC VDM in collision optics (14.5m, 14.5m, 14.5m, 14.5m) for 6.5 TeV.",
+    "shortdesc": "LHC VDM in collision optics (14.5m, 14.5m, 14.5m, 14.5m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_14500_14500_14500_14500.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "VDM (14.5m)"
-   },
+   }, 
    "squeeze800": {
-    "shortdesc": "LHC squeeze optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_800_10000_800_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.8m)"
-   },
+   }, 
    "hb30000": {
-    "shortdesc": "LHC High Beta optics (30m, 10m, 30m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (30m, 10m, 30m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_30000_10000_30000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (30m)"
-   },
+   }, 
    "vdm21000": {
-    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 21m) for 6.5 TeV.",
+    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 21m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_19200_19000_19200_21000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "VDM (21m)"
-   },
+   }, 
    "coll800": {
-    "shortdesc": "LHC collision optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC collision optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_800_10000_800_3000_coll.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Collision (0.8m)"
-   },
+   }, 
    "squeeze700": {
-    "shortdesc": "LHC squeeze optics (0.7m, 10m, 0.7m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.7m, 10m, 0.7m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_700_10000_700_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.7m)"
-   },
+   }, 
    "inj_colltunes": {
-    "shortdesc": "LHC Injection optics for 450 GeV with collision tunes.",
+    "shortdesc": "LHC Injection optics for 450 GeV with collision tunes.", 
     "madx_strengths": [
      "call, file=\"db5/opt_inj_colltunes.madx\";"
-    ],
-    "label": "Injection (coll. tunes)",
-    "template": "med_template",
+    ], 
+    "label": "Injection (coll. tunes)", 
+    "template": "med_template", 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      "1.2e11",
-      2748,
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      "1.2e11",
-      2748,
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
     }
-   },
+   }, 
    "hb22000": {
-    "shortdesc": "LHC High Beta optics (22m, 10m, 22m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (22m, 10m, 22m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_22000_10000_22000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (22m)"
-   },
+   }, 
    "inj": {
-    "shortdesc": "LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.",
+    "shortdesc": "LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.", 
     "madx_strengths": [
      "call, file=\"db5/opt_inj.madx\";"
-    ],
-    "label": "Injection",
-    "template": "med_template",
+    ], 
+    "label": "Injection", 
+    "template": "med_template", 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      "1.2e11",
-      2748,
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      "1.2e11",
-      2748,
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
     }
-   },
+   }, 
    "squeeze600": {
-    "shortdesc": "LHC squeeze optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_600_10000_600_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.6m)"
-   },
+   }, 
    "squeeze900": {
-    "shortdesc": "LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_900_10000_900_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.9m)"
-   },
+   }, 
    "squeeze7000": {
-    "shortdesc": "LHC squeeze optics (7m, 10m, 7m, 8m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (7m, 10m, 7m, 8m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_7000_10000_7000_8000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (7m)"
-   },
+   }, 
    "hb46000": {
-    "shortdesc": "LHC High Beta optics (46m, 10m, 46m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (46m, 10m, 46m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_46000_10000_46000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (46m)"
-   },
+   }, 
    "coll400": {
-    "shortdesc": "LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_400_10000_400_3000_coll.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Collision (0.4m)"
-   },
+   }, 
    "squeeze500": {
-    "shortdesc": "LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_500_10000_500_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.5m)"
-   },
+   }, 
    "squeeze9000": {
-    "shortdesc": "LHC squeeze optics (9m, 10m, 9m, 9m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (9m, 10m, 9m, 9m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_9000_10000_9000_9000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (9m)"
-   },
+   }, 
    "vdm12500": {
-    "shortdesc": "LHC VDM in collision optics (12.6m, 12.5m, 12.6m, 12.5m) for 6.5 TeV.",
+    "shortdesc": "LHC VDM in collision optics (12.6m, 12.5m, 12.6m, 12.5m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_12600_12500_12600_12500.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "VDM (12.5m)"
-   },
+   }, 
    "squeeze400": {
-    "shortdesc": "LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_400_10000_400_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.4m)"
-   },
+   }, 
    "vdm19000": {
-    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 19m) for 6.5 TeV.",
+    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 19m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_19200_19000_19200_19000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "VDM (19m)"
-   },
+   }, 
    "hb36000": {
-    "shortdesc": "LHC High Beta optics (36m, 10m, 36m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (36m, 10m, 36m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_36000_10000_36000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (36m)"
-   },
+   }, 
    "squeeze550": {
-    "shortdesc": "LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_550_10000_550_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (0.55m)"
-   },
+   }, 
    "vdm17000": {
-    "shortdesc": "LHC VDM in collision optics (16.7m, 17m, 16.7m, 17m) for 6.5 TeV.",
+    "shortdesc": "LHC VDM in collision optics (16.7m, 17m, 16.7m, 17m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_16700_17000_16700_17000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "VDM (17m)"
-   },
+   }, 
    "squeeze2000": {
-    "shortdesc": "LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_2000_10000_2000_4000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (2m)"
-   },
+   }, 
    "hb75000": {
-    "shortdesc": "LHC High Beta optics (75m, 10m, 75m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (75m, 10m, 75m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_75000_10000_75000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (75m)"
-   },
+   }, 
    "hb90000": {
-    "shortdesc": "LHC High Beta optics (90m, 10m, 90m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (90m, 10m, 90m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_90000_10000_90000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (90m)"
-   },
+   }, 
    "hb16700": {
-    "shortdesc": "LHC High Beta optics (16.7m, 10m, 16.7m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (16.7m, 10m, 16.7m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_16700_10000_16700_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (16.7m)"
-   },
+   }, 
    "vdm24000": {
-    "shortdesc": "LHC VDM optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.",
+    "shortdesc": "LHC VDM optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_19200_19000_19200_24000_coll.madx\";"
-    ],
-    "template": "med_template",
+     "call, file=\"db5/opt_19200_19000_19200_24000.madx\";"
+    ], 
+    "template": "med_template", 
     "label": "VDM (24m)"
-   },
+   }, 
    "hb19200": {
-    "shortdesc": "LHC High Beta optics (19.2m, 10m, 19.2m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (19.2m, 10m, 19.2m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_19200_10000_19200_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (19.2m)"
-   },
+   }, 
    "hb90000_coll": {
-    "shortdesc": "LHC High Beta in collision optics (90m, 10m, 90m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta in collision optics (90m, 10m, 90m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_90000_10000_90000_10000_hibeta_coll.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta Coll (90m)"
-   },
+   }, 
    "hb12600": {
-    "shortdesc": "LHC High Beta optics (12.6m, 10m, 12.6m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (12.6m, 10m, 12.6m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_12600_10000_12600_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (12.6m)"
-   },
+   }, 
    "coll600": {
-    "shortdesc": "LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_600_10000_600_3000_coll.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Collision (0.6m)"
-   },
+   }, 
    "vdm24000_coll": {
-    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.",
+    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_19200_19000_19200_24000_coll.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "VDM Coll. (24m)"
-   },
+   }, 
    "hb43000": {
-    "shortdesc": "LHC High Beta optics (43m, 10m, 43m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (43m, 10m, 43m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_43000_10000_43000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (43m)"
-   },
+   }, 
    "hb60000": {
-    "shortdesc": "LHC High Beta optics (60m, 10m, 60m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (60m, 10m, 60m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_60000_10000_60000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (60m)"
-   },
+   }, 
    "hb33000": {
-    "shortdesc": "LHC High Beta optics (33m, 10m, 33m, 10m) for 6.5 TeV.",
+    "shortdesc": "LHC High Beta optics (33m, 10m, 33m, 10m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_33000_10000_33000_10000_hibeta.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Hibeta (33m)"
-   },
+   }, 
    "squeeze1000": {
-    "shortdesc": "LHC squeeze optics (1m, 10m, 1m, 3m) for 6.5 TeV.",
+    "shortdesc": "LHC squeeze optics (1m, 10m, 1m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
      "call, file=\"db5/opt_1000_10000_1000_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze (1m)"
    }
   }
- },
+ }, 
  "hllhc11": {
-  "shortdesc": "Optics for HL-LHC V1.1.",
+  "shortdesc": "Optics for HL-LHC V1.1.", 
   "conf_list": [
-   "inj",
-   "endoframp",
-   "presqueeze",
-   "round",
-   "flat",
-   "flathv",
-   "sround",
-   "sflat",
-   "sflathv",
-   "ions",
-   "inj15",
+   "inj", 
+   "endoframp", 
+   "presqueeze", 
+   "round", 
+   "flat", 
+   "flathv", 
+   "sround", 
+   "sflat", 
+   "sflathv", 
+   "ions", 
+   "inj15", 
    "vdm30"
-  ],
-  "label": "HLLHCV1.1",
-  "longdesc": "Optics for  HL-LHC V1.1.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n",
+  ], 
+  "label": "HLLHCV1.1", 
+  "longdesc": "Optics for  HL-LHC V1.1.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n", 
   "confs": {
    "flat": {
-    "shortdesc": "Baseline collision optics.",
+    "shortdesc": "Baseline collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_flat.madx\";"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "Collision Flat"
-   },
+   }, 
    "sflathv": {
-    "shortdesc": "Ultimate collision optics for flat optics inverted crossing planes in IP1 and IP5.",
+    "shortdesc": "Ultimate collision optics for flat optics inverted crossing planes in IP1 and IP5.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_sflathv.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;", 
      "on_disp=1;"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "Collision sFlat HV"
-   },
+   }, 
    "flathv": {
-    "shortdesc": "Baseline collision optics for flat optics inverted crossing planes in IP1 and IP5.",
+    "shortdesc": "Baseline collision optics for flat optics inverted crossing planes in IP1 and IP5.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_flathv.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;", 
      "on_disp=1;"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "Collision Flat HV"
-   },
+   }, 
    "sflat": {
-    "shortdesc": "Ultimate collision optics.",
+    "shortdesc": "Ultimate collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_sflat.madx\";"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "Collision sFlat"
-   },
+   }, 
    "endoframp": {
-    "shortdesc": "Optics at the of the ramp.",
+    "shortdesc": "Optics at the of the ramp.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_endoframp.madx\";"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "End of ramp"
-   },
+   }, 
    "hllhc11_template": {
     "madx_aperture": [
-     "call, file=\"db5/aperture/aperture.b1.madx\";",
-     "call, file=\"db5/aperture/aperture.b2.madx\";",
-     "call, file=\"db5/aperture/aper_tol.b1.madx\";",
-     "call, file=\"db5/aperture/aper_tol.b2.madx\";",
-     "call,   file=\"slhc/aperture/aperture_upgrade_IT.madx\";",
+     "call, file=\"db5/aperture/aperture.b1.madx\";", 
+     "call, file=\"db5/aperture/aperture.b2.madx\";", 
+     "call, file=\"db5/aperture/aper_tol.b1.madx\";", 
+     "call, file=\"db5/aperture/aper_tol.b2.madx\";", 
+     "call,   file=\"slhc/aperture/aperture_upgrade_IT.madx\";", 
      "call,   file=\"slhc/aperture/aperture_upgrade_MS.madx\";"
-    ],
+    ], 
     "madx_sequence": [
-     "REAL CONST l.TAN = 3.7 ;REAL CONST l.TANAL = l.TAN;",
-     "REAL CONST l.TANAR = l.TAN;REAL CONST l.TANC = l.TAN;",
-     "REAL CONST l.TCT = 1.0;REAL CONST l.TCTH = l.TCT;",
-     "REAL CONST l.TCTVA = l.TCT;",
-     "call, file=\"db5/V6.5.seq\";",
+     "REAL CONST l.TAN = 3.7 ;REAL CONST l.TANAL = l.TAN;", 
+     "REAL CONST l.TANAR = l.TAN;REAL CONST l.TANC = l.TAN;", 
+     "REAL CONST l.TCT = 1.0;REAL CONST l.TCTH = l.TCT;", 
+     "REAL CONST l.TCTVA = l.TCT;", 
+     "call, file=\"db5/V6.5.seq\";", 
      "call, file=\"slhc/hllhc_sequence.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;", 
      "on_disp=1;"
-    ],
+    ], 
     "madx_links": {
-     "slhc": "/afs/cern.ch/eng/lhc/optics/HLLHCV1.1",
+     "slhc": "/afs/cern.ch/eng/lhc/optics/HLLHCV1.1", 
      "db5": "/afs/cern.ch/eng/lhc/optics/V6.503"
-    },
+    }, 
     "settings": {
      "beam2": [
-      "p",
-      7000,
-      220000000000.0,
-      2748,
+      "p", 
+      7000, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      7000,
-      220000000000.0,
-      2748,
+      "p", 
+      7000, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
     }
-   },
+   }, 
    "presqueeze": {
-    "shortdesc": "Baseline collision optics.",
+    "shortdesc": "Baseline collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_presqueeze.madx\";"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "Presqueeze optics"
-   },
+   }, 
    "inj_flat": {
-    "template": "hllhc11_template",
+    "template": "hllhc11_template", 
     "madx_knobs": [
-     "on_sep1:=0;on_x1:=0;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=0;on_x5:=0;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=0;on_x2:=0;on_alice:=0;on_sol_alice:=0;",
-     "on_sep8:=0;on_x8:=0;on_lhcb :=0;",
+     "on_sep1:=0;on_x1:=0;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=0;on_x5:=0;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=0;on_x2:=0;on_alice:=0;on_sol_alice:=0;", 
+     "on_sep8:=0;on_x8:=0;on_lhcb :=0;", 
      "on_disp=0;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
-    },
-    "shortdesc": "Optics at injection without crossing angles.",
+    }, 
+    "shortdesc": "Optics at injection without crossing angles.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_inj.madx\";"
-    ],
+    ], 
     "label": "Injection Flat"
-   },
+   }, 
    "ions": {
-    "shortdesc": "Baseline collision optics.",
+    "shortdesc": "Baseline collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_ions.madx\";"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "Low-beta optics"
-   },
+   }, 
    "inj": {
-    "template": "hllhc11_template",
+    "template": "hllhc11_template", 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;", 
      "on_disp=0;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
-    },
-    "shortdesc": "Optics at injection.",
+    }, 
+    "shortdesc": "Optics at injection.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_inj.madx\";"
-    ],
+    ], 
     "label": "Injection"
-   },
+   }, 
    "inj15": {
-    "template": "hllhc11_template",
+    "template": "hllhc11_template", 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;", 
      "on_disp=0;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
-    },
-    "shortdesc": "High Beta Optics at injection.",
+    }, 
+    "shortdesc": "High Beta Optics at injection.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_inj15.madx\";"
-    ],
+    ], 
     "label": "Injection 15m"
-   },
+   }, 
    "sround": {
-    "shortdesc": "Ultimate collision optics.",
+    "shortdesc": "Ultimate collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_sround.madx\";"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "Collision sRound"
-   },
+   }, 
    "round": {
-    "shortdesc": "Baseline collision optics.",
+    "shortdesc": "Baseline collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_round.madx\";"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "Collision Round"
-   },
+   }, 
    "vdm30": {
-    "shortdesc": "High Beta Optics at high energy.",
+    "shortdesc": "High Beta Optics at high energy.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_vdm30.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=7000/7000;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/7000;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/7000;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/7000;", 
      "on_disp=0;"
-    ],
-    "template": "hllhc11_template",
+    ], 
+    "template": "hllhc11_template", 
     "label": "VDM optics 30m"
    }
   }
- },
+ }, 
  "hllhc10": {
-  "shortdesc": "Optics for HL-LHC V1.0.",
+  "shortdesc": "Optics for HL-LHC V1.0.", 
   "conf_list": [
-   "inj",
-   "endoframp",
-   "presqueeze",
-   "round",
-   "flat",
-   "flathv",
-   "sround",
-   "sflat",
-   "sflathv",
+   "inj", 
+   "endoframp", 
+   "presqueeze", 
+   "round", 
+   "flat", 
+   "flathv", 
+   "sround", 
+   "sflat", 
+   "sflathv", 
    "ions"
-  ],
-  "label": "HLLHCV1.0",
-  "longdesc": "Optics for  HL-LHC V1.0.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n",
+  ], 
+  "label": "HLLHCV1.0", 
+  "longdesc": "Optics for  HL-LHC V1.0.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n", 
   "confs": {
    "hllhc10_template": {
     "madx_aperture": [
-     "call, file=\"db5/aperture/aperture.b1.madx\";",
-     "call, file=\"db5/aperture/aperture.b2.madx\";",
-     "call, file=\"db5/aperture/aper_tol.b1.madx\";",
-     "call, file=\"db5/aperture/aper_tol.b2.madx\";",
-     "bs_type=4; ap_mqx=150;",
-     "call,   file=\"slhc/aperture/aperture_upgrade_IT.madx\";",
+     "call, file=\"db5/aperture/aperture.b1.madx\";", 
+     "call, file=\"db5/aperture/aperture.b2.madx\";", 
+     "call, file=\"db5/aperture/aper_tol.b1.madx\";", 
+     "call, file=\"db5/aperture/aper_tol.b2.madx\";", 
+     "bs_type=4; ap_mqx=150;", 
+     "call,   file=\"slhc/aperture/aperture_upgrade_IT.madx\";", 
      "call,   file=\"slhc/aperture/aperture_upgrade_MS.madx\";"
-    ],
+    ], 
     "madx_sequence": [
-     "call, file=\"db5/V6.5.seq\";",
+     "call, file=\"db5/V6.5.seq\";", 
      "call, file=\"slhc/hllhc_sequence.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;", 
      "on_disp=1;"
-    ],
+    ], 
     "madx_links": {
-     "slhc": "/afs/cern.ch/eng/lhc/optics/HLLHCV1.0",
+     "slhc": "/afs/cern.ch/eng/lhc/optics/HLLHCV1.0", 
      "db5": "/afs/cern.ch/eng/lhc/optics/V6.503"
-    },
+    }, 
     "settings": {
      "beam2": [
-      "p",
-      7000,
-      220000000000.0,
-      2748,
+      "p", 
+      7000, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      7000,
-      220000000000.0,
-      2748,
+      "p", 
+      7000, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
     }
-   },
+   }, 
    "sflathv": {
-    "shortdesc": "Ultimate collision optics for flat optics inverted crossing planes in IP1 and IP5.",
+    "shortdesc": "Ultimate collision optics for flat optics inverted crossing planes in IP1 and IP5.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_flathv.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;", 
      "on_disp=1;"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "label": "Collision sFlat HV"
-   },
+   }, 
    "flathv": {
-    "shortdesc": "Baseline collision optics for flat optics inverted crossing planes in IP1 and IP5.",
+    "shortdesc": "Baseline collision optics for flat optics inverted crossing planes in IP1 and IP5.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_flathv.madx\";"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=    0.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=   90.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;", 
      "on_disp=1;"
-    ],
+    ], 
     "label": "Collision Flat HV"
-   },
+   }, 
    "sflat": {
-    "shortdesc": "Ultimate collision optics.",
+    "shortdesc": "Ultimate collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_sflat.madx\";"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "label": "Collision sFlat"
-   },
+   }, 
    "endoframp": {
-    "shortdesc": "Optics at the of the ramp.",
+    "shortdesc": "Optics at the of the ramp.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_endoframp.madx\";"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "label": "End of ramp"
-   },
+   }, 
    "presqueeze": {
-    "shortdesc": "Baseline collision optics.",
+    "shortdesc": "Baseline collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_presqueeze.madx\";"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "label": "Presqueeze optics"
-   },
+   }, 
    "inj_flat": {
-    "template": "hllhc10_template",
+    "template": "hllhc10_template", 
     "madx_knobs": [
-     "on_sep1:=0;on_x1:=0;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=0;on_x5:=0;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=0;on_x2:=0;on_alice:=0;on_sol_alice:=0;",
-     "on_sep8:=0;on_x8:=0;on_lhcb :=0;",
+     "on_sep1:=0;on_x1:=0;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=0;on_x5:=0;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=0;on_x2:=0;on_alice:=0;on_sol_alice:=0;", 
+     "on_sep8:=0;on_x8:=0;on_lhcb :=0;", 
      "on_disp=0;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
-    },
-    "shortdesc": "Optics at injection without crossing angles.",
+    }, 
+    "shortdesc": "Optics at injection without crossing angles.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_inj.madx\";"
-    ],
+    ], 
     "label": "Injection Flat"
-   },
+   }, 
    "flat": {
-    "shortdesc": "Baseline collision flat optics.",
+    "shortdesc": "Baseline collision flat optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_flat.madx\";"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "label": "Collision Flat"
-   },
+   }, 
    "ions": {
-    "shortdesc": "Baseline collision lowbeta optics.",
+    "shortdesc": "Baseline collision lowbeta optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_ions.madx\";"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "label": "Low-beta optics"
-   },
+   }, 
    "inj": {
-    "template": "hllhc10_template",
+    "template": "hllhc10_template", 
     "madx_knobs": [
-     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;",
-     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;",
-     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;",
-     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;",
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;", 
      "on_disp=1;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      220000000000.0,
-      2748,
+      "p", 
+      450, 
+      220000000000.0, 
+      2748, 
       2.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
-    },
-    "shortdesc": "Optics at injection.",
+    }, 
+    "shortdesc": "Optics at injection.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_inj.madx\";"
-    ],
+    ], 
     "label": "Injection"
-   },
+   }, 
    "sround": {
-    "shortdesc": "Ultimate collision optics.",
+    "shortdesc": "Ultimate collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_sround.madx\";"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "label": "Collision sRound"
-   },
+   }, 
    "round": {
-    "shortdesc": "Baseline collision optics.",
+    "shortdesc": "Baseline collision optics.", 
     "madx_strengths": [
      "call,file=\"slhc/opt_round.madx\";"
-    ],
-    "template": "hllhc10_template",
+    ], 
+    "template": "hllhc10_template", 
     "label": "Collision Round"
    }
   }
- },
+ }, 
  "opt_med": {
   "conf_list": [
-   "inj",
-   "inj_colltunes",
-   "inj_nospect",
-   "squeeze15",
-   "squeeze16",
-   "squeeze17",
+   "inj", 
+   "inj_colltunes", 
+   "inj_nospect", 
+   "squeeze15", 
+   "squeeze16", 
+   "squeeze17", 
    "coll"
-  ],
+  ], 
   "confs": {
    "endofsqueeze": {
-    "shortdesc": "LHCcollision optics (80cm 10m 80cm 3m) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHCcollision optics (80cm 10m 80cm 3m) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;", 
     "madx_strengths": [
      "call, file=\"db5/opt_800_10000_800_3000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "End of squeeze"
-   },
+   }, 
    "coll": {
-    "shortdesc": "LHC collision optics (opt. med) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC collision optics (opt. med) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;", 
     "madx_strengths": [
      "call, file=\"db5/opt_400_10000_400_3000.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_sep1:=0;",
-     "on_sep2:=0;",
-     "on_sep5:=0;",
-     "on_sep8:=0;",
-     "on_x1=1;   on_x1new=-0.000205/py.ip1; on_x1=on_x1new;",
+     "on_sep1:=0;", 
+     "on_sep2:=0;", 
+     "on_sep5:=0;", 
+     "on_sep8:=0;", 
+     "on_x1=1;   on_x1new=-0.000205/py.ip1; on_x1=on_x1new;", 
      "on_x5=1;   on_x5new=0.000205/px.ip5; on_x5=on_x5new;"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Collision"
-   },
+   }, 
    "med_template": {
     "madx_aperture": [
-     "call, file=\"db503/aperture/aperture.b1.madx\";",
-     "call, file=\"db503/aperture/aperture.b2.madx\";",
-     "call, file=\"db503/aperture/aper_tol.b1.madx\";",
+     "call, file=\"db503/aperture/aperture.b1.madx\";", 
+     "call, file=\"db503/aperture/aperture.b2.madx\";", 
+     "call, file=\"db503/aperture/aper_tol.b1.madx\";", 
      "call, file=\"db503/aperture/aper_tol.b2.madx\";"
-    ],
+    ], 
     "madx_sequence": [
      "call, file=\"db5/lhc_study_20150119.seq\";"
-    ],
-    "madx_knobs": [],
+    ], 
+    "madx_knobs": [], 
     "madx_links": {
-     "db503": "/afs/cern.ch/eng/lhc/optics/V6.503",
+     "db503": "/afs/cern.ch/eng/lhc/optics/V6.503", 
      "db5": "/afs/cern.ch/eng/lhc/optics/runII/opt_med"
-    },
+    }, 
     "settings": {
      "beam2": [
-      "p",
-      6500,
-      120000000000.0,
-      2748,
+      "p", 
+      6500, 
+      120000000000.0, 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      6500,
-      120000000000.0,
-      2748,
+      "p", 
+      6500, 
+      120000000000.0, 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
     }
-   },
+   }, 
    "squeeze16": {
-    "shortdesc": "LHC pre-collision optics (60cm 10m 60cm 3m) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC pre-collision optics (60cm 10m 60cm 3m) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;", 
     "madx_strengths": [
      "call, file=\"db5/opt_600_10000_600_3000.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000177/py.ip1; on_x1=on_x1new;",
-     "on_x5=1;   on_x5new=0.000177/px.ip5; on_x5=on_x5new;",
-     "on_sep1=1; on_sep1new=-0.00055/x.ip1;on_sep1=on_sep1new;",
+     "on_x1=1;   on_x1new=-0.000177/py.ip1; on_x1=on_x1new;", 
+     "on_x5=1;   on_x5new=0.000177/px.ip5; on_x5=on_x5new;", 
+     "on_sep1=1; on_sep1new=-0.00055/x.ip1;on_sep1=on_sep1new;", 
      "on_sep5=1; on_sep5new=0.00055/y.ip5;on_sep5=on_sep5new;"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze 9"
-   },
+   }, 
    "squeeze17": {
-    "shortdesc": "LHC pre-collision optics (40cm, 10m, 40cm, 3m)  for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC pre-collision optics (40cm, 10m, 40cm, 3m)  for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;", 
     "madx_strengths": [
      "call, file=\"db5/opt_400_10000_400_3000.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000205/py.ip1; on_x1=on_x1new;",
-     "on_x5=1;   on_x5new=0.000205/px.ip5; on_x5=on_x5new;",
-     "on_sep1=1; on_sep1new=-0.00055/x.ip1;on_sep1=on_sep1new;",
+     "on_x1=1;   on_x1new=-0.000205/py.ip1; on_x1=on_x1new;", 
+     "on_x5=1;   on_x5new=0.000205/px.ip5; on_x5=on_x5new;", 
+     "on_sep1=1; on_sep1new=-0.00055/x.ip1;on_sep1=on_sep1new;", 
      "on_sep5=1; on_sep5new=0.00055/y.ip5;on_sep5=on_sep5new;"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze 10"
-   },
+   }, 
    "inj_colltunes": {
-    "shortdesc": "Alternative injection optics with collistion tunes. Energy, crossing, separations, spectrometers are switched on.",
+    "shortdesc": "Alternative injection optics with collistion tunes. Energy, crossing, separations, spectrometers are switched on.", 
     "madx_strengths": [
      "call, file=\"db5/opt_inj_colltunes.madx\";"
-    ],
-    "label": "Inj. Coll. Tunes",
-    "template": "med_template",
+    ], 
+    "label": "Inj. Coll. Tunes", 
+    "template": "med_template", 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      120000000000.0,
-      2748,
+      "p", 
+      450, 
+      120000000000.0, 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      120000000000.0,
-      2748,
+      "p", 
+      450, 
+      120000000000.0, 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
     }
-   },
+   }, 
    "squeeze15": {
-    "shortdesc": "LHC pre-collision optics (80cm 10m 80cm 3m) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC pre-collision optics (80cm 10m 80cm 3m) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;", 
     "madx_strengths": [
      "call, file=\"db5/opt_800_10000_800_3000.madx\";"
-    ],
+    ], 
     "madx_knobs": [
-     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;",
-     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;",
-     "on_sep1=1; on_sep1new=-0.00055/x.ip1;on_sep1=on_sep1new;",
+     "on_x1=1;   on_x1new=-0.000145/py.ip1; on_x1=on_x1new;", 
+     "on_x5=1;   on_x5new=0.000145/px.ip5; on_x5=on_x5new;", 
+     "on_sep1=1; on_sep1new=-0.00055/x.ip1;on_sep1=on_sep1new;", 
      "on_sep5=1; on_sep5new=0.00055/y.ip5;on_sep5=on_sep5new;"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Squeeze 8"
-   },
+   }, 
    "squeeze1": {
-    "shortdesc": "LHC end of ramp optics for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;",
+    "shortdesc": "LHC end of ramp optics for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;", 
     "madx_strengths": [
      "call, file=\"db5/opt_11000_10000_11000_10000.madx\";"
-    ],
-    "template": "med_template",
+    ], 
+    "template": "med_template", 
     "label": "Start of squeeze"
-   },
+   }, 
    "inj": {
-    "shortdesc": "Injection energy, crossing, separations, spectrometers switched on.",
+    "shortdesc": "Injection energy, crossing, separations, spectrometers switched on.", 
     "madx_strengths": [
      "call, file=\"db5/opt_inj.madx\";"
-    ],
-    "label": "Injection",
-    "template": "med_template",
+    ], 
+    "label": "Injection", 
+    "template": "med_template", 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      120000000000.0,
-      2748,
+      "p", 
+      450, 
+      120000000000.0, 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      120000000000.0,
-      2748,
+      "p", 
+      450, 
+      120000000000.0, 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
     }
-   },
+   }, 
    "inj_nospect": {
-    "template": "med_template",
+    "template": "med_template", 
     "madx_knobs": [
      "on_alice=0;on_lhcb=0;"
-    ],
+    ], 
     "settings": {
      "beam2": [
-      "p",
-      450,
-      120000000000.0,
-      2748,
+      "p", 
+      450, 
+      120000000000.0, 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "beam1": [
-      "p",
-      450,
-      120000000000.0,
-      2748,
+      "p", 
+      450, 
+      120000000000.0, 
+      2748, 
       3.5e-06
-     ],
+     ], 
      "exp": [
-      "off",
-      "on",
-      "off",
+      "off", 
+      "on", 
+      "off", 
       "on"
      ]
-    },
-    "shortdesc": "Injection energy, crossing, separations, spectrometers switched off.",
+    }, 
+    "shortdesc": "Injection energy, crossing, separations, spectrometers switched off.", 
     "madx_strengths": [
      "call, file=\"db5/opt_inj.madx\";"
-    ],
+    ], 
     "label": "Inj. No Spect."
    }
-  },
-  "label": "LHC Run II protons (DRAFT)",
-  "longdesc": "Configuration LHC Run II protons (DRAFT). The spectrometer can be powered with positive or negative polarity.",
+  }, 
+  "label": "LHC Run II protons (DRAFT)", 
+  "longdesc": "Configuration LHC Run II protons (DRAFT). The spectrometer can be powered with positive or negative polarity.", 
   "shortdesc": "Optics for LHC Run II protons for physics in 2015."
  }
 }
