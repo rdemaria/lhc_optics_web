@@ -21,7 +21,7 @@ class Scenarios(list):
 
 class Scenario(object):
   beam_data=['p','E','N<sub>b</sub>','k<sub>b</sub>','&epsilon;']
-  beam_data_unit=['','GeV','10<sup>11</sup>','','&mu;rad']
+  beam_data_unit_tmp=['','GeV','10<sup>%d</sup>','','&mu;rad']
   ip_data=['&beta;<sub>x</sub>', '&beta;<sub>y</sub>',
            'x', 'y',
            'p<sub>x</sub>', 'p<sub>y</sub>']
@@ -30,10 +30,12 @@ class Scenario(object):
   def __init__(self,name,**data):
     self.name=name
     self.__dict__.update(data)
+    self.beam_data_unit=Scenario.beam_data_unit_tmp[:]
+    self.beam_data_unit[2]=self.beam_data_unit_tmp[2]%(self.npart_unit)
     for cname,cdata in self.confs.items():
       Configuration._instances[(name,cname)]=cdata
     for cname,cdata in self.confs.items():
-      self.confs[cname]=Configuration(name=cname,scenario=name,**cdata)
+      self.confs[cname]=Configuration(name=cname,scenario=name,scn=self,**cdata)
       setattr(self,cname, self.confs[cname])
 
 
@@ -42,7 +44,8 @@ class Configuration(object):
                     'IR4', 'Arc45', 'IR5', 'Arc56', 'IR6', 'Arc67',
                     'IR7', 'Arc78', 'IR8', 'Arc81']
   _instances={}
-  pmass={'p':0.938272046}
+  pdata={'p'  :(0.931494061,1), #GeV,charge
+         'Pb' : (193.68715,82)}  #GeV,charge
   def __init__(self,**data):
     scenario=data['scenario']
     if 'template' in data:
@@ -55,14 +58,18 @@ class Configuration(object):
       part2,self.nrj2,self.np2,self.nb2,self.emit_n2=self.settings['beam2']
       if part1=='p':
         self.part1='proton'
+      else:
+        self.part1='ion'
       if part2=='p':
         self.part2='proton'
-      self.pmass1=self.pmass[part1]
-      self.pmass2=self.pmass[part2]
+      else:
+        self.part2='ion'
+      self.pmass1,self.charge1=self.pdata[part1]
+      self.pmass2,self.charge2=self.pdata[part2]
       self.emit1=self.emit_n1/self.nrj1*self.pmass1
       self.emit2=self.emit_n2/self.nrj2*self.pmass2
-      self.np1_web=float(self.np1)/1e11
-      self.np2_web=float(self.np2)/1e11
+      self.np1_web=float(self.np1)/10**self.scn.npart_unit
+      self.np2_web=float(self.np2)/10**self.scn.npart_unit
       self.emit_n1_web=self.emit_n1*1e6
       self.emit_n2_web=self.emit_n2*1e6
   def get_conf_dir(self):
@@ -216,7 +223,8 @@ templateEnv = jinja2.Environment( loader=templateLoader )
 
 tmain = templateEnv.get_template("main.template")
 tscen = templateEnv.get_template("scenario.template")
-tmadx = templateEnv.get_template("job_template.madx")
+tmadx = templateEnv.get_template("job.madx")
+taper = templateEnv.get_template("job_aperture.madx")
 tmmod = templateEnv.get_template("job_model.madx")
 tmmodwin = templateEnv.get_template("job_model_win.madx")
 tmseq = templateEnv.get_template("job_mkseq.madx")
@@ -239,15 +247,15 @@ def run_madx(run=False):
       respath=[basedir,scn.name,conf.name]
       rdata['resdir']=os.path.join(*respath)
       md="%s_%s"%(scn.name,conf.name)
-      for out,template in [('job.madx',tmadx),('job_model.madx',tmmod),
+      for out,template in [('job.madx',taper),('job_model.madx',tmmod),
                            ('job_mkseq.madx',tmseq),
                           # ('lhc_mktwiss.madx',tmtwi)
                           ]:
         renderfile(respath,out,template,rdata)
       confdir=os.path.join(basedir,scn.name,conf.name)
-      execute_madx([confdir,'job.madx'],scn.name,run=run)
-      execute_madx([confdir,'job_model.madx'],scn.name,run=run)
-      #execute_madx([confdir,'job_mkseq.madx'],scn.name,run=run)
+      #execute_madx([confdir,'job.madx'],scn.name,run=run)
+      #execute_madx([confdir,'job_model.madx'],scn.name,run=run)
+      execute_madx([confdir,'job_mkseq.madx'],scn.name,run=run)
       for part in ['madx_sequence','madx_aperture',
                    'madx_strengths','madx_knobs']:
         pout=[]
@@ -367,6 +375,8 @@ if __name__=='__main__':
   data=yaml.load(open('datanew.yaml'))
   #data=yaml.load(open('datathin.yaml'))
   json.dump(data,open('data.json','w'),indent=True)
+  #data['scenario_list']=['opt2015','opt2015vdm','opt2015hb','opt2015ion']
+  data['scenario_list']=['opt2015ion']
   scenarios= Scenarios(data)
   #scenarios.pop(0)
   #scenarios.pop(0)
@@ -376,10 +386,10 @@ if __name__=='__main__':
       'date':time.asctime(),
       'basedir':basedir,
       'scenarios':scenarios}
-  run_madx(run='lsf')
-  #run_madx(run='local')
-  #get_data()
-  #run_html()
+  #run_madx(run='lsf')
+  run_madx(run='local')
+  get_data()
+  run_html()
   #run_plot()
 
 

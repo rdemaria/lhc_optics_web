@@ -18,10 +18,14 @@ Option, -echo,warn,-info;
 
 
 ! Beam definition
-beam, sequence=lhcb1, bv= 1, energy= {{conf.nrj1}},  particle={{conf.part1}},
-  npart={{conf.np1}},kbunch={{conf.nb1}}, ex={{conf.emit1}},ey={{conf.emit1}};
-beam, sequence=lhcb2, bv=-1, energy= {{conf.nrj2}},  particle={{conf.part2}},
-  npart={{conf.np2}},kbunch={{conf.nb2}}, ex={{conf.emit2}},ey={{conf.emit2}};
+beam, sequence=lhcb1, bv= 1,
+  particle={{conf.part1}}, charge={{conf.charge1}}, mass={{conf.pmass1}},
+  energy= {{conf.nrj1}},   npart={{conf.np1}},kbunch={{conf.nb1}},
+  ex={{conf.emit1}},ey={{conf.emit1}};
+beam, sequence=lhcb2, bv=-1,
+  particle={{conf.part2}}, charge={{conf.charge2}}, mass={{conf.pmass2}},
+  energy= {{conf.nrj2}},   npart={{conf.np2}},kbunch={{conf.nb2}},
+  ex={{conf.emit2}},ey={{conf.emit2}};
 
 {% for line in conf.madx_beams %}
 {{line}}
@@ -32,14 +36,34 @@ beam, sequence=lhcb2, bv=-1, energy= {{conf.nrj2}},  particle={{conf.part2}},
 {{line}}
 {%- endfor %}
 
+nrj=beam%lhcb1->pc/beam%lhcb1->charge;
+
 ! Cycle
 seqedit,sequence=lhcb1;flatten;cycle,start=s.ds.l1.b1;endedit;
 seqedit,sequence=lhcb2;flatten;cycle,start=s.ds.l1.b2;endedit;
+
+! Twiss before customized knobs
+set,format="22.15e";
+select,flag=twiss,clear;
+select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dpy,mux,muy,x,y,px,py;
+{% for bim in ['b1','b2'] %}
+use, sequence=lhc{{bim}};
+twiss, file=result/twiss_ip{{bim}}_flat.tfs;
+{% endfor %}
 
 ! Knobs definitions
 {% for line in conf.madx_knobs %}
 {{line}}
 {%- endfor %}
+
+! Twiss with experiments turn off
+on_alice_aux=on_alice; on_lhcb_aux=on_lhcb; on_disp_aux=on_disp;
+on_alice=0; on_lhcb=0;
+{% for bim in ['b1','b2'] %}
+use, sequence=lhc{{bim}};
+twiss, file=result/twiss_ip{{bim}}_noexp.tfs;
+{% endfor %}
+on_alice=on_alice_aux; on_lhcb=on_lhcb_aux; on_disp=on_disp_aux;
 
 ! Twiss with experiments turn on
 set,format="22.15e";
@@ -53,9 +77,14 @@ select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dp
 ! Twiss
 set,format="22.15e";
 select,flag=twiss,clear;
-select,flag=twiss,column=name,keyword,parent,s,l,lrad,kick,hkick,vkick,angle,k0l,k1l,k2l,k3l,x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,kmax,kmin,calib,polarity,apertype;
+select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
+     s,l,lrad,kick,hkick,vkick,angle,
+     k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl,
+     x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,
+     apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol;
 {% for bim in ['b1','b2'] %}
   use, sequence=lhc{{bim}};
+  survey, file=result/survey_lhc{{bim}}.tfs;
   twiss, file=result/twiss_lhc{{bim}}.tfs;
 {% endfor %}
 

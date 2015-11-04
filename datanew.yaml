@@ -1,6 +1,9 @@
 scenario_list:
 - pprun1
 - opt2015
+- opt2015vdm
+- opt2015hb
+- opt2015ion
 - hllhc10
 - hllhc11
 hllhc10:
@@ -12,6 +15,7 @@ hllhc10:
     WP2 Optics pages.</a>
 
     '
+  npart_unit: 11
   conf_list:
   - inj
   - endoframp
@@ -149,6 +153,7 @@ hllhc11:
     WP2 Optics pages.</a>
 
     '
+  npart_unit: 11
   conf_list:
   - inj
   - endoframp
@@ -319,391 +324,8 @@ hllhc11:
       - call,file="slhc/opt_vdm30.madx";
       shortdesc: High Beta Optics at high energy.
       template: hllhc11_template
-opt2015:
-  label: LHC Run II protons
-  longdesc: Configuration LHC Run II protons.
-  shortdesc: Optics for LHC Run II protons for physics in 2015.
-  conf_list:
-  - inj
-  - inj_colltunes
-  - squeeze11000
-  - squeeze9000
-  - squeeze7000
-  - squeeze4000
-  - squeeze3000
-  - squeeze2500
-  - squeeze2000
-  - squeeze1500
-  - squeeze1200
-  - squeeze1000
-  - squeeze900
-  - squeeze800
-  - coll800
-  - squeeze700
-  - squeeze650
-  - squeeze600
-  - coll600
-  - squeeze550
-  - squeeze500
-  - squeeze450
-  - squeeze400
-  - coll400
-  - vdm12500
-  - vdm14500
-  - vdm17000
-  - vdm19000
-  - vdm21000
-  - vdm24000
-  - vdm24000_coll
-  - hb12600
-  - hb14500
-  - hb16700
-  - hb19200
-  - hb22000
-  - hb25000
-  - hb30000
-  - hb33000
-  - hb36000
-  - hb40000
-  - hb43000
-  - hb46000
-  - hb51000
-  - hb54000
-  - hb60000
-  - hb67000
-  - hb75000
-  - hb90000
-  - hb90000_coll
-  confs:
-    med_template:
-      madx_aperture:
-      - call, file="db5/aperture/aperture_as-built.b1.madx";
-      - call, file="db5/aperture/aperture_as-built.b2.madx";
-      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
-      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
-      - call, file="db5/aperture/exp_pipe_model_after_LS1.madx";
-      - call, file="db5/aperture/exp_pipe_install_after_LS1.madx";
-      madx_knobs: []
-      madx_links:
-        db5: /afs/cern.ch/eng/lhc/optics/runII/2015
-        db503: /afs/cern.ch/eng/lhc/optics/V6.503
-      madx_sequence:
-      - call, file="db5/aperture/const_for_aperture.madx";
-      - call, file="db5/lhc_as-built.seq";
-      settings:
-        beam1: [p, 6500, 1.2e11, 2748, 3.5e-06]
-        beam2: [p, 6500, 1.2e11, 2748, 3.5e-06]
-        exp: ['off','on','off','on']
-      template: med_template
-    inj:
-      label: Injection
-      shortdesc: LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.
-      madx_strengths:
-      - call, file="db5/opt_inj.madx";
-      settings:
-        beam1: [p, 450, 1.2e11, 2748, 3.5e-06]
-        beam2: [p, 450, 1.2e11, 2748, 3.5e-06]
-        exp: ['off','on','off','on']
-      template: med_template
-    inj_colltunes:
-      label: Injection (coll. tunes)
-      shortdesc: LHC Injection optics for 450 GeV with collision tunes.
-      madx_strengths:
-      - call, file="db5/opt_inj_colltunes.madx";
-      settings:
-        beam1: [p, 450, 1.2e11, 2748, 3.5e-06]
-        beam2: [p, 450, 1.2e11, 2748, 3.5e-06]
-        exp: ['off','on','off','on']
-      template: med_template
-    squeeze11000:
-      label: Squeeze (11m)
-      madx_strengths:
-      - call, file="db5/opt_11000_10000_11000_10000.madx";
-      shortdesc: LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.
-      template: med_template
-    squeeze9000:
-      label: Squeeze (9m)
-      madx_strengths:
-      - call, file="db5/opt_9000_10000_9000_9000.madx";
-      shortdesc: LHC squeeze optics (9m, 10m, 9m, 9m) for 6.5 TeV.
-      template: med_template
-    squeeze7000:
-      label: Squeeze (7m)
-      madx_strengths:
-      - call, file="db5/opt_7000_10000_7000_8000.madx";
-      shortdesc: LHC squeeze optics (7m, 10m, 7m, 8m) for 6.5 TeV.
-      template: med_template
-    squeeze4000:
-      label: Squeeze (4m)
-      madx_strengths:
-      - call, file="db5/opt_4000_10000_4000_7000.madx";
-      shortdesc: LHC squeeze optics (4m, 10m, 4m, 7m) for 6.5 TeV.
-      template: med_template
-    squeeze3000:
-      label: Squeeze (3m)
-      madx_strengths:
-      - call, file="db5/opt_3000_10000_3000_6000.madx";
-      shortdesc: LHC squeeze optics (3m, 10m, 3m, 6m) for 6.5 TeV.
-      template: med_template
-    squeeze2500:
-      label: Squeeze (2.5m)
-      madx_strengths:
-      - call, file="db5/opt_2500_10000_2500_5000.madx";
-      shortdesc: LHC squeeze optics (2.5m, 10m, 2.5m, 5m) for 6.5 TeV.
-      template: med_template
-    squeeze2000:
-      label: Squeeze (2m)
-      madx_strengths:
-      - call, file="db5/opt_2000_10000_2000_4000.madx";
-      shortdesc: LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.
-      template: med_template
-    squeeze1500:
-      label: Squeeze (1.5m)
-      madx_strengths:
-      - call, file="db5/opt_1500_10000_1500_3500.madx";
-      shortdesc: LHC squeeze optics (1.5m, 10m, 1.5m, 3.5m) for 6.5 TeV.
-      template: med_template
-    squeeze1200:
-      label: Squeeze (1.2m)
-      madx_strengths:
-      - call, file="db5/opt_1200_10000_1200_3250.madx";
-      shortdesc: LHC squeeze optics (1.2m, 10m, 1.2m, 3.25m) for 6.5 TeV.
-      template: med_template
-    squeeze1000:
-      label: Squeeze (1m)
-      madx_strengths:
-      - call, file="db5/opt_1000_10000_1000_3000.madx";
-      shortdesc: LHC squeeze optics (1m, 10m, 1m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze900:
-      label: Squeeze (0.9m)
-      madx_strengths:
-      - call, file="db5/opt_900_10000_900_3000.madx";
-      shortdesc: LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze800:
-      label: Squeeze (0.8m)
-      madx_strengths:
-      - call, file="db5/opt_800_10000_800_3000.madx";
-      shortdesc: LHC squeeze optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.
-      template: med_template
-    coll800:
-      label: Collision (0.8m)
-      madx_strengths:
-      - call, file="db5/opt_800_10000_800_3000_coll.madx";
-      shortdesc: LHC collision optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze700:
-      label: Squeeze (0.7m)
-      madx_strengths:
-      - call, file="db5/opt_700_10000_700_3000.madx";
-      shortdesc: LHC squeeze optics (0.7m, 10m, 0.7m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze650:
-      label: Squeeze (0.65m)
-      madx_strengths:
-      - call, file="db5/opt_650_10000_650_3000.madx";
-      shortdesc: LHC squeeze optics (0.65m, 10m, 0.65m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze600:
-      label: Squeeze (0.6m)
-      madx_strengths:
-      - call, file="db5/opt_600_10000_600_3000.madx";
-      shortdesc: LHC squeeze optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.
-      template: med_template
-    coll600:
-      label: Collision (0.6m)
-      madx_strengths:
-      - call, file="db5/opt_600_10000_600_3000_coll.madx";
-      shortdesc: LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze550:
-      label: Squeeze (0.55m)
-      madx_strengths:
-      - call, file="db5/opt_550_10000_550_3000.madx";
-      shortdesc: LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze500:
-      label: Squeeze (0.5m)
-      madx_strengths:
-      - call, file="db5/opt_500_10000_500_3000.madx";
-      shortdesc: LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze450:
-      label: Squeeze (0.45m)
-      madx_strengths:
-      - call, file="db5/opt_450_10000_450_3000.madx";
-      shortdesc: LHC squeeze optics (0.45m, 10m, 0.45m, 3m) for 6.5 TeV.
-      template: med_template
-    squeeze400:
-      label: Squeeze (0.4m)
-      madx_strengths:
-      - call, file="db5/opt_400_10000_400_3000.madx";
-      shortdesc: LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.
-      template: med_template
-    coll400:
-      label: Collision (0.4m)
-      madx_strengths:
-      - call, file="db5/opt_400_10000_400_3000_coll.madx";
-      shortdesc: LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.
-      template: med_template
-    vdm12500:
-      label: VDM (12.5m)
-      madx_strengths:
-      - call, file="db5/opt_12600_12500_12600_12500.madx";
-      shortdesc: LHC VDM in collision optics (12.6m, 12.5m, 12.6m, 12.5m) for 6.5 TeV.
-      template: med_template
-    vdm14500:
-      label: VDM (14.5m)
-      madx_strengths:
-      - call, file="db5/opt_14500_14500_14500_14500.madx";
-      shortdesc: LHC VDM in collision optics (14.5m, 14.5m, 14.5m, 14.5m) for 6.5 TeV.
-      template: med_template
-    vdm17000:
-      label: VDM (17m)
-      madx_strengths:
-      - call, file="db5/opt_16700_17000_16700_17000.madx";
-      shortdesc: LHC VDM in collision optics (16.7m, 17m, 16.7m, 17m) for 6.5 TeV.
-      template: med_template
-    vdm19000:
-      label: VDM (19m)
-      madx_strengths:
-      - call, file="db5/opt_19200_19000_19200_19000.madx";
-      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 19m) for 6.5 TeV.
-      template: med_template
-    vdm21000:
-      label: VDM (21m)
-      madx_strengths:
-      - call, file="db5/opt_19200_19000_19200_21000.madx";
-      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 21m) for 6.5 TeV.
-      template: med_template
-    vdm24000_coll:
-      label: VDM Coll. (24m)
-      madx_strengths:
-      - call, file="db5/opt_19200_19000_19200_24000_coll.madx";
-      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.
-      template: med_template
-    vdm24000:
-      label: VDM (24m)
-      madx_strengths:
-      - call, file="db5/opt_19200_19000_19200_24000.madx";
-      shortdesc: LHC VDM optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.
-      template: med_template
-    hb12600:
-      label: Hibeta (12.6m)
-      madx_strengths:
-      - call, file="db5/opt_12600_10000_12600_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (12.6m, 10m, 12.6m, 10m) for 6.5 TeV.
-      template: med_template
-    hb14500:
-      label: Hibeta (14.5m)
-      madx_strengths:
-      - call, file="db5/opt_14500_10000_14500_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (14.5m, 10m, 14.5m, 10m) for 6.5 TeV.
-      template: med_template
-    hb16700:
-      label: Hibeta (16.7m)
-      madx_strengths:
-      - call, file="db5/opt_16700_10000_16700_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (16.7m, 10m, 16.7m, 10m) for 6.5 TeV.
-      template: med_template
-    hb19200:
-      label: Hibeta (19.2m)
-      madx_strengths:
-      - call, file="db5/opt_19200_10000_19200_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (19.2m, 10m, 19.2m, 10m) for 6.5 TeV.
-      template: med_template
-    hb22000:
-      label: Hibeta (22m)
-      madx_strengths:
-      - call, file="db5/opt_22000_10000_22000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (22m, 10m, 22m, 10m) for 6.5 TeV.
-      template: med_template
-    hb25000:
-      label: Hibeta (25m)
-      madx_strengths:
-      - call, file="db5/opt_25000_10000_25000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (25m, 10m, 25m, 10m) for 6.5 TeV.
-      template: med_template
-    hb30000:
-      label: Hibeta (30m)
-      madx_strengths:
-      - call, file="db5/opt_30000_10000_30000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (30m, 10m, 30m, 10m) for 6.5 TeV.
-      template: med_template
-    hb33000:
-      label: Hibeta (33m)
-      madx_strengths:
-      - call, file="db5/opt_33000_10000_33000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (33m, 10m, 33m, 10m) for 6.5 TeV.
-      template: med_template
-    hb36000:
-      label: Hibeta (36m)
-      madx_strengths:
-      - call, file="db5/opt_36000_10000_36000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (36m, 10m, 36m, 10m) for 6.5 TeV.
-      template: med_template
-    hb40000:
-      label: Hibeta (40m)
-      madx_strengths:
-      - call, file="db5/opt_40000_10000_40000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (40m, 10m, 40m, 10m) for 6.5 TeV.
-      template: med_template
-    hb43000:
-      label: Hibeta (43m)
-      madx_strengths:
-      - call, file="db5/opt_43000_10000_43000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (43m, 10m, 43m, 10m) for 6.5 TeV.
-      template: med_template
-    hb46000:
-      label: Hibeta (46m)
-      madx_strengths:
-      - call, file="db5/opt_46000_10000_46000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (46m, 10m, 46m, 10m) for 6.5 TeV.
-      template: med_template
-    hb51000:
-      label: Hibeta (51m)
-      madx_strengths:
-      - call, file="db5/opt_51000_10000_51000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (51m, 10m, 51m, 10m) for 6.5 TeV.
-      template: med_template
-    hb54000:
-      label: Hibeta (54m)
-      madx_strengths:
-      - call, file="db5/opt_54000_10000_54000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (54m, 10m, 54m, 10m) for 6.5 TeV.
-      template: med_template
-    hb60000:
-      label: Hibeta (60m)
-      madx_strengths:
-      - call, file="db5/opt_60000_10000_60000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (60m, 10m, 60m, 10m) for 6.5 TeV.
-      template: med_template
-    hb67000:
-      label: Hibeta (67m)
-      madx_strengths:
-      - call, file="db5/opt_67000_10000_67000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (67m, 10m, 67m, 10m) for 6.5 TeV.
-      template: med_template
-    hb75000:
-      label: Hibeta (75m)
-      madx_strengths:
-      - call, file="db5/opt_75000_10000_75000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (75m, 10m, 75m, 10m) for 6.5 TeV.
-      template: med_template
-    hb90000:
-      label: Hibeta (90m)
-      madx_strengths:
-      - call, file="db5/opt_90000_10000_90000_10000_hibeta.madx";
-      shortdesc: LHC High Beta optics (90m, 10m, 90m, 10m) for 6.5 TeV.
-      template: med_template
-    hb90000_coll:
-      label: Hibeta Coll (90m)
-      madx_strengths:
-      - call, file="db5/opt_90000_10000_90000_10000_hibeta_coll.madx";
-      shortdesc: LHC High Beta in collision optics (90m, 10m, 90m, 10m) for 6.5 TeV.
-      template: med_template
 opt_med:
+  npart_unit: 11
   conf_list:
   - inj
   - inj_colltunes
@@ -840,6 +462,7 @@ pprun1:
     positive or negative polarity. References <a href="https://edms.cern.ch/file/1059898/3/LHC-OP-ES-0020-rev3.pdf">
     LHC-OP-ES-0020 rev. 3 </a>
   shortdesc: Optics for LHC Run I protons for physics in 2011-2012.
+  npart_unit: 11
   conf_list:
   - inj_flat
   - inj_flat_spec
@@ -1367,3 +990,647 @@ pprun1:
       - call,file="db5/IR5/new_ip5_b2_squeeze/IP5_beta_1.50m.str";
       shortdesc: Squeeze Step 9 at 4.0 TeV physics program.
       template: v6503_template
+opt2015:
+  label: LHC Run II pp physics
+  longdesc: Configuration LHC Run II cycle for physics with pp at 6.5 TeV.
+  shortdesc: Optics for LHC Run II protons for physics in 2015.
+  npart_unit: 11
+  conf_list:
+  - inj
+  - inj_colltunes
+  - squeeze11000
+  - squeeze9000
+  - squeeze7000
+  - squeeze4000
+  - squeeze3000
+  - squeeze2500
+  - squeeze2000
+  - squeeze1500
+  - squeeze1200
+  - squeeze1000
+  - squeeze900
+  - squeeze800
+  - coll800
+  - squeeze700
+  - squeeze650
+  - squeeze600
+  - coll600
+  - squeeze550
+  - squeeze500
+  - squeeze450
+  - squeeze400
+  - coll400
+  confs:
+    med_template:
+      madx_aperture:
+      - call, file="db5/aperture/aperture_as-built.b1.madx";
+      - call, file="db5/aperture/aperture_as-built.b2.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
+      - call, file="db5/aperture/exp_pipe_model_after_LS1.madx";
+      - call, file="db5/aperture/exp_pipe_install_after_LS1.madx";
+      madx_knobs: []
+      madx_links:
+        db5: /afs/cern.ch/eng/lhc/optics/runII/2015
+        db503: /afs/cern.ch/eng/lhc/optics/V6.503
+      madx_sequence:
+      - call, file="db5/aperture/const_for_aperture.madx";
+      - call, file="db5/lhc_as-built.seq";
+      settings:
+        beam1: [p, 6500, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj:
+      label: Injection
+      shortdesc: LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.
+      madx_strengths:
+      - call, file="db5/opt_inj.madx";
+      settings:
+        beam1: [p, 450, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 450, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj_colltunes:
+      label: Injection (coll. tunes)
+      shortdesc: LHC Injection optics for 450 GeV with collision tunes.
+      madx_strengths:
+      - call, file="db5/opt_inj_colltunes.madx";
+      settings:
+        beam1: [p, 450, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 450, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    squeeze11000:
+      label: Squeeze (11m)
+      madx_strengths:
+      - call, file="db5/opt_11000_10000_11000_10000.madx";
+      shortdesc: LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.
+      template: med_template
+    squeeze9000:
+      label: Squeeze (9m)
+      madx_strengths:
+      - call, file="db5/opt_9000_10000_9000_9000.madx";
+      shortdesc: LHC squeeze optics (9m, 10m, 9m, 9m) for 6.5 TeV.
+      template: med_template
+    squeeze7000:
+      label: Squeeze (7m)
+      madx_strengths:
+      - call, file="db5/opt_7000_10000_7000_8000.madx";
+      shortdesc: LHC squeeze optics (7m, 10m, 7m, 8m) for 6.5 TeV.
+      template: med_template
+    squeeze4000:
+      label: Squeeze (4m)
+      madx_strengths:
+      - call, file="db5/opt_4000_10000_4000_7000.madx";
+      shortdesc: LHC squeeze optics (4m, 10m, 4m, 7m) for 6.5 TeV.
+      template: med_template
+    squeeze3000:
+      label: Squeeze (3m)
+      madx_strengths:
+      - call, file="db5/opt_3000_10000_3000_6000.madx";
+      shortdesc: LHC squeeze optics (3m, 10m, 3m, 6m) for 6.5 TeV.
+      template: med_template
+    squeeze2500:
+      label: Squeeze (2.5m)
+      madx_strengths:
+      - call, file="db5/opt_2500_10000_2500_5000.madx";
+      shortdesc: LHC squeeze optics (2.5m, 10m, 2.5m, 5m) for 6.5 TeV.
+      template: med_template
+    squeeze2000:
+      label: Squeeze (2m)
+      madx_strengths:
+      - call, file="db5/opt_2000_10000_2000_4000.madx";
+      shortdesc: LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.
+      template: med_template
+    squeeze1500:
+      label: Squeeze (1.5m)
+      madx_strengths:
+      - call, file="db5/opt_1500_10000_1500_3500.madx";
+      shortdesc: LHC squeeze optics (1.5m, 10m, 1.5m, 3.5m) for 6.5 TeV.
+      template: med_template
+    squeeze1200:
+      label: Squeeze (1.2m)
+      madx_strengths:
+      - call, file="db5/opt_1200_10000_1200_3250.madx";
+      shortdesc: LHC squeeze optics (1.2m, 10m, 1.2m, 3.25m) for 6.5 TeV.
+      template: med_template
+    squeeze1000:
+      label: Squeeze (1m)
+      madx_strengths:
+      - call, file="db5/opt_1000_10000_1000_3000.madx";
+      shortdesc: LHC squeeze optics (1m, 10m, 1m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze900:
+      label: Squeeze (0.9m)
+      madx_strengths:
+      - call, file="db5/opt_900_10000_900_3000.madx";
+      shortdesc: LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze800:
+      label: Squeeze (0.8m)
+      madx_strengths:
+      - call, file="db5/opt_800_10000_800_3000.madx";
+      shortdesc: LHC squeeze optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.
+      template: med_template
+    coll800:
+      label: Collision (0.8m)
+      madx_strengths:
+      - call, file="db5/opt_800_10000_800_3000_coll.madx";
+      shortdesc: LHC collision optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze700:
+      label: Squeeze (0.7m)
+      madx_strengths:
+      - call, file="db5/opt_700_10000_700_3000.madx";
+      shortdesc: LHC squeeze optics (0.7m, 10m, 0.7m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze650:
+      label: Squeeze (0.65m)
+      madx_strengths:
+      - call, file="db5/opt_650_10000_650_3000.madx";
+      shortdesc: LHC squeeze optics (0.65m, 10m, 0.65m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze600:
+      label: Squeeze (0.6m)
+      madx_strengths:
+      - call, file="db5/opt_600_10000_600_3000.madx";
+      shortdesc: LHC squeeze optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.
+      template: med_template
+    coll600:
+      label: Collision (0.6m)
+      madx_strengths:
+      - call, file="db5/opt_600_10000_600_3000_coll.madx";
+      shortdesc: LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze550:
+      label: Squeeze (0.55m)
+      madx_strengths:
+      - call, file="db5/opt_550_10000_550_3000.madx";
+      shortdesc: LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze500:
+      label: Squeeze (0.5m)
+      madx_strengths:
+      - call, file="db5/opt_500_10000_500_3000.madx";
+      shortdesc: LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze450:
+      label: Squeeze (0.45m)
+      madx_strengths:
+      - call, file="db5/opt_450_10000_450_3000.madx";
+      shortdesc: LHC squeeze optics (0.45m, 10m, 0.45m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze400:
+      label: Squeeze (0.4m)
+      madx_strengths:
+      - call, file="db5/opt_400_10000_400_3000.madx";
+      shortdesc: LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.
+      template: med_template
+    coll400:
+      label: Collision (0.4m)
+      madx_strengths:
+      - call, file="db5/opt_400_10000_400_3000_coll.madx";
+      shortdesc: LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.
+      template: med_template
+opt2015vdm:
+  label: LHC Run II pp VDM
+  longdesc: Configuration LHC Run II protons, Van Der Mer scans.
+  shortdesc: Optics for LHC Run II protons for Van Der Mer scans in 2015.
+  npart_unit: 11
+  conf_list:
+  - inj
+  - inj_colltunes
+  - squeeze11000
+  - vdm12500
+  - vdm14500
+  - vdm17000
+  - vdm19000
+  - vdm21000
+  - vdm24000
+  - vdm24000_coll
+  confs:
+    med_template:
+      madx_aperture:
+      - call, file="db5/aperture/aperture_as-built.b1.madx";
+      - call, file="db5/aperture/aperture_as-built.b2.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
+      - call, file="db5/aperture/exp_pipe_model_after_LS1.madx";
+      - call, file="db5/aperture/exp_pipe_install_after_LS1.madx";
+      madx_knobs: []
+      madx_links:
+        db5: /afs/cern.ch/eng/lhc/optics/runII/2015
+        db503: /afs/cern.ch/eng/lhc/optics/V6.503
+      madx_sequence:
+      - call, file="db5/aperture/const_for_aperture.madx";
+      - call, file="db5/lhc_as-built.seq";
+      settings:
+        beam1: [p, 6500, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj:
+      label: Injection
+      shortdesc: LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.
+      madx_strengths:
+      - call, file="db5/opt_inj.madx";
+      settings:
+        beam1: [p, 450, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 450, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj_colltunes:
+      label: Injection (coll. tunes)
+      shortdesc: LHC Injection optics for 450 GeV with collision tunes.
+      madx_strengths:
+      - call, file="db5/opt_inj_colltunes.madx";
+      settings:
+        beam1: [p, 450, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 450, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    squeeze11000:
+      label: Squeeze (11m)
+      madx_strengths:
+      - call, file="db5/opt_11000_10000_11000_10000.madx";
+      shortdesc: LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.
+      template: med_template
+    vdm12500:
+      label: VDM (12.5m)
+      madx_strengths:
+      - call, file="db5/opt_12600_12500_12600_12500.madx";
+      shortdesc: LHC VDM in collision optics (12.6m, 12.5m, 12.6m, 12.5m) for 6.5 TeV.
+      template: med_template
+    vdm14500:
+      label: VDM (14.5m)
+      madx_strengths:
+      - call, file="db5/opt_14500_14500_14500_14500.madx";
+      shortdesc: LHC VDM in collision optics (14.5m, 14.5m, 14.5m, 14.5m) for 6.5 TeV.
+      template: med_template
+    vdm17000:
+      label: VDM (17m)
+      madx_strengths:
+      - call, file="db5/opt_16700_17000_16700_17000.madx";
+      shortdesc: LHC VDM in collision optics (16.7m, 17m, 16.7m, 17m) for 6.5 TeV.
+      template: med_template
+    vdm19000:
+      label: VDM (19m)
+      madx_strengths:
+      - call, file="db5/opt_19200_19000_19200_19000.madx";
+      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 19m) for 6.5 TeV.
+      template: med_template
+    vdm21000:
+      label: VDM (21m)
+      madx_strengths:
+      - call, file="db5/opt_19200_19000_19200_21000.madx";
+      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 21m) for 6.5 TeV.
+      template: med_template
+    vdm24000_coll:
+      label: VDM Coll. (24m)
+      madx_strengths:
+      - call, file="db5/opt_19200_19000_19200_24000_coll.madx";
+      shortdesc: LHC VDM in collision optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.
+      template: med_template
+    vdm24000:
+      label: VDM (24m)
+      madx_strengths:
+      - call, file="db5/opt_19200_19000_19200_24000.madx";
+      shortdesc: LHC VDM optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.
+      template: med_template
+opt2015hb:
+  label: LHC Run II pp HighBeta
+  longdesc: Configuration LHC Run II protons, High Beta physics.
+  shortdesc: Optics for LHC Run II protons for High Beta physics in 2015.
+  npart_unit: 11
+  conf_list:
+  - inj
+  - inj_colltunes
+  - squeeze11000
+  - hb12600
+  - hb14500
+  - hb16700
+  - hb19200
+  - hb22000
+  - hb25000
+  - hb30000
+  - hb33000
+  - hb36000
+  - hb40000
+  - hb43000
+  - hb46000
+  - hb51000
+  - hb54000
+  - hb60000
+  - hb67000
+  - hb75000
+  - hb90000
+  - hb90000_coll
+  confs:
+    med_template:
+      madx_aperture:
+      - call, file="db5/aperture/aperture_as-built.b1.madx";
+      - call, file="db5/aperture/aperture_as-built.b2.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
+      - call, file="db5/aperture/exp_pipe_model_after_LS1.madx";
+      - call, file="db5/aperture/exp_pipe_install_after_LS1.madx";
+      madx_knobs: []
+      madx_links:
+        db5: /afs/cern.ch/eng/lhc/optics/runII/2015
+        db503: /afs/cern.ch/eng/lhc/optics/V6.503
+      madx_sequence:
+      - call, file="db5/aperture/const_for_aperture.madx";
+      - call, file="db5/lhc_as-built.seq";
+      settings:
+        beam1: [p, 6500, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj:
+      label: Injection
+      shortdesc: LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.
+      madx_strengths:
+      - call, file="db5/opt_inj.madx";
+      settings:
+        beam1: [p, 450, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 450, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj_colltunes:
+      label: Injection (coll. tunes)
+      shortdesc: LHC Injection optics for 450 GeV with collision tunes.
+      madx_strengths:
+      - call, file="db5/opt_inj_colltunes.madx";
+      settings:
+        beam1: [p, 450, 1.2e11, 2748, 3.5e-06]
+        beam2: [p, 450, 1.2e11, 2748, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    squeeze11000:
+      label: Squeeze (11m)
+      madx_strengths:
+      - call, file="db5/opt_11000_10000_11000_10000.madx";
+      shortdesc: LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.
+      template: med_template
+    hb12600:
+      label: Hibeta (12.6m)
+      madx_strengths:
+      - call, file="db5/opt_12600_10000_12600_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (12.6m, 10m, 12.6m, 10m) for 6.5 TeV.
+      template: med_template
+    hb14500:
+      label: Hibeta (14.5m)
+      madx_strengths:
+      - call, file="db5/opt_14500_10000_14500_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (14.5m, 10m, 14.5m, 10m) for 6.5 TeV.
+      template: med_template
+    hb16700:
+      label: Hibeta (16.7m)
+      madx_strengths:
+      - call, file="db5/opt_16700_10000_16700_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (16.7m, 10m, 16.7m, 10m) for 6.5 TeV.
+      template: med_template
+    hb19200:
+      label: Hibeta (19.2m)
+      madx_strengths:
+      - call, file="db5/opt_19200_10000_19200_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (19.2m, 10m, 19.2m, 10m) for 6.5 TeV.
+      template: med_template
+    hb22000:
+      label: Hibeta (22m)
+      madx_strengths:
+      - call, file="db5/opt_22000_10000_22000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (22m, 10m, 22m, 10m) for 6.5 TeV.
+      template: med_template
+    hb25000:
+      label: Hibeta (25m)
+      madx_strengths:
+      - call, file="db5/opt_25000_10000_25000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (25m, 10m, 25m, 10m) for 6.5 TeV.
+      template: med_template
+    hb30000:
+      label: Hibeta (30m)
+      madx_strengths:
+      - call, file="db5/opt_30000_10000_30000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (30m, 10m, 30m, 10m) for 6.5 TeV.
+      template: med_template
+    hb33000:
+      label: Hibeta (33m)
+      madx_strengths:
+      - call, file="db5/opt_33000_10000_33000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (33m, 10m, 33m, 10m) for 6.5 TeV.
+      template: med_template
+    hb36000:
+      label: Hibeta (36m)
+      madx_strengths:
+      - call, file="db5/opt_36000_10000_36000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (36m, 10m, 36m, 10m) for 6.5 TeV.
+      template: med_template
+    hb40000:
+      label: Hibeta (40m)
+      madx_strengths:
+      - call, file="db5/opt_40000_10000_40000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (40m, 10m, 40m, 10m) for 6.5 TeV.
+      template: med_template
+    hb43000:
+      label: Hibeta (43m)
+      madx_strengths:
+      - call, file="db5/opt_43000_10000_43000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (43m, 10m, 43m, 10m) for 6.5 TeV.
+      template: med_template
+    hb46000:
+      label: Hibeta (46m)
+      madx_strengths:
+      - call, file="db5/opt_46000_10000_46000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (46m, 10m, 46m, 10m) for 6.5 TeV.
+      template: med_template
+    hb51000:
+      label: Hibeta (51m)
+      madx_strengths:
+      - call, file="db5/opt_51000_10000_51000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (51m, 10m, 51m, 10m) for 6.5 TeV.
+      template: med_template
+    hb54000:
+      label: Hibeta (54m)
+      madx_strengths:
+      - call, file="db5/opt_54000_10000_54000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (54m, 10m, 54m, 10m) for 6.5 TeV.
+      template: med_template
+    hb60000:
+      label: Hibeta (60m)
+      madx_strengths:
+      - call, file="db5/opt_60000_10000_60000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (60m, 10m, 60m, 10m) for 6.5 TeV.
+      template: med_template
+    hb67000:
+      label: Hibeta (67m)
+      madx_strengths:
+      - call, file="db5/opt_67000_10000_67000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (67m, 10m, 67m, 10m) for 6.5 TeV.
+      template: med_template
+    hb75000:
+      label: Hibeta (75m)
+      madx_strengths:
+      - call, file="db5/opt_75000_10000_75000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (75m, 10m, 75m, 10m) for 6.5 TeV.
+      template: med_template
+    hb90000:
+      label: Hibeta (90m)
+      madx_strengths:
+      - call, file="db5/opt_90000_10000_90000_10000_hibeta.madx";
+      shortdesc: LHC High Beta optics (90m, 10m, 90m, 10m) for 6.5 TeV.
+      template: med_template
+    hb90000_coll:
+      label: Hibeta Coll (90m)
+      madx_strengths:
+      - call, file="db5/opt_90000_10000_90000_10000_hibeta_coll.madx";
+      shortdesc: LHC High Beta in collision optics (90m, 10m, 90m, 10m) for 6.5 TeV.
+      template: med_template
+opt2015ion:
+  label: LHC Run II PbPb physics
+  longdesc: Configuration LHC Run II cycle for physics with PbPb.
+  shortdesc: Optics for LHC Run II PbPb for physics in 2015.
+  npart_unit: 7
+  conf_list:
+  - inj
+  - inj_colltunes
+  - squeeze10000
+  - squeeze8000
+  - squeeze7600
+  - squeeze7200
+  - squeeze4500
+  - squeeze3500
+  - squeeze2500
+  - squeeze1800
+  - squeeze1400
+  - squeeze1200
+  - squeeze1000
+  - squeeze900
+  - squeeze800
+  - coll800
+  confs:
+    med_template:
+      madx_aperture:
+      - call, file="db5/aperture/aperture_as-built.b1.madx";
+      - call, file="db5/aperture/aperture_as-built.b2.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
+      - call, file="db5/aperture/exp_pipe_model_after_LS1.madx";
+      - call, file="db5/aperture/exp_pipe_install_after_LS1.madx";
+      madx_knobs: []
+      madx_links:
+        db5: /afs/cern.ch/eng/lhc/optics/runII/2015
+        db503: /afs/cern.ch/eng/lhc/optics/V6.503
+      madx_sequence:
+      - call, file="db5/aperture/const_for_aperture.madx";
+      - call, file="db5/lhc_as-built.seq";
+      settings:
+        beam1: [Pb, 522340., 7e7, 420, 1.233e-06]
+        beam2: [Pb, 522340., 7e7, 420, 1.233e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj:
+      label: Injection
+      shortdesc: LHC Injection optics with injection tunes obtained by an MQT trim.
+      madx_strengths:
+      - call, file="db5/opt_inj.madx";
+      settings:
+        beam1: [Pb, 36900., 7e7, 420, 1.233e-06]
+        beam2: [Pb, 36900., 7e7, 420, 1.233e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj_colltunes:
+      label: Injection (coll. tunes)
+      shortdesc: LHC Injection optics with collision tunes.
+      madx_strengths:
+      - call, file="db5/opt_inj_colltunes.madx";
+      settings:
+        beam1: [Pb, 36900., 7e7, 420, 1.233e-06]
+        beam2: [Pb, 36900., 7e7, 420, 1.233e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    squeeze10000:
+      label: Squeeze (10m)
+      madx_strengths:
+      - call, file="db5/opt_11000_10000_11000_10000_ion.madx";
+      shortdesc: LHC squeeze optics (11m, 10m, 11m, 10m).
+      template: med_template
+    squeeze8000:
+      label: Squeeze (8m)
+      madx_strengths:
+      - call, file="db5/opt_11000_8000_11000_10000_ion.madx";
+      shortdesc: LHC squeeze optics (11m, 8m, 11m, 10m).
+      template: med_template
+    squeeze7600:
+      label: Squeeze (7.6m)
+      madx_strengths:
+      - call, file="db5/opt_9000_7600_9000_9000_ion.madx";
+      shortdesc: LHC squeeze optics (9m, 7.6m, 9m, 9m).
+      template: med_template
+    squeeze7200:
+      label: Squeeze (7.2m)
+      madx_strengths:
+      - call, file="db5/opt_7000_7200_7000_8000_ion.madx";
+      shortdesc: LHC squeeze optics (7m, 7.2m, 7m, 8m).
+      template: med_template
+    squeeze4500:
+      label: Squeeze (4.5m)
+      madx_strengths:
+      - call, file="db5/opt_4000_4500_4000_7000_ion.madx";
+      shortdesc: LHC squeeze optics (4m, 4.5m, 4m, 7m).
+      template: med_template
+    squeeze3500:
+      label: Squeeze (3.5m)
+      madx_strengths:
+      - call, file="db5/opt_3000_3500_3000_6000_ion.madx";
+      shortdesc: LHC squeeze optics (3m, 3.5m, 3m, 6m).
+      template: med_template
+    squeeze2500:
+      label: Squeeze (2.5m)
+      madx_strengths:
+      - call, file="db5/opt_2500_2500_2500_5000_ion.madx";
+      shortdesc: LHC squeeze optics (2.5m, 2.5m, 2.5m, 5m).
+      template: med_template
+    squeeze1800:
+      label: Squeeze (1.8m)
+      madx_strengths:
+      - call, file="db5/opt_2000_1800_2000_4000_ion.madx";
+      shortdesc: LHC squeeze optics (2m, 1.8m, 2m, 4m).
+      template: med_template
+    squeeze1400:
+      label: Squeeze (1.4m)
+      madx_strengths:
+      - call, file="db5/opt_1500_1400_1500_3500_ion.madx";
+      shortdesc: LHC squeeze optics (1.5m, 1.4m, 1.5m, 3.5m).
+      template: med_template
+    squeeze1200:
+      label: Squeeze (1.2m)
+      madx_strengths:
+      - call, file="db5/opt_1200_1200_1200_3250_ion.madx";
+      shortdesc: LHC squeeze optics (1.2m, 1.2m, 1.2m, 3.25m).
+      template: med_template
+    squeeze1000:
+      label: Squeeze (1m)
+      madx_strengths:
+      - call, file="db5/opt_1000_1000_1000_3000_ion.madx";
+      shortdesc: LHC squeeze optics (1m, 1m, 1m, 3m).
+      template: med_template
+    squeeze900:
+      label: Squeeze (0.9m)
+      madx_strengths:
+      - call, file="db5/opt_900_900_900_3000_ion.madx";
+      shortdesc: LHC squeeze optics (0.9m, 0.9m, 0.9m, 3m).
+      template: med_template
+    squeeze800:
+      label: Squeeze (0.8m)
+      madx_strengths:
+      - call, file="db5/opt_800_800_800_3000_ion.madx";
+      shortdesc: LHC squeeze optics (0.8m, 0.8m, 0.8m, 3m).
+      template: med_template
+    coll800:
+      label: Collision (0.8m)
+      madx_strengths:
+      - call, file="db5/opt_800_10000_800_3000_ion_coll.madx";
+      shortdesc: LHC collision optics (0.8m, 0.8m, 0.8m, 3m).
+      template: med_template

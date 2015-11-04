@@ -1,35 +1,5 @@
 {
- "scenario_list": [
-  "pprun1", 
-  "opt2015", 
-  "hllhc10", 
-  "hllhc11"
- ], 
  "pprun1": {
-  "shortdesc": "Optics for LHC Run I protons for physics in 2011-2012.", 
-  "conf_list": [
-   "inj_flat", 
-   "inj_flat_spec", 
-   "inj", 
-   "squeeze1", 
-   "squeeze2", 
-   "squeeze3", 
-   "squeeze4", 
-   "squeeze5", 
-   "squeeze6", 
-   "squeeze7", 
-   "squeeze8", 
-   "squeeze9", 
-   "squeeze10", 
-   "squeeze11", 
-   "squeeze12", 
-   "squeeze13", 
-   "squeeze14", 
-   "endofsqueeze_4tev", 
-   "coll_4tev"
-  ], 
-  "label": "LHC Run I protons", 
-  "longdesc": "Configuration LHC Run 1 protons. The spectrometer can be powered with positive or negative polarity. References <a href=\"https://edms.cern.ch/file/1059898/3/LHC-OP-ES-0020-rev3.pdf\"> LHC-OP-ES-0020 rev. 3 </a>", 
   "confs": {
    "squeeze10": {
     "shortdesc": "Squeeze Step 10 at 4.0 TeV physics program.", 
@@ -668,65 +638,43 @@
     "template": "v6503_template", 
     "label": "Collision 4TeV"
    }
-  }
+  }, 
+  "shortdesc": "Optics for LHC Run I protons for physics in 2011-2012.", 
+  "conf_list": [
+   "inj_flat", 
+   "inj_flat_spec", 
+   "inj", 
+   "squeeze1", 
+   "squeeze2", 
+   "squeeze3", 
+   "squeeze4", 
+   "squeeze5", 
+   "squeeze6", 
+   "squeeze7", 
+   "squeeze8", 
+   "squeeze9", 
+   "squeeze10", 
+   "squeeze11", 
+   "squeeze12", 
+   "squeeze13", 
+   "squeeze14", 
+   "endofsqueeze_4tev", 
+   "coll_4tev"
+  ], 
+  "npart_unit": 11, 
+  "longdesc": "Configuration LHC Run 1 protons. The spectrometer can be powered with positive or negative polarity. References <a href=\"https://edms.cern.ch/file/1059898/3/LHC-OP-ES-0020-rev3.pdf\"> LHC-OP-ES-0020 rev. 3 </a>", 
+  "label": "LHC Run I protons"
  }, 
  "opt2015": {
-  "shortdesc": "Optics for LHC Run II protons for physics in 2015.", 
-  "conf_list": [
-   "inj", 
-   "inj_colltunes", 
-   "squeeze11000", 
-   "squeeze9000", 
-   "squeeze7000", 
-   "squeeze4000", 
-   "squeeze3000", 
-   "squeeze2500", 
-   "squeeze2000", 
-   "squeeze1500", 
-   "squeeze1200", 
-   "squeeze1000", 
-   "squeeze900", 
-   "squeeze800", 
-   "coll800", 
-   "squeeze700", 
-   "squeeze650", 
-   "squeeze600", 
-   "coll600", 
-   "squeeze550", 
-   "squeeze500", 
-   "squeeze450", 
-   "squeeze400", 
-   "coll400", 
-   "vdm12500", 
-   "vdm14500", 
-   "vdm17000", 
-   "vdm19000", 
-   "vdm21000", 
-   "vdm24000", 
-   "vdm24000_coll", 
-   "hb12600", 
-   "hb14500", 
-   "hb16700", 
-   "hb19200", 
-   "hb22000", 
-   "hb25000", 
-   "hb30000", 
-   "hb33000", 
-   "hb36000", 
-   "hb40000", 
-   "hb43000", 
-   "hb46000", 
-   "hb51000", 
-   "hb54000", 
-   "hb60000", 
-   "hb67000", 
-   "hb75000", 
-   "hb90000", 
-   "hb90000_coll"
-  ], 
-  "label": "LHC Run II protons", 
-  "longdesc": "Configuration LHC Run II protons.", 
   "confs": {
+   "coll400": {
+    "shortdesc": "LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_400_10000_400_3000_coll.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Collision (0.4m)"
+   }, 
    "squeeze650": {
     "shortdesc": "LHC squeeze optics (0.65m, 10m, 0.65m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
@@ -734,6 +682,14 @@
     ], 
     "template": "med_template", 
     "label": "Squeeze (0.65m)"
+   }, 
+   "squeeze9000": {
+    "shortdesc": "LHC squeeze optics (9m, 10m, 9m, 9m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_9000_10000_9000_9000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (9m)"
    }, 
    "squeeze450": {
     "shortdesc": "LHC squeeze optics (0.45m, 10m, 0.45m, 3m) for 6.5 TeV.", 
@@ -759,13 +715,13 @@
     "template": "med_template", 
     "label": "Squeeze (1.5m)"
    }, 
-   "hb25000": {
-    "shortdesc": "LHC High Beta optics (25m, 10m, 25m, 10m) for 6.5 TeV.", 
+   "squeeze400": {
+    "shortdesc": "LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_25000_10000_25000_10000_hibeta.madx\";"
+     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
     ], 
     "template": "med_template", 
-    "label": "Hibeta (25m)"
+    "label": "Squeeze (0.4m)"
    }, 
    "squeeze1200": {
     "shortdesc": "LHC squeeze optics (1.2m, 10m, 1.2m, 3.25m) for 6.5 TeV.", 
@@ -817,21 +773,21 @@
      "db5": "/afs/cern.ch/eng/lhc/optics/runII/2015"
     }
    }, 
-   "hb54000": {
-    "shortdesc": "LHC High Beta optics (54m, 10m, 54m, 10m) for 6.5 TeV.", 
+   "squeeze550": {
+    "shortdesc": "LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_54000_10000_54000_10000_hibeta.madx\";"
+     "call, file=\"db5/opt_550_10000_550_3000.madx\";"
     ], 
     "template": "med_template", 
-    "label": "Hibeta (54m)"
+    "label": "Squeeze (0.55m)"
    }, 
-   "hb67000": {
-    "shortdesc": "LHC High Beta optics (67m, 10m, 67m, 10m) for 6.5 TeV.", 
+   "squeeze500": {
+    "shortdesc": "LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_67000_10000_67000_10000_hibeta.madx\";"
+     "call, file=\"db5/opt_500_10000_500_3000.madx\";"
     ], 
     "template": "med_template", 
-    "label": "Hibeta (67m)"
+    "label": "Squeeze (0.5m)"
    }, 
    "squeeze2500": {
     "shortdesc": "LHC squeeze optics (2.5m, 10m, 2.5m, 5m) for 6.5 TeV.", 
@@ -849,45 +805,21 @@
     "template": "med_template", 
     "label": "Squeeze (11m)"
    }, 
-   "hb51000": {
-    "shortdesc": "LHC High Beta optics (51m, 10m, 51m, 10m) for 6.5 TeV.", 
+   "squeeze2000": {
+    "shortdesc": "LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_51000_10000_51000_10000_hibeta.madx\";"
+     "call, file=\"db5/opt_2000_10000_2000_4000.madx\";"
     ], 
     "template": "med_template", 
-    "label": "Hibeta (51m)"
+    "label": "Squeeze (2m)"
    }, 
-   "hb14500": {
-    "shortdesc": "LHC High Beta optics (14.5m, 10m, 14.5m, 10m) for 6.5 TeV.", 
+   "squeeze900": {
+    "shortdesc": "LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_14500_10000_14500_10000_hibeta.madx\";"
+     "call, file=\"db5/opt_900_10000_900_3000.madx\";"
     ], 
     "template": "med_template", 
-    "label": "Hibeta (14.5m)"
-   }, 
-   "squeeze4000": {
-    "shortdesc": "LHC squeeze optics (4m, 10m, 4m, 7m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_4000_10000_4000_7000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (4m)"
-   }, 
-   "hb40000": {
-    "shortdesc": "LHC High Beta optics (40m, 10m, 40m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_40000_10000_40000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (40m)"
-   }, 
-   "vdm14500": {
-    "shortdesc": "LHC VDM in collision optics (14.5m, 14.5m, 14.5m, 14.5m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_14500_14500_14500_14500.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "VDM (14.5m)"
+    "label": "Squeeze (0.9m)"
    }, 
    "squeeze800": {
     "shortdesc": "LHC squeeze optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.", 
@@ -896,22 +828,6 @@
     ], 
     "template": "med_template", 
     "label": "Squeeze (0.8m)"
-   }, 
-   "hb30000": {
-    "shortdesc": "LHC High Beta optics (30m, 10m, 30m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_30000_10000_30000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (30m)"
-   }, 
-   "vdm21000": {
-    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 21m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_19200_19000_19200_21000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "VDM (21m)"
    }, 
    "coll800": {
     "shortdesc": "LHC collision optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.", 
@@ -959,13 +875,13 @@
      ]
     }
    }, 
-   "hb22000": {
-    "shortdesc": "LHC High Beta optics (22m, 10m, 22m, 10m) for 6.5 TeV.", 
+   "coll600": {
+    "shortdesc": "LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_22000_10000_22000_10000_hibeta.madx\";"
+     "call, file=\"db5/opt_600_10000_600_3000_coll.madx\";"
     ], 
     "template": "med_template", 
-    "label": "Hibeta (22m)"
+    "label": "Collision (0.6m)"
    }, 
    "inj": {
     "shortdesc": "LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.", 
@@ -1005,205 +921,13 @@
     "template": "med_template", 
     "label": "Squeeze (0.6m)"
    }, 
-   "squeeze900": {
-    "shortdesc": "LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.", 
+   "squeeze4000": {
+    "shortdesc": "LHC squeeze optics (4m, 10m, 4m, 7m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_900_10000_900_3000.madx\";"
+     "call, file=\"db5/opt_4000_10000_4000_7000.madx\";"
     ], 
     "template": "med_template", 
-    "label": "Squeeze (0.9m)"
-   }, 
-   "squeeze7000": {
-    "shortdesc": "LHC squeeze optics (7m, 10m, 7m, 8m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_7000_10000_7000_8000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (7m)"
-   }, 
-   "hb46000": {
-    "shortdesc": "LHC High Beta optics (46m, 10m, 46m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_46000_10000_46000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (46m)"
-   }, 
-   "coll400": {
-    "shortdesc": "LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_400_10000_400_3000_coll.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Collision (0.4m)"
-   }, 
-   "squeeze500": {
-    "shortdesc": "LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_500_10000_500_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.5m)"
-   }, 
-   "squeeze9000": {
-    "shortdesc": "LHC squeeze optics (9m, 10m, 9m, 9m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_9000_10000_9000_9000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (9m)"
-   }, 
-   "vdm12500": {
-    "shortdesc": "LHC VDM in collision optics (12.6m, 12.5m, 12.6m, 12.5m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_12600_12500_12600_12500.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "VDM (12.5m)"
-   }, 
-   "squeeze400": {
-    "shortdesc": "LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.4m)"
-   }, 
-   "vdm19000": {
-    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 19m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_19200_19000_19200_19000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "VDM (19m)"
-   }, 
-   "hb36000": {
-    "shortdesc": "LHC High Beta optics (36m, 10m, 36m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_36000_10000_36000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (36m)"
-   }, 
-   "squeeze550": {
-    "shortdesc": "LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_550_10000_550_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.55m)"
-   }, 
-   "vdm17000": {
-    "shortdesc": "LHC VDM in collision optics (16.7m, 17m, 16.7m, 17m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_16700_17000_16700_17000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "VDM (17m)"
-   }, 
-   "squeeze2000": {
-    "shortdesc": "LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_2000_10000_2000_4000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (2m)"
-   }, 
-   "hb75000": {
-    "shortdesc": "LHC High Beta optics (75m, 10m, 75m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_75000_10000_75000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (75m)"
-   }, 
-   "hb90000": {
-    "shortdesc": "LHC High Beta optics (90m, 10m, 90m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_90000_10000_90000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (90m)"
-   }, 
-   "hb16700": {
-    "shortdesc": "LHC High Beta optics (16.7m, 10m, 16.7m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_16700_10000_16700_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (16.7m)"
-   }, 
-   "vdm24000": {
-    "shortdesc": "LHC VDM optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_19200_19000_19200_24000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "VDM (24m)"
-   }, 
-   "hb19200": {
-    "shortdesc": "LHC High Beta optics (19.2m, 10m, 19.2m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_19200_10000_19200_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (19.2m)"
-   }, 
-   "hb90000_coll": {
-    "shortdesc": "LHC High Beta in collision optics (90m, 10m, 90m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_90000_10000_90000_10000_hibeta_coll.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta Coll (90m)"
-   }, 
-   "hb12600": {
-    "shortdesc": "LHC High Beta optics (12.6m, 10m, 12.6m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_12600_10000_12600_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (12.6m)"
-   }, 
-   "coll600": {
-    "shortdesc": "LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_600_10000_600_3000_coll.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Collision (0.6m)"
-   }, 
-   "vdm24000_coll": {
-    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_19200_19000_19200_24000_coll.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "VDM Coll. (24m)"
-   }, 
-   "hb43000": {
-    "shortdesc": "LHC High Beta optics (43m, 10m, 43m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_43000_10000_43000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (43m)"
-   }, 
-   "hb60000": {
-    "shortdesc": "LHC High Beta optics (60m, 10m, 60m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_60000_10000_60000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (60m)"
-   }, 
-   "hb33000": {
-    "shortdesc": "LHC High Beta optics (33m, 10m, 33m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_33000_10000_33000_10000_hibeta.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Hibeta (33m)"
+    "label": "Squeeze (4m)"
    }, 
    "squeeze1000": {
     "shortdesc": "LHC squeeze optics (1m, 10m, 1m, 3m) for 6.5 TeV.", 
@@ -1212,27 +936,48 @@
     ], 
     "template": "med_template", 
     "label": "Squeeze (1m)"
+   }, 
+   "squeeze7000": {
+    "shortdesc": "LHC squeeze optics (7m, 10m, 7m, 8m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_7000_10000_7000_8000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (7m)"
    }
-  }
- }, 
- "hllhc11": {
-  "shortdesc": "Optics for HL-LHC V1.1.", 
+  }, 
+  "shortdesc": "Optics for LHC Run II protons for physics in 2015.", 
   "conf_list": [
    "inj", 
-   "endoframp", 
-   "presqueeze", 
-   "round", 
-   "flat", 
-   "flathv", 
-   "sround", 
-   "sflat", 
-   "sflathv", 
-   "ions", 
-   "inj15", 
-   "vdm30"
+   "inj_colltunes", 
+   "squeeze11000", 
+   "squeeze9000", 
+   "squeeze7000", 
+   "squeeze4000", 
+   "squeeze3000", 
+   "squeeze2500", 
+   "squeeze2000", 
+   "squeeze1500", 
+   "squeeze1200", 
+   "squeeze1000", 
+   "squeeze900", 
+   "squeeze800", 
+   "coll800", 
+   "squeeze700", 
+   "squeeze650", 
+   "squeeze600", 
+   "coll600", 
+   "squeeze550", 
+   "squeeze500", 
+   "squeeze450", 
+   "squeeze400", 
+   "coll400"
   ], 
-  "label": "HLLHCV1.1", 
-  "longdesc": "Optics for  HL-LHC V1.1.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n", 
+  "npart_unit": 11, 
+  "longdesc": "Configuration LHC Run II cycle for physics with pp at 6.5 TeV.", 
+  "label": "LHC Run II pp physics"
+ }, 
+ "hllhc11": {
   "confs": {
    "flat": {
     "shortdesc": "Baseline collision optics.", 
@@ -1497,10 +1242,8 @@
     "template": "hllhc11_template", 
     "label": "VDM optics 30m"
    }
-  }
- }, 
- "hllhc10": {
-  "shortdesc": "Optics for HL-LHC V1.0.", 
+  }, 
+  "shortdesc": "Optics for HL-LHC V1.1.", 
   "conf_list": [
    "inj", 
    "endoframp", 
@@ -1511,10 +1254,15 @@
    "sround", 
    "sflat", 
    "sflathv", 
-   "ions"
+   "ions", 
+   "inj15", 
+   "vdm30"
   ], 
-  "label": "HLLHCV1.0", 
-  "longdesc": "Optics for  HL-LHC V1.0.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n", 
+  "npart_unit": 11, 
+  "longdesc": "Optics for  HL-LHC V1.1.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n", 
+  "label": "HLLHCV1.1"
+ }, 
+ "hllhc10": {
   "confs": {
    "hllhc10_template": {
     "madx_aperture": [
@@ -1724,18 +1472,754 @@
     "template": "hllhc10_template", 
     "label": "Collision Round"
    }
-  }
+  }, 
+  "shortdesc": "Optics for HL-LHC V1.0.", 
+  "conf_list": [
+   "inj", 
+   "endoframp", 
+   "presqueeze", 
+   "round", 
+   "flat", 
+   "flathv", 
+   "sround", 
+   "sflat", 
+   "sflathv", 
+   "ions"
+  ], 
+  "npart_unit": 11, 
+  "longdesc": "Optics for  HL-LHC V1.0.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n", 
+  "label": "HLLHCV1.0"
  }, 
- "opt_med": {
+ "opt2015hb": {
+  "confs": {
+   "inj": {
+    "shortdesc": "LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj.madx\";"
+    ], 
+    "label": "Injection", 
+    "template": "med_template", 
+    "settings": {
+     "beam2": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }
+   }, 
+   "hb36000": {
+    "shortdesc": "LHC High Beta optics (36m, 10m, 36m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_36000_10000_36000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (36m)"
+   }, 
+   "hb25000": {
+    "shortdesc": "LHC High Beta optics (25m, 10m, 25m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_25000_10000_25000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (25m)"
+   }, 
+   "med_template": {
+    "template": "med_template", 
+    "madx_knobs": [], 
+    "settings": {
+     "beam2": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }, 
+    "madx_aperture": [
+     "call, file=\"db5/aperture/aperture_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aperture_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_model_after_LS1.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_install_after_LS1.madx\";"
+    ], 
+    "madx_sequence": [
+     "call, file=\"db5/aperture/const_for_aperture.madx\";", 
+     "call, file=\"db5/lhc_as-built.seq\";"
+    ], 
+    "madx_links": {
+     "db503": "/afs/cern.ch/eng/lhc/optics/V6.503", 
+     "db5": "/afs/cern.ch/eng/lhc/optics/runII/2015"
+    }
+   }, 
+   "hb54000": {
+    "shortdesc": "LHC High Beta optics (54m, 10m, 54m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_54000_10000_54000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (54m)"
+   }, 
+   "hb67000": {
+    "shortdesc": "LHC High Beta optics (67m, 10m, 67m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_67000_10000_67000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (67m)"
+   }, 
+   "hb12600": {
+    "shortdesc": "LHC High Beta optics (12.6m, 10m, 12.6m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_12600_10000_12600_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (12.6m)"
+   }, 
+   "squeeze11000": {
+    "shortdesc": "LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_11000_10000_11000_10000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (11m)"
+   }, 
+   "hb51000": {
+    "shortdesc": "LHC High Beta optics (51m, 10m, 51m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_51000_10000_51000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (51m)"
+   }, 
+   "hb14500": {
+    "shortdesc": "LHC High Beta optics (14.5m, 10m, 14.5m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_14500_10000_14500_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (14.5m)"
+   }, 
+   "hb40000": {
+    "shortdesc": "LHC High Beta optics (40m, 10m, 40m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_40000_10000_40000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (40m)"
+   }, 
+   "hb90000": {
+    "shortdesc": "LHC High Beta optics (90m, 10m, 90m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_90000_10000_90000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (90m)"
+   }, 
+   "hb16700": {
+    "shortdesc": "LHC High Beta optics (16.7m, 10m, 16.7m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_16700_10000_16700_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (16.7m)"
+   }, 
+   "hb33000": {
+    "shortdesc": "LHC High Beta optics (33m, 10m, 33m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_33000_10000_33000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (33m)"
+   }, 
+   "hb19200": {
+    "shortdesc": "LHC High Beta optics (19.2m, 10m, 19.2m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_19200_10000_19200_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (19.2m)"
+   }, 
+   "hb30000": {
+    "shortdesc": "LHC High Beta optics (30m, 10m, 30m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_30000_10000_30000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (30m)"
+   }, 
+   "hb90000_coll": {
+    "shortdesc": "LHC High Beta in collision optics (90m, 10m, 90m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_90000_10000_90000_10000_hibeta_coll.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta Coll (90m)"
+   }, 
+   "hb75000": {
+    "shortdesc": "LHC High Beta optics (75m, 10m, 75m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_75000_10000_75000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (75m)"
+   }, 
+   "inj_colltunes": {
+    "shortdesc": "LHC Injection optics for 450 GeV with collision tunes.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj_colltunes.madx\";"
+    ], 
+    "label": "Injection (coll. tunes)", 
+    "template": "med_template", 
+    "settings": {
+     "beam2": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }
+   }, 
+   "hb22000": {
+    "shortdesc": "LHC High Beta optics (22m, 10m, 22m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_22000_10000_22000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (22m)"
+   }, 
+   "hb43000": {
+    "shortdesc": "LHC High Beta optics (43m, 10m, 43m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_43000_10000_43000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (43m)"
+   }, 
+   "hb46000": {
+    "shortdesc": "LHC High Beta optics (46m, 10m, 46m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_46000_10000_46000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (46m)"
+   }, 
+   "hb60000": {
+    "shortdesc": "LHC High Beta optics (60m, 10m, 60m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_60000_10000_60000_10000_hibeta.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Hibeta (60m)"
+   }
+  }, 
+  "shortdesc": "Optics for LHC Run II protons for High Beta physics in 2015.", 
   "conf_list": [
    "inj", 
    "inj_colltunes", 
-   "inj_nospect", 
-   "squeeze15", 
-   "squeeze16", 
-   "squeeze17", 
-   "coll"
+   "squeeze11000", 
+   "hb12600", 
+   "hb14500", 
+   "hb16700", 
+   "hb19200", 
+   "hb22000", 
+   "hb25000", 
+   "hb30000", 
+   "hb33000", 
+   "hb36000", 
+   "hb40000", 
+   "hb43000", 
+   "hb46000", 
+   "hb51000", 
+   "hb54000", 
+   "hb60000", 
+   "hb67000", 
+   "hb75000", 
+   "hb90000", 
+   "hb90000_coll"
   ], 
+  "npart_unit": 11, 
+  "longdesc": "Configuration LHC Run II protons, High Beta physics.", 
+  "label": "LHC Run II pp HighBeta"
+ }, 
+ "opt2015ion": {
+  "confs": {
+   "inj": {
+    "shortdesc": "LHC Injection optics with injection tunes obtained by an MQT trim.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj.madx\";"
+    ], 
+    "label": "Injection", 
+    "template": "med_template", 
+    "settings": {
+     "beam2": [
+      "Pb", 
+      36900.0, 
+      "7e7", 
+      420, 
+      1.233e-06
+     ], 
+     "beam1": [
+      "Pb", 
+      36900.0, 
+      "7e7", 
+      420, 
+      1.233e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }
+   }, 
+   "squeeze1200": {
+    "shortdesc": "LHC squeeze optics (1.2m, 1.2m, 1.2m, 3.25m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_1200_1200_1200_3250_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (1.2m)"
+   }, 
+   "med_template": {
+    "template": "med_template", 
+    "madx_knobs": [], 
+    "settings": {
+     "beam2": [
+      "Pb", 
+      522340.0, 
+      "7e7", 
+      420, 
+      1.233e-06
+     ], 
+     "beam1": [
+      "Pb", 
+      522340.0, 
+      "7e7", 
+      420, 
+      1.233e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }, 
+    "madx_aperture": [
+     "call, file=\"db5/aperture/aperture_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aperture_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_model_after_LS1.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_install_after_LS1.madx\";"
+    ], 
+    "madx_sequence": [
+     "call, file=\"db5/aperture/const_for_aperture.madx\";", 
+     "call, file=\"db5/lhc_as-built.seq\";"
+    ], 
+    "madx_links": {
+     "db503": "/afs/cern.ch/eng/lhc/optics/V6.503", 
+     "db5": "/afs/cern.ch/eng/lhc/optics/runII/2015"
+    }
+   }, 
+   "squeeze7200": {
+    "shortdesc": "LHC squeeze optics (7m, 7.2m, 7m, 8m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_7000_7200_7000_8000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (7.2m)"
+   }, 
+   "squeeze2500": {
+    "shortdesc": "LHC squeeze optics (2.5m, 2.5m, 2.5m, 5m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_2500_2500_2500_5000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (2.5m)"
+   }, 
+   "squeeze4500": {
+    "shortdesc": "LHC squeeze optics (4m, 4.5m, 4m, 7m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_4000_4500_4000_7000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (4.5m)"
+   }, 
+   "squeeze1400": {
+    "shortdesc": "LHC squeeze optics (1.5m, 1.4m, 1.5m, 3.5m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_1500_1400_1500_3500_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (1.4m)"
+   }, 
+   "squeeze10000": {
+    "shortdesc": "LHC squeeze optics (11m, 10m, 11m, 10m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_11000_10000_11000_10000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (10m)"
+   }, 
+   "squeeze900": {
+    "shortdesc": "LHC squeeze optics (0.9m, 0.9m, 0.9m, 3m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_900_900_900_3000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.9m)"
+   }, 
+   "squeeze1800": {
+    "shortdesc": "LHC squeeze optics (2m, 1.8m, 2m, 4m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_2000_1800_2000_4000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (1.8m)"
+   }, 
+   "squeeze800": {
+    "shortdesc": "LHC squeeze optics (0.8m, 0.8m, 0.8m, 3m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_800_800_800_3000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.8m)"
+   }, 
+   "squeeze7600": {
+    "shortdesc": "LHC squeeze optics (9m, 7.6m, 9m, 9m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_9000_7600_9000_9000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (7.6m)"
+   }, 
+   "squeeze3500": {
+    "shortdesc": "LHC squeeze optics (3m, 3.5m, 3m, 6m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_3000_3500_3000_6000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (3.5m)"
+   }, 
+   "coll800": {
+    "shortdesc": "LHC collision optics (0.8m, 0.8m, 0.8m, 3m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_800_10000_800_3000_ion_coll.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Collision (0.8m)"
+   }, 
+   "inj_colltunes": {
+    "shortdesc": "LHC Injection optics with collision tunes.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj_colltunes.madx\";"
+    ], 
+    "label": "Injection (coll. tunes)", 
+    "template": "med_template", 
+    "settings": {
+     "beam2": [
+      "Pb", 
+      36900.0, 
+      "7e7", 
+      420, 
+      1.233e-06
+     ], 
+     "beam1": [
+      "Pb", 
+      36900.0, 
+      "7e7", 
+      420, 
+      1.233e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }
+   }, 
+   "squeeze1000": {
+    "shortdesc": "LHC squeeze optics (1m, 1m, 1m, 3m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_1000_1000_1000_3000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (1m)"
+   }, 
+   "squeeze8000": {
+    "shortdesc": "LHC squeeze optics (11m, 8m, 11m, 10m).", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_11000_8000_11000_10000_ion.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (8m)"
+   }
+  }, 
+  "shortdesc": "Optics for LHC Run II PbPb for physics in 2015.", 
+  "conf_list": [
+   "inj", 
+   "inj_colltunes", 
+   "squeeze10000", 
+   "squeeze8000", 
+   "squeeze7600", 
+   "squeeze7200", 
+   "squeeze4500", 
+   "squeeze3500", 
+   "squeeze2500", 
+   "squeeze1800", 
+   "squeeze1400", 
+   "squeeze1200", 
+   "squeeze1000", 
+   "squeeze900", 
+   "squeeze800", 
+   "coll800"
+  ], 
+  "npart_unit": 7, 
+  "longdesc": "Configuration LHC Run II cycle for physics with PbPb.", 
+  "label": "LHC Run II PbPb physics"
+ }, 
+ "opt2015vdm": {
+  "confs": {
+   "squeeze11000": {
+    "shortdesc": "LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_11000_10000_11000_10000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (11m)"
+   }, 
+   "vdm14500": {
+    "shortdesc": "LHC VDM in collision optics (14.5m, 14.5m, 14.5m, 14.5m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_14500_14500_14500_14500.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "VDM (14.5m)"
+   }, 
+   "vdm12500": {
+    "shortdesc": "LHC VDM in collision optics (12.6m, 12.5m, 12.6m, 12.5m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_12600_12500_12600_12500.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "VDM (12.5m)"
+   }, 
+   "vdm24000_coll": {
+    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_19200_19000_19200_24000_coll.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "VDM Coll. (24m)"
+   }, 
+   "vdm21000": {
+    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 21m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_19200_19000_19200_21000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "VDM (21m)"
+   }, 
+   "med_template": {
+    "template": "med_template", 
+    "madx_knobs": [], 
+    "settings": {
+     "beam2": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }, 
+    "madx_aperture": [
+     "call, file=\"db5/aperture/aperture_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aperture_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_model_after_LS1.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_install_after_LS1.madx\";"
+    ], 
+    "madx_sequence": [
+     "call, file=\"db5/aperture/const_for_aperture.madx\";", 
+     "call, file=\"db5/lhc_as-built.seq\";"
+    ], 
+    "madx_links": {
+     "db503": "/afs/cern.ch/eng/lhc/optics/V6.503", 
+     "db5": "/afs/cern.ch/eng/lhc/optics/runII/2015"
+    }
+   }, 
+   "inj_colltunes": {
+    "shortdesc": "LHC Injection optics for 450 GeV with collision tunes.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj_colltunes.madx\";"
+    ], 
+    "label": "Injection (coll. tunes)", 
+    "template": "med_template", 
+    "settings": {
+     "beam2": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }
+   }, 
+   "inj": {
+    "shortdesc": "LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj.madx\";"
+    ], 
+    "label": "Injection", 
+    "template": "med_template", 
+    "settings": {
+     "beam2": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      3.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }
+   }, 
+   "vdm19000": {
+    "shortdesc": "LHC VDM in collision optics (19.2m, 19m, 19.2m, 19m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_19200_19000_19200_19000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "VDM (19m)"
+   }, 
+   "vdm17000": {
+    "shortdesc": "LHC VDM in collision optics (16.7m, 17m, 16.7m, 17m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_16700_17000_16700_17000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "VDM (17m)"
+   }, 
+   "vdm24000": {
+    "shortdesc": "LHC VDM optics (19.2m, 19m, 19.2m, 24m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_19200_19000_19200_24000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "VDM (24m)"
+   }
+  }, 
+  "shortdesc": "Optics for LHC Run II protons for Van Der Mer scans in 2015.", 
+  "conf_list": [
+   "inj", 
+   "inj_colltunes", 
+   "squeeze11000", 
+   "vdm12500", 
+   "vdm14500", 
+   "vdm17000", 
+   "vdm19000", 
+   "vdm21000", 
+   "vdm24000", 
+   "vdm24000_coll"
+  ], 
+  "npart_unit": 11, 
+  "longdesc": "Configuration LHC Run II protons, Van Der Mer scans.", 
+  "label": "LHC Run II pp VDM"
+ }, 
+ "scenario_list": [
+  "pprun1", 
+  "opt2015", 
+  "opt2015vdm", 
+  "opt2015hb", 
+  "opt2015ion", 
+  "hllhc10", 
+  "hllhc11"
+ ], 
+ "opt_med": {
   "confs": {
    "endofsqueeze": {
     "shortdesc": "LHCcollision optics (80cm 10m 80cm 3m) for 6.5 TeV. Crossing, and spectrometers, switched on. The spectrometer can be powered with positive or negative polarity;", 
@@ -1943,8 +2427,18 @@
     "label": "Inj. No Spect."
    }
   }, 
-  "label": "LHC Run II protons (DRAFT)", 
+  "conf_list": [
+   "inj", 
+   "inj_colltunes", 
+   "inj_nospect", 
+   "squeeze15", 
+   "squeeze16", 
+   "squeeze17", 
+   "coll"
+  ], 
+  "shortdesc": "Optics for LHC Run II protons for physics in 2015.", 
+  "npart_unit": 11, 
   "longdesc": "Configuration LHC Run II protons (DRAFT). The spectrometer can be powered with positive or negative polarity.", 
-  "shortdesc": "Optics for LHC Run II protons for physics in 2015."
+  "label": "LHC Run II protons (DRAFT)"
  }
 }
