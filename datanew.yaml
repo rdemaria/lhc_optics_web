@@ -1,11 +1,14 @@
 scenario_list:
 - pprun1
 - opt2015
+- opt2016
+- opt2017
 - opt2015vdm
 - opt2015hb
 - opt2015ion
 - hllhc10
 - hllhc11
+- hllhc12
 hllhc10:
   label: HLLHCV1.0
   shortdesc: Optics for HL-LHC V1.0.
@@ -324,6 +327,117 @@ hllhc11:
       - call,file="slhc/opt_vdm30.madx";
       shortdesc: High Beta Optics at high energy.
       template: hllhc11_template
+hllhc12:
+  label: HLLHCV1.2
+  shortdesc: Optics for HL-LHC V1.2.
+  longdesc: 'Optics for  HL-LHC V1.2.
+
+    References <a href="https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx">HL-LHC
+    WP2 Optics pages.</a>
+
+    '
+  npart_unit: 11
+  conf_list:
+  - inj
+  - presqueeze
+  - round
+  - flat
+  - vdm30
+  - ions
+  confs:
+    hllhc_template:
+      madx_aperture:
+      - call, file="db5/aperture/aperture_as-built.b1.madx";
+      - call, file="db5/aperture/aperture_as-built.b2.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
+      - call,file="slhc/aperture/exp_pipe_model_after_LS3.madx";
+      - call,file="slhc/aperture/exp_pipe_install_after_LS3.madx";
+      - call, file="slhc/aperture/aperture_upgrade_IT.madx";
+      - call, file="slhc/aperture/aperture_upgrade_MS.madx";
+      madx_knobs:
+      - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:=1;on_x2:=1;on_alice:=1;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=280/170;on_lhcb :=-1;
+      - on_disp=1;
+      madx_links:
+        db5: /afs/cern.ch/eng/lhc/optics/runII/2015
+        slhc: /afs/cern.ch/eng/lhc/optics/HLLHCV1.2
+      madx_sequence:
+      - REAL CONST l.TAN = 3.7 ;REAL CONST l.TANAL = l.TAN;
+      - REAL CONST l.TANAR = l.TAN;REAL CONST l.TANC = l.TAN;
+      - REAL CONST l.TCT = 1.0;REAL CONST l.TCTH = l.TCT;
+      - REAL CONST l.TCTVA = l.TCT;
+      - REAL CONST l.MBAS2             =0 ; REAL CONST l.MBAW              =0 ;
+      - REAL CONST l.MBCS2             =0 ; REAL CONST l.MBLS2             =0 ;
+      - REAL CONST l.MBLW              =0 ; REAL CONST l.MBWMD             =0 ;
+      - REAL CONST l.MBXWH             =0 ; REAL CONST l.MBXWS             =0 ;
+      - REAL CONST l.MBXWT             =0 ;
+      - call, file="db5/lhc_as-built.seq";
+      - call, file="slhc/hllhc_sequence.madx";
+      settings:
+        beam1: [p, 7000, 220000000000.0, 2748, 2.5e-06]
+        beam2: [p, 7000, 220000000000.0, 2748, 2.5e-06]
+        exp: ['off', 'on', 'off', 'on']
+    flat:
+      label: Collision Flat
+      madx_strengths:
+      - call,file="slhc/opt_flat.madx";
+      shortdesc: Baseline collision optics.
+      template: hllhc_template
+    inj:
+      label: Injection
+      madx_knobs:
+      - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;
+      - on_disp=0;
+      madx_strengths:
+      - call,file="slhc/opt_inj.madx";
+      settings:
+        beam1: [p, 450, 220000000000.0, 2748, 2.5e-06]
+        beam2: [p, 450, 220000000000.0, 2748, 2.5e-06]
+        exp: ['off', 'on', 'off', 'on']
+      shortdesc: Optics at injection.
+      template: hllhc_template
+    presqueeze:
+      label: Presqueeze
+      madx_strengths:
+      - call,file="slhc/opt_presqueeze.madx";
+      shortdesc: Baseline collision optics.
+      template: hllhc_template
+    round:
+      label: Collision Round
+      madx_strengths:
+      - call,file="slhc/opt_round.madx";
+      shortdesc: Baseline collision optics.
+      template: hllhc_template
+    vdm30:
+      label: VDM 30m
+      madx_knobs:
+      - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:=1;on_x2:=1;on_alice:=7000/7000;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/7000;
+      - on_disp=0;
+      madx_strengths:
+      - call,file="slhc/opt_vdm30.madx";
+      shortdesc: High Beta Optics at high energy.
+      template: hllhc_template
+    ions:
+      label: Low-beta
+      madx_knobs:
+      - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:=1;on_x2:=1;on_alice:=7000/7000;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/7000;
+      - on_disp=0;
+      madx_strengths:
+      - call,file="slhc/opt_ions.madx";
+      shortdesc: Low-beta optics at high energy for all experiments.
+      template: hllhc_template
 opt_med:
   npart_unit: 11
   conf_list:
@@ -1032,7 +1146,6 @@ opt2015:
       madx_knobs: []
       madx_links:
         db5: /afs/cern.ch/eng/lhc/optics/runII/2015
-        db503: /afs/cern.ch/eng/lhc/optics/V6.503
       madx_sequence:
       - call, file="db5/aperture/const_for_aperture.madx";
       - call, file="db5/lhc_as-built.seq";
@@ -1190,8 +1303,613 @@ opt2015:
     coll400:
       label: Collision (0.4m)
       madx_strengths:
-      - call, file="db5/opt_400_10000_400_3000_coll.madx";
+      - call, file="db5/opt_400_10000_400_3000_totem5.madx";
       shortdesc: LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.
+      template: med_template
+opt2016:
+  label: LHC Run II pp physics
+  longdesc: Configuration LHC Run II cycle for physics with pp at 6.5 TeV.
+  shortdesc: Optics for LHC Run II protons for physics in 2016.
+  npart_unit: 11
+  conf_list:
+  - inj
+  - inj_colltunes
+  - squeeze11000
+  - squeeze9000
+  - squeeze7000
+  - squeeze4000
+  - squeeze3000
+  - squeeze2500
+  - squeeze2000
+  - squeeze1500
+  - squeeze1200
+  - squeeze1000
+  - squeeze900
+  - squeeze800
+  - squeeze700
+  - squeeze650
+  - squeeze600
+  - squeeze550
+  - squeeze500
+  - squeeze450
+  - squeeze400
+  - coll400
+  confs:
+    med_template:
+      madx_aperture:
+      - call, file="db5/aperture/aperture_as-built.b1.madx";
+      - call, file="db5/aperture/aperture_as-built.b2.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
+      - call, file="db5/aperture/exp_pipe_model_after_LS1.madx";
+      - call, file="db5/aperture/exp_pipe_install_after_LS1.madx";
+      madx_knobs: []
+      madx_links:
+        db5: /afs/cern.ch/eng/lhc/optics/runII/2016
+      madx_sequence:
+      - call, file="db5/aperture/const_for_aperture.madx";
+      - call, file="db5/lhc_as-built.seq";
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj:
+      label: Injection
+      shortdesc: LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.
+      madx_strengths:
+      - call, file="db5/opt_inj.madx";
+      settings:
+        beam1: [p, 450, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 450, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj_colltunes:
+      label: Injection (coll. tunes)
+      shortdesc: LHC Injection optics for 450 GeV with collision tunes.
+      madx_strengths:
+      - call, file="db5/opt_inj_colltunes.madx";
+      settings:
+        beam1: [p, 450, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 450, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    squeeze11000:
+      label: Squeeze (11m)
+      madx_strengths:
+      - call, file="db5/opt_11000_10000_11000_10000.madx";
+      shortdesc: LHC squeeze optics (11m, 10m, 11m, 10m) for 0.450 TeV.
+      template: med_template
+    squeeze9000:
+      label: Squeeze (9m)
+      settings:
+        beam1: [p, 3499, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 3499, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opt_9000_10000_9000_9000.madx";
+      shortdesc: LHC squeeze optics (9m, 10m, 9m, 9m) for 3.5 TeV.
+      template: med_template
+    squeeze7000:
+      label: Squeeze (7m)
+      settings:
+        beam1: [p, 4021, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 4021, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opt_7000_10000_7000_8000.madx";
+      shortdesc: LHC squeeze optics (7m, 10m, 7m, 8m) for 4.0 TeV.
+      template: med_template
+    squeeze4000:
+      label: Squeeze (4m)
+      settings:
+        beam1: [p, 4716, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 4716, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opt_4000_10000_4000_7000.madx";
+      shortdesc: LHC squeeze optics (4m, 10m, 4m, 7m) for 4.7 TeV.
+      template: med_template
+    squeeze3000:
+      label: Squeeze (3m)
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opt_3000_10000_3000_6000.madx";
+      shortdesc: LHC squeeze optics (3m, 10m, 3m, 6m) for 6.5 TeV.
+      template: med_template
+    squeeze2500:
+      label: Squeeze (2.5m)
+      madx_strengths:
+      - call, file="db5/opt_2500_10000_2500_5000.madx";
+      shortdesc: LHC squeeze optics (2.5m, 10m, 2.5m, 5m) for 6.5 TeV.
+      template: med_template
+    squeeze2000:
+      label: Squeeze (2m)
+      madx_strengths:
+      - call, file="db5/opt_2000_10000_2000_4000.madx";
+      shortdesc: LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.
+      template: med_template
+    squeeze1500:
+      label: Squeeze (1.5m)
+      madx_strengths:
+      - call, file="db5/opt_1500_10000_1500_3500.madx";
+      shortdesc: LHC squeeze optics (1.5m, 10m, 1.5m, 3.5m) for 6.5 TeV.
+      template: med_template
+    squeeze1200:
+      label: Squeeze (1.2m)
+      madx_strengths:
+      - call, file="db5/opt_1200_10000_1200_3250.madx";
+      shortdesc: LHC squeeze optics (1.2m, 10m, 1.2m, 3.25m) for 6.5 TeV.
+      template: med_template
+    squeeze1000:
+      label: Squeeze (1m)
+      madx_strengths:
+      - call, file="db5/opt_1000_10000_1000_3000.madx";
+      shortdesc: LHC squeeze optics (1m, 10m, 1m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze900:
+      label: Squeeze (0.9m)
+      madx_strengths:
+      - call, file="db5/opt_900_10000_900_3000.madx";
+      shortdesc: LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze800:
+      label: Squeeze (0.8m)
+      madx_strengths:
+      - call, file="db5/opt_800_10000_800_3000.madx";
+      shortdesc: LHC squeeze optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.
+      template: med_template
+    coll800:
+      label: Collision (0.8m)
+      madx_strengths:
+      - call, file="db5/opt_800_10000_800_3000_coll.madx";
+      shortdesc: LHC collision optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze700:
+      label: Squeeze (0.7m)
+      madx_strengths:
+      - call, file="db5/opt_700_10000_700_3000.madx";
+      shortdesc: LHC squeeze optics (0.7m, 10m, 0.7m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze650:
+      label: Squeeze (0.65m)
+      madx_strengths:
+      - call, file="db5/opt_650_10000_650_3000.madx";
+      shortdesc: LHC squeeze optics (0.65m, 10m, 0.65m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze600:
+      label: Squeeze (0.6m)
+      madx_strengths:
+      - call, file="db5/opt_600_10000_600_3000.madx";
+      shortdesc: LHC squeeze optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.
+      template: med_template
+    coll600:
+      label: Collision (0.6m)
+      madx_strengths:
+      - call, file="db5/opt_600_10000_600_3000_coll.madx";
+      shortdesc: LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze550:
+      label: Squeeze (0.55m)
+      madx_strengths:
+      - call, file="db5/opt_550_10000_550_3000.madx";
+      shortdesc: LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze500:
+      label: Squeeze (0.5m)
+      madx_strengths:
+      - call, file="db5/opt_500_10000_500_3000.madx";
+      shortdesc: LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze450:
+      label: Squeeze (0.45m)
+      madx_strengths:
+      - call, file="db5/opt_450_10000_450_3000.madx";
+      shortdesc: LHC squeeze optics (0.45m, 10m, 0.45m, 3m) for 6.5 TeV.
+      template: med_template
+    squeeze400:
+      label: Squeeze (0.4m)
+      madx_strengths:
+      - call, file="db5/opt_400_10000_400_3000.madx";
+      shortdesc: LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.
+      template: med_template
+    coll400:
+      label: Collision (0.4m)
+      madx_strengths:
+      - call, file="db5/opt_400_10000_400_3000_totem5.madx";
+      madx_knobs:
+      - on_sep1=0;on_sep2=0;on_sep5=0;on_sep8=0;
+      shortdesc: LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.
+      template: med_template
+opt2017:
+  label: LHC Run II pp physics
+  longdesc: Configuration LHC Run II cycle for physics with pp at 6.5 TeV.
+  shortdesc: Optics for LHC Run II protons for physics in 2017.
+  npart_unit: 11
+  conf_list:
+  - inj
+  - squeeze11000
+  - squeeze9700
+  - squeeze9200
+  - squeeze8500
+  - squeeze7400
+  - squeeze6300
+  - squeeze5300
+  - squeeze4400
+  - squeeze3600
+  - squeeze3100
+  - squeeze2300
+  - squeeze1800
+  - squeeze1350
+  - squeeze1000
+  - squeeze800
+  - squeeze650
+  - squeeze540
+  - squeeze460
+  - squeeze400
+  - coll400
+  confs:
+    med_template:
+      madx_aperture:
+      - call, file="db5/aperture/aperture_as-built.b1.madx";
+      - call, file="db5/aperture/aperture_as-built.b2.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b1.madx";
+      - call, file="db5/aperture/aper_tol_as-built.b2.madx";
+      - call, file="db5/aperture/exp_pipe_model_after_LS1.madx";
+      - call, file="db5/aperture/exp_pipe_install_after_LS1.madx";
+      madx_knobs: []
+      madx_links:
+        db5: /afs/cern.ch/eng/lhc/optics/runII/2017
+      madx_sequence:
+      - call, file="db5/aperture/const_for_aperture.madx";
+      - call, file="db5/lhc_as-built.seq";
+      settings:
+        beam1: [p, 6500, 1.2e11, 2556, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2556, 3.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    inj:
+      label: Injection
+      shortdesc: LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.
+      madx_strengths:
+      - call, file="db5/opticsfile_new.1";
+      settings:
+        beam1: [p, 450, 1.2e11, 2556, 2.5e-06]
+        beam2: [p, 450, 1.2e11, 2556, 2.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    squeeze11000:
+      label: Squeeze (11m)
+      shortdesc: LHC squeeze optics (11 m, 10 m, 11 m, 9.7 m) for 2198 GeV after 452 s from the beginning of the ramp.
+      madx_strengths:
+      - call, file="db5/opticsfile_new.1";
+      settings:
+        beam1: [p, 2198, 1.2e11, 2556, 2.5e-06]
+        beam2: [p, 2198, 1.2e11, 2556, 2.5e-06]
+        exp: ['off','on','off','on']
+      template: med_template
+    squeeze9700:
+      label: Squeeze (9.7 m)
+      shortdesc: LHC squeeze optics (9.7 m, 10 m, 9.7 m, 9.7 m) for 2197 GeV after 452 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 2197, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 2197, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.1";
+      madx_knobs:
+      - on_sep1=-1.45834710744;on_x1=162.52892562;
+      - on_sep5=1.45834710744;on_x5=162.52892562;
+      - on_sep2=3.28378698225;on_x2=181.20661157;on_alice=1;
+      - on_sep8=-3.2426035503;on_x8=-199.884297521;on_lhcb =1;
+      - NRJ = 2197;
+      template: med_template
+    squeeze9200:
+      label: Squeeze (9.2 m)
+      shortdesc: LHC squeeze optics (9.2 m, 10 m, 9.2 m, 9.2 m) for 2423 GeV after 491 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 2423, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 2423, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.2";
+      madx_knobs:
+      - on_sep1=-1.41161157025;on_x1=161.884297521;
+      - on_sep5=1.41161157025;on_x5=161.884297521;
+      - on_sep2=3.18686390533;on_x2=182.173553719;on_alice=1;
+      - on_sep8=-3.12721893491;on_x8=-202.462809917;on_lhcb =1;
+      - NRJ = 2423;
+      template: med_template
+    squeeze8500:
+      label: Squeeze (8.5 m)
+      shortdesc: LHC squeeze optics (8.5 m, 10 m, 8.5 m, 8.5 m) for 2684 GeV after 536 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 2684, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 2684, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.3";
+      madx_knobs:
+      - on_sep1=-1.35768595041;on_x1=161.140495868;
+      - on_sep5=1.35768595041;on_x5=161.140495868;
+      - on_sep2=3.0750295858;on_x2=183.289256198;on_alice=1;
+      - on_sep8=-2.99408284024;on_x8=-205.438016529;on_lhcb =1;
+      - NRJ = 2684;
+      template: med_template
+    squeeze7400:
+      label: Squeeze (7.4 m)
+      shortdesc: LHC squeeze optics (7.4 m, 10 m, 7.4 m, 7.4 m) for 3025 GeV after 595 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 3025, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 3025, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.4";
+      madx_knobs:
+      - on_sep1=-1.28698347107;on_x1=160.165289256;
+      - on_sep5=1.28698347107;on_x5=160.165289256;
+      - on_sep2=2.92840236686;on_x2=184.752066116;on_alice=1;
+      - on_sep8=-2.81952662722;on_x8=-209.338842975;on_lhcb =1;
+      - NRJ = 3025;
+      template: med_template
+    squeeze6300:
+      label: Squeeze (6.3 m)
+      shortdesc: LHC squeeze optics (6.3 m, 10 m, 6.3 m, 6.3 m) for 3454 GeV after 669 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 3454, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 3454, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.5";
+      madx_knobs:
+      - on_sep1=-1.19830578512;on_x1=158.94214876;
+      - on_sep5=1.19830578512;on_x5=158.94214876;
+      - on_sep2=2.74449704142;on_x2=186.58677686;on_alice=1;
+      - on_sep8=-2.60059171598;on_x8=-214.231404959;on_lhcb =1;
+      - NRJ = 3454;
+      template: med_template
+    squeeze5300:
+      label: Squeeze (5.3 m)
+      shortdesc: LHC squeeze optics (5.3 m, 10 m, 5.3 m, 5.3 m) for 4027 GeV after 768 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 4027, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 4027, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.6";
+      madx_knobs:
+      - on_sep1=-1.07966942149;on_x1=157.305785124;
+      - on_sep5=1.07966942149;on_x5=157.305785124;
+      - on_sep2=2.49846153846;on_x2=189.041322314;on_alice=1;
+      - on_sep8=-2.30769230769;on_x8=-220.776859504;on_lhcb =1;
+      - NRJ = 4027;
+      template: med_template
+    squeeze4400:
+      label: Squeeze (4.4 m)
+      shortdesc: LHC squeeze optics (4.4 m, 10 m, 4.4 m, 4.4 m) for 4456 GeV after 842 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 4456, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 4456, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.7";
+      madx_knobs:
+      - on_sep1=-0.990991735537;on_x1=156.082644628;
+      - on_sep5=0.990991735537;on_x5=156.082644628;
+      - on_sep2=2.31455621302;on_x2=190.876033058;on_alice=1;
+      - on_sep8=-2.08875739645;on_x8=-225.669421488;on_lhcb =1;
+      - NRJ = 4456;
+      template: med_template
+    squeeze3600:
+      label: Squeeze (3.6 m)
+      shortdesc: LHC squeeze optics (3.6 m, 10 m, 3.6 m, 3.6 m) for 4687 GeV after 882 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 4687, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 4687, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.8";
+      madx_knobs:
+      - on_sep1=-0.94305785124;on_x1=155.421487603;
+      - on_sep5=0.94305785124;on_x5=155.421487603;
+      - on_sep2=2.21514792899;on_x2=191.867768595;on_alice=1;
+      - on_sep8=-1.97041420118;on_x8=-228.314049587;on_lhcb =1;
+      - NRJ = 4687;
+      template: med_template
+    squeeze3100:
+      label: Squeeze (3.1 m)
+      shortdesc: LHC squeeze optics (3.1 m, 10 m, 3.1 m, 3.1 m) for 4971 GeV after 931 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 4971, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 4971, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.9";
+      madx_knobs:
+      - on_sep1=-0.884338842975;on_x1=154.611570248;
+      - on_sep5=0.884338842975;on_x5=154.611570248;
+      - on_sep2=2.09337278107;on_x2=193.082644628;on_alice=1;
+      - on_sep8=-1.82544378698;on_x8=-231.553719008;on_lhcb =1;
+      - NRJ = 4971;
+      template: med_template
+    squeeze2300:
+      label: Squeeze (2.3 m)
+      shortdesc: LHC squeeze optics (2.3 m, 10 m, 2.3 m, 3.0 m) for 5203 GeV after 971 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 5203, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 5203, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.10";
+      madx_knobs:
+      - on_sep1=-0.836404958678;on_x1=153.950413223;
+      - on_sep5=0.836404958678;on_x5=153.950413223;
+      - on_sep2=1.99396449704;on_x2=194.074380165;on_alice=1;
+      - on_sep8=-1.70710059172;on_x8=-234.198347107;on_lhcb =1;
+      - NRJ = 5203;
+      template: med_template
+    squeeze1800:
+      label: Squeeze (1.8 m)
+      shortdesc: LHC squeeze optics (1.8 m, 10 m, 1.8 m, 3.0 m) for 5382 GeV after 1002 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 5382, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 5382, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.11";
+      madx_knobs:
+      - on_sep1=-0.799256198347;on_x1=153.438016529;
+      - on_sep5=0.799256198347;on_x5=153.438016529;
+      - on_sep2=1.91692307692;on_x2=194.842975207;on_alice=1;
+      - on_sep8=-1.61538461538;on_x8=-236.247933884;on_lhcb =1;
+      - NRJ = 5382;
+      template: med_template
+    squeeze1350:
+      label: Squeeze (1.4 m)
+      shortdesc: LHC squeeze optics (1.4 m, 10 m, 1.4 m, 3.0 m) for 5643 GeV after 1047 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 5643, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 5643, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.12";
+      madx_knobs:
+      - on_sep1=-0.745330578512;on_x1=152.694214876;
+      - on_sep5=0.745330578512;on_x5=152.694214876;
+      - on_sep2=1.8050887574;on_x2=195.958677686;on_alice=1;
+      - on_sep8=-1.48224852071;on_x8=-239.223140496;on_lhcb =1;
+      - NRJ = 5643;
+      template: med_template
+    squeeze1000:
+      label: Squeeze (1.0 m)
+      shortdesc: LHC squeeze optics (1.0 m, 10 m, 1.0 m, 3.0 m) for 6071 GeV after 1121 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 6071, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6071, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.13";
+      madx_knobs:
+      - on_sep1=-0.656652892562;on_x1=151.47107438;
+      - on_sep5=0.656652892562;on_x5=151.47107438;
+      - on_sep2=1.62118343195;on_x2=197.79338843;on_alice=1;
+      - on_sep8=-1.26331360947;on_x8=-244.115702479;on_lhcb =1;
+      - NRJ = 6071;
+      template: med_template
+    squeeze1000:
+      label: Squeeze (1.0 m)
+      shortdesc: LHC squeeze optics (1.0 m, 10 m, 1.0 m, 3.0 m) for 6500 GeV after 1210 s from the beginning of the ramp.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.14";
+      madx_knobs:
+      - on_sep1=-0.55;on_x1=150.0;
+      - on_sep5=0.55;on_x5=150.0;
+      - on_sep2=1.4;on_x2=200.0;on_alice=1;
+      - on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;
+      - NRJ = 6500;
+      template: med_template
+    squeeze800:
+      label: Squeeze (80 cm)
+      shortdesc: LHC squeeze optics (80 cm, 10 m, 80 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.15";
+      madx_knobs:
+      - on_sep1=-0.55;on_x1=150.0;
+      - on_sep5=0.55;on_x5=150.0;
+      - on_sep2=1.4;on_x2=200.0;on_alice=1;
+      - on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;
+      - NRJ = 6500;
+      template: med_template
+    squeeze650:
+      label: Squeeze (65 cm)
+      shortdesc: LHC squeeze optics (65 cm, 10 m, 65 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.16";
+      madx_knobs:
+      - on_sep1=-0.55;on_x1=150.0;
+      - on_sep5=0.55;on_x5=150.0;
+      - on_sep2=1.4;on_x2=200.0;on_alice=1;
+      - on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;
+      - NRJ = 6500;
+      template: med_template
+    squeeze540:
+      label: Squeeze (54 cm)
+      shortdesc: LHC squeeze optics (54 cm, 10 m, 54 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.17";
+      madx_knobs:
+      - on_sep1=-0.55;on_x1=150.0;
+      - on_sep5=0.55;on_x5=150.0;
+      - on_sep2=1.4;on_x2=200.0;on_alice=1;
+      - on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;
+      - NRJ = 6500;
+      template: med_template
+    squeeze460:
+      label: Squeeze (46 cm)
+      shortdesc: LHC squeeze optics (46 cm, 10 m, 46 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.18";
+      madx_knobs:
+      - on_sep1=-0.55;on_x1=150.0;
+      - on_sep5=0.55;on_x5=150.0;
+      - on_sep2=1.4;on_x2=200.0;on_alice=1;
+      - on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;
+      - NRJ = 6500;
+      template: med_template
+    squeeze400:
+      label: Squeeze (40 cm)
+      shortdesc: LHC squeeze optics (40 cm, 10 m, 40 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.19";
+      madx_knobs:
+      - on_sep1=-0.55;on_x1=150.0;
+      - on_sep5=0.55;on_x5=150.0;
+      - on_sep2=1.4;on_x2=200.0;on_alice=1;
+      - on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;
+      - NRJ = 6500;
+      template: med_template
+    coll400:
+      label: Collision (40 cm)
+      shortdesc: LHC collision optics (40 cm, 10 m, 40 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        beam2: [p, 6500, 1.2e11, 2076, 3.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.19";
+      madx_knobs:
+      - on_sep1=0;on_x1=150.0;
+      - on_sep5=0;on_x5=150.0;
+      - on_sep2=0;on_x2=200.0;on_alice=1;
+      - on_sep8=0;on_x8=-250.0;on_lhcb=1;
+      - NRJ = 6500;
       template: med_template
 opt2015vdm:
   label: LHC Run II pp VDM
@@ -1221,7 +1939,6 @@ opt2015vdm:
       madx_knobs: []
       madx_links:
         db5: /afs/cern.ch/eng/lhc/optics/runII/2015
-        db503: /afs/cern.ch/eng/lhc/optics/V6.503
       madx_sequence:
       - call, file="db5/aperture/const_for_aperture.madx";
       - call, file="db5/lhc_as-built.seq";
@@ -1338,7 +2055,6 @@ opt2015hb:
       madx_knobs: []
       madx_links:
         db5: /afs/cern.ch/eng/lhc/optics/runII/2015
-        db503: /afs/cern.ch/eng/lhc/optics/V6.503
       madx_sequence:
       - call, file="db5/aperture/const_for_aperture.madx";
       - call, file="db5/lhc_as-built.seq";
@@ -1521,7 +2237,6 @@ opt2015ion:
       madx_knobs: []
       madx_links:
         db5: /afs/cern.ch/eng/lhc/optics/runII/2015
-        db503: /afs/cern.ch/eng/lhc/optics/V6.503
       madx_sequence:
       - call, file="db5/aperture/const_for_aperture.madx";
       - call, file="db5/lhc_as-built.seq";
@@ -1534,7 +2249,7 @@ opt2015ion:
       label: Injection
       shortdesc: LHC Injection optics with injection tunes obtained by an MQT trim.
       madx_strengths:
-      - call, file="db5/opt_inj.madx";
+      - call, file="db5/opt_inj_ion.madx";
       settings:
         beam1: [Pb, 36900., 7e7, 420, 1.233e-06]
         beam2: [Pb, 36900., 7e7, 420, 1.233e-06]
@@ -1544,7 +2259,7 @@ opt2015ion:
       label: Injection (coll. tunes)
       shortdesc: LHC Injection optics with collision tunes.
       madx_strengths:
-      - call, file="db5/opt_inj_colltunes.madx";
+      - call, file="db5/opt_inj_colltunes_ion.madx";
       settings:
         beam1: [Pb, 36900., 7e7, 420, 1.233e-06]
         beam2: [Pb, 36900., 7e7, 420, 1.233e-06]
@@ -1631,6 +2346,6 @@ opt2015ion:
     coll800:
       label: Collision (0.8m)
       madx_strengths:
-      - call, file="db5/opt_800_10000_800_3000_ion_coll.madx";
+      - call, file="db5/opt_800_800_800_3000_ion_coll.madx";
       shortdesc: LHC collision optics (0.8m, 0.8m, 0.8m, 3m).
       template: med_template
