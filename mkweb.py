@@ -11,6 +11,21 @@ import numpy as np
 
 from pyoptics import *
 
+"""
+Templates
+
+main.template
+scenario.template
+configuration.template
+selection.template
+twiss_plot.template
+orbit_plot.template
+job_model.madx  basic
+job_mkseq.madx compute dump madx
+job_model_win.madx basic with links
+job_aperture.madx compute aperture
+job_mktwiss.madx compute twiss
+"""
 
 class Scenarios(list):
   def __init__(self,data):
@@ -21,12 +36,13 @@ class Scenarios(list):
 
 class Scenario(object):
   beam_data=['p','E','N<sub>b</sub>','k<sub>b</sub>','&epsilon;']
-  beam_data_unit_tmp=['','GeV','10<sup>%d</sup>','','&mu;rad']
+  beam_data_unit_tmp=['','GeV','10<sup>%d</sup>','','&mu;m']
   ip_data=['&beta;<sub>x</sub>', '&beta;<sub>y</sub>',
            'x', 'y',
            'p<sub>x</sub>', 'p<sub>y</sub>']
   ip_data_unit=['m','m','mm', 'mm', '&mu;rad', '&mu;rad']
   ip_names=['ip1','ip2','ip5','ip8']
+  qq_names=['Q<sub>x</sub>','Q<sub>y</sub>',"Q'<sub>x</sub>","Q'<sub>y</sub>"]
   def __init__(self,name,**data):
     self.name=name
     self.__dict__.update(data)
@@ -44,7 +60,7 @@ class Configuration(object):
                     'IR4', 'Arc45', 'IR5', 'Arc56', 'IR6', 'Arc67',
                     'IR7', 'Arc78', 'IR8', 'Arc81']
   _instances={}
-  pdata={'p'  :(0.931494061,1), #GeV,charge
+  pdata={'p'  : (0.938272046,1), #GeV,charge
          'Pb' : (193.68715,82)}  #GeV,charge
   def __init__(self,**data):
     scenario=data['scenario']
@@ -64,6 +80,8 @@ class Configuration(object):
         self.part2='proton'
       else:
         self.part2='ion'
+      self.part1_web=part1
+      self.part2_web=part2
       self.pmass1,self.charge1=self.pdata[part1]
       self.pmass2,self.charge2=self.pdata[part2]
       self.emit1=self.emit_n1/self.nrj1*self.pmass1
@@ -86,6 +104,10 @@ class Configuration(object):
         #exp=self.settings['exp'][nn]
         #self.settings['ip%sb%s'%(ipn,b12)]=get_ip_data(t,ipn)+[exp]
         self.settings['ip%sb%s'%(ipn,b12)]=get_ip_data(t,ipn)
+      self.settings['qxb%s'%(b12)]=t.param['q1']
+      self.settings['qyb%s'%(b12)]=t.param['q2']
+      self.settings['qpxb%s'%(b12)]=t.param['dq1']
+      self.settings['qpxb%s'%(b12)]=t.param['dq2']
     return self
 
 
@@ -112,14 +134,20 @@ def execute_madx(path,scnname,run=False):
   name,ext=os.path.splitext(fname)
   outname="%s.out"%name
   fulloutname=os.path.join(basedir,outname)
-  madx_cmd='/afs/cern.ch/user/m/mad/bin/rel/last-dev/madx-linux64'
-  #madx_cmd='/home/rdemaria/work/madx/madX/build/madx64'
+  madx_cmd='/afs/cern.ch/user/m/mad/bin/madx'
   if not is_uptodate([fulloutname],[fullname]):
     if run=='local':
       cmd='(cd %s; %s <%s >%s)'%(basedir,madx_cmd,fname,outname)
       print cmd
       os.system(cmd)
     elif run=='lsf':
+      subname='/afs/cern.ch/work/l/lhcopt/work/bsub_%s_%s'%(scnname,name)
+      fh=open(subname,'a+')
+      cmd='bsub -o %s -e %s -q 8nh madx %s\n'%(fulloutname,fulloutname,fullname);
+      fh.write(cmd)
+      fh.close()
+      print "Execute %s"%subname
+    elif run=='htcondor':
       subname='/afs/cern.ch/work/l/lhcopt/work/bsub_%s_%s'%(scnname,name)
       fh=open(subname,'a+')
       cmd='bsub -o %s -e %s -q 8nh madx %s\n'%(fulloutname,fulloutname,fullname);
@@ -137,8 +165,14 @@ def renderfile(dirnames,name,template,data):
       print "mkdir",basedir
       os.mkdir(basedir)
   fullname=os.path.join(basedir,name)
-  print "write", fullname
-  open(fullname,'w').write(template.render(**data))
+  trial=True
+  while trial:
+    print "write", fullname
+    try:
+      open(fullname,'w').write(template.render(**data))
+      trial=False
+    except IOError as e:
+      print e
 
 
 
@@ -189,7 +223,7 @@ def plot_aperture(tfsname):
       if t.param['energy']>450:
           ref=12
       else:
-          ref=9
+          ref=10.6
       p=t.plotap(newfig=False,nlim=30,ref=ref)
       pl.title('Aperture %s'%selname.upper())
       pl.savefig(figname)
@@ -223,7 +257,6 @@ templateEnv = jinja2.Environment( loader=templateLoader )
 
 tmain = templateEnv.get_template("main.template")
 tscen = templateEnv.get_template("scenario.template")
-tmadx = templateEnv.get_template("job.madx")
 taper = templateEnv.get_template("job_aperture.madx")
 tmmod = templateEnv.get_template("job_model.madx")
 tmmodwin = templateEnv.get_template("job_model_win.madx")
@@ -234,7 +267,7 @@ tsele = templateEnv.get_template("selection.template")
 ttwip = templateEnv.get_template("twiss_plot.template")
 torbp = templateEnv.get_template("orbit_plot.template")
 
-def run_madx(run=False):
+def run_madx(run=False,jobs=['job.madx','job_mkseq.madx']):
   os.system('cp data.json %s'%basedir)
   if run=='lsf':
       os.system('rm /afs/cern.ch/work/l/lhcopt/work/bsub_*')
@@ -253,9 +286,8 @@ def run_madx(run=False):
                           ]:
         renderfile(respath,out,template,rdata)
       confdir=os.path.join(basedir,scn.name,conf.name)
-      #execute_madx([confdir,'job.madx'],scn.name,run=run)
-      #execute_madx([confdir,'job_model.madx'],scn.name,run=run)
-      execute_madx([confdir,'job_mkseq.madx'],scn.name,run=run)
+      for jjj in jobs:
+          execute_madx([confdir,jjj],scn.name,run=run)
       for part in ['madx_sequence','madx_aperture',
                    'madx_strengths','madx_knobs']:
         pout=[]
@@ -278,12 +310,16 @@ def run_html():
       conf= scn.confs[cname]
       rdata['conf']=conf
       rdata['resdir']=os.path.join(basedir,scn.name,conf.name)
-      print conf.label,conf.settings['ip1b1']
+      print conf.label,conf.settings['ip1b1'],conf.settings['qxb1']
       renderfile([basedir,scn.name,conf.name],'index.html',tconf,rdata)
       for sel in conf.selection:
         rdata['sel']=sel
         for pname in ['twiss','orbit','ap']:
           rdata['pname']=pname
+          if pname=='orbit':
+            rdata['fname']='twiss'
+          else:
+            rdata['fname']=pname
           fname='%s_%s.html'%(pname,sel.lower())
           renderfile([basedir,scn.name,conf.name],fname,ttwip,rdata)
 
@@ -344,6 +380,10 @@ def get_data():
           ipd=map(s2d_conv,ipdata['ip%sb%s'%(ipn,b12)])
           #conf.settings['ip%sb%s'%(ipn,b12)]=ipd+[exp]
           conf.settings['ip%sb%s'%(ipn,b12)]=ipd
+        conf.settings['qxb%s'%(b12)] =round(t.param['q1'],3)
+        conf.settings['qyb%s'%(b12)] =round(t.param['q2'],3)
+        conf.settings['qpxb%s'%(b12)]=round(t.param['dq1'])
+        conf.settings['qpyb%s'%(b12)]=round(t.param['dq2'])
 
 def get_ip_data(t,n):
   i=np.where(t//('IP%d'%n))[0][0]
@@ -371,25 +411,26 @@ if __name__=='__main__':
   #basedir='/home/rdemaria/work/lhc_optics_web/www'
   #basedir='/afs/cern.ch/user/r/rdemaria/www/www'
   #basedir='/afs/cern.ch/work/r/rdemaria/public/lhc_optics_web/www'
-  basedir='/afs/cern.ch/work/l/lhcopt/public/lhc_optics_web/www'
+  #basedir='/afs/cern.ch/work/l/lhcopt/public/lhc_optics_web/www'
+  basedir='/eos/project/a/abpdata/lhc_optics_web/www'
   data=yaml.load(open('datanew.yaml'))
   #data=yaml.load(open('datathin.yaml'))
   json.dump(data,open('data.json','w'),indent=True)
-  #data['scenario_list']=['opt2015','opt2015vdm','opt2015hb','opt2015ion']
-  data['scenario_list']=['opt2015ion']
+  #data['scenario_list']=['opt2015','opt2015vdm','opt2015hb','opt2015ion',]
+  data['scenario_list']=['opt2017']
   scenarios= Scenarios(data)
   #scenarios.pop(0)
   #scenarios.pop(0)
   #scenarios.pop(0)
-  force=False
+  force=True
   rdata={
       'date':time.asctime(),
       'basedir':basedir,
       'scenarios':scenarios}
-  #run_madx(run='lsf')
-  run_madx(run='local')
-  get_data()
-  run_html()
+  run_madx(run='lsf',jobs=['job_mkseq.madx','job.madx'])
+  #run_madx(run='lsf',jobs=['job.madx'])
+  #run_madx(run='local',jobs=['job_mkseq.madx'])
+  #run_madx(run='local',jobs=['job_mkseq.madx','job.madx'])
+  #get_data()
+  #run_html()
   #run_plot()
-
-

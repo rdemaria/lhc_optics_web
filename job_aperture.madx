@@ -24,7 +24,7 @@ emittance_norm=3.5e-6;
 apbbeat=1.05;
 halor=6.0001; halox=6; haloy=6;
 DParcx=0.14; DParcy=0.14;
-COmax=0.004; dPmax=0.0006; VMAXI=30; SPECIF=9;
+COmax=0.002; dPmax=0.0006; VMAXI=30; SPECIF=9;
 };
 
 
@@ -56,7 +56,6 @@ select,flag=aperture,column=name,keyword,parent,
 aperture,range=s.ds.l{{nir}}.{{bim}}/e.ds.r{{nir}}.{{bim}},
          offsetelem=./offset.IP{{nir}}.{{bim}}.tfs,
          cor=COmax, dp=dPmax, spec=SPECIF,interval=1.0,
-         exn=emittance_norm,eyn=emittance_norm,
          halo={6,halor,halox,haloy},bbeat=apbbeat,
          dparx=DParcx,dpary=DParcy,
          file=result/ap_ir{{nir}}{{bim}}.tfs;
@@ -81,7 +80,6 @@ select,flag=aperture,column=name,keyword,parent,
 aperture,range=s.ds.l{{nir}}.{{bim}}/e.ds.r{{nir}}.{{bim}},
          offsetelem=./offset.IP{{nir}}.{{bim}}.tfs,
          cor=COmax, dp=0, spec=SPECIF,interval=1.0,
-         exn=emittance_norm,eyn=emittance_norm,
          halo={6,halor,halox,haloy},bbeat=apbbeat,
          dparx=DParcx,dpary=DParcy,
          file=result/ap_ir{{nir}}{{bim}}_{{dpp}}.tfs;
@@ -113,7 +111,6 @@ select,flag=aperture,column=name,keyword,parent,
    k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl;
 aperture,range=e.ds.r{{narc1}}.{{bim}}/s.ds.l{{narc2}}.{{bim}},
          cor=COmax, dp=dPmax, spec=SPECIF,interval=1.0,
-         exn=emittance_norm,eyn=emittance_norm,
          halo={6,halor,halox,haloy},bbeat=apbbeat,
          dparx=DParcx,dpary=DParcy,
          file=result/ap_arc{{narc1}}{{narc2}}{{bim}}.tfs;
@@ -139,7 +136,6 @@ select,flag=aperture,column=name,keyword,parent,
    k0l,k1l,k2l,k3l,k4l,k5l,k0sl,k1sl,k2sl,k3sl,k4sl,k5sl;
 aperture,range=e.ds.r{{narc1}}.{{bim}}/s.ds.l{{narc2}}.{{bim}},
          cor=COmax, dp=0, spec=SPECIF,interval=1.0,
-         exn=emittance_norm,eyn=emittance_norm,
          halo={6,halor,halox,haloy},bbeat=apbbeat,
          dparx=DParcx,dpary=DParcy,
          file=result/ap_arc{{narc1}}{{narc2}}{{bim}}_{{dpp}}.tfs;

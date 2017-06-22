@@ -32,12 +32,16 @@
     {% for ip in scn.ip_names %}
       <th colspan="6"> {{ ip|upper }} </th>
     {% endfor %}
+    <th colspan="4" > Tunes </th>
   </tr>
   <tr>
     {% for ip in scn.ip_names %}
       {% for dn in scn.ip_data %}
       <th> {{ dn|safe }} </th>
       {% endfor %}
+    {% endfor %}
+    {% for qq in scn.qq_names %}
+      <th> {{ qq|safe }} </th>
     {% endfor %}
   </tr>
   <tr>
@@ -49,13 +53,16 @@
       <th> {{ dn|safe }} </th>
       {% endfor %}
     {% endfor %}
+    {% for qq in scn.qq_names %}
+      <th>  </th>
+    {% endfor %}
   </tr>
   {% for cname in scn.conf_list %}
   {% set conf=scn.confs[cname] %}
   <tr>
     <td rowspan=2> <a href="{{conf.name}}/index.html">{{conf.label}}</a></td>
     <td align="center"> 1</td>
-    <td align="right"> {{ conf.part1 }} </td>
+    <td align="right"> {{ conf.part1_web }} </td>
     <td align="right"> {{ conf.nrj1 }} </td>
     <td align="right"> {{ conf.np1_web }} </td>
     <td align="right"> {{ conf.nb1 }} </td>
@@ -65,10 +72,13 @@
       <td align="right"> {{ data }} </td>
       {% endfor %}
     {% endfor %}
+    {% for qq in ['qxb1','qyb1','qpxb1','qpyb1'] %}
+      <td align="right"> {{ conf.settings[qq]}} </td>
+    {% endfor %}
   </tr>
   <tr>
     <td align="center">2</td>
-    <td align="right"> {{ conf.part2 }} </td>
+    <td align="right"> {{ conf.part2_web }} </td>
     <td align="right"> {{ conf.nrj2 }} </td>
     <td align="right"> {{ conf.np2_web }} </td>
     <td align="right"> {{ conf.nb2 }} </td>
@@ -78,7 +88,10 @@
       <td align="right"> {{ data }} </td>
       {% endfor %}
     {% endfor %}
-    </tr>
+    {% for qq in ['qxb2','qyb2','qpxb2','qpyb2'] %}
+      <td align="right"> {{ conf.settings[qq]}} </td>
+    {% endfor %}
+  </tr>
   {% endfor %}
 </table>
 

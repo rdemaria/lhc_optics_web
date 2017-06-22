@@ -1,0 +1,12 @@
+executable              = /afs/cern.ch/user/m/mad/bin/madx
+arguments               = job.madx
+output                  = job.out
+error                   = job.err
+log                     = job.$(ClusterId).$(ProcId).log
+initial_dir             = $Fp(filename)
+transfer_input_files    = job.madx
+
++JobFlavour = "longlunch"
+request_memory = 2000
+
+queue filename matching (/eos/project/a/abpdata/lhc_optics_web/www/opt2017/*/job.madx)

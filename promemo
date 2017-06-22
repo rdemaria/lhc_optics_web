@@ -1,0 +1,33 @@
+cat datanew.yaml | yaml2json.py >data.json
+
+
+Web pages for V6.500 optics JJ
+./ab-dep-abp.web.cern.ch/ab-dep-abp/LCU/LCU_meetings/2006/220506/agenda.htm
+
+
+Proposal for new style of optics web pages  JJ
+ab-dep-abp.web.cern.ch/ab-dep-abp/LCU/LCU_meetings/2012/20120306/agenda2.html
+
+
+
+~/afshome/www/lhcoptics
+
+cp -a ~/work/lhc_optics_web/www/* .
+
+
+root.template
+scenario.template
+configuration.template
+selection.template
+
+
+<scenario>/<conf>/<selection>
+
+for fn in  /afs/cern.ch/work/r/rdemaria/lhc_optics_web/www/*/*/lhc_mkseq.madx; do bsub -o /dev/null -e /dev/null -q 8nm madx $fn ; done
+
+base=/afs/cern.ch/work/r/rdemaria/lhc_optics_web/www/
+for fn in $base/*/*/lhc_mktwiss.madx;
+  do echo $fn
+  bsub -o /dev/null -e /dev/null -q 8nm madx $fn >${fn%.madx}.out;
+done
+

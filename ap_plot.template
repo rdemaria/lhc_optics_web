@@ -20,13 +20,13 @@
 
 <p>
 {% for bim in ['b1','b2'] %}
-<a  href="{{pname}}_{{sel|lower}}{{bim}}.png"><img src="{{pname}}_{{sel|lower}}{{bim}}.png" width="500" height="375"/></a>
+<a  href="ap_{{sel|lower}}{{bim}}.png"><img src="{{pname}}_{{sel|lower}}{{bim}}.png" width="500" height="375"/></a>
 {% endfor %}
 </p>
 
 <p> Data files:
 {% for bim,ext in [('b1','tfs'),('b1','csv'),('b2','tfs'),('b2','csv')] %}
-<a href="{{fname}}_{{sel|lower}}{{bim}}.{{ext}}" download>{{fname}}_{{sel|lower}}{{bim}}.{{ext}}</a>
+<a href="ap_{{sel|lower}}{{bim}}.{{ext}}" download>twiss_{{sel|lower}}{{bim}}.{{ext}}</a>
 {%- if not loop.last %}, {% endif -%}
 {% endfor -%}.
 

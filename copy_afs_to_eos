@@ -1,0 +1,1 @@
+rsync -vrltgoD /afs/cern.ch/eng/lhc/optics/ /eos/project/a/abpdata/eng/lhc/optics/ >copy_afs_to_eos.out 2>copy_afs_to_eos.err

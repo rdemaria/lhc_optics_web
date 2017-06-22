@@ -1,0 +1,51 @@
+system,"ln -fns {{resdir}} result";
+
+Option, -echo,-info,-warn;
+call,file=result/lhc_{{conf.scenario}}_{{conf.name}}.seq;
+Option, echo,info,warn;
+
+
+{% for bim in [1,2] %}
+set,format="22.15e";
+select,flag=twiss,clear;
+select,flag=twiss,column=name,keyword,parent,s,l,lrad,kick,hkick,vkick,angle,k0l,k1l,k2l,k3l,x,y,px,py,betx,bety,alfx,alfy,mux,muy,dx,dy,dpx,dpy,kmax,kmin,calib,polarity,apertype;
+seqedit,sequence=lhcb{{bim}};flatten;cycle,start=s.ds.l1.b{{bim}};endedit;
+use,sequence=lhcb{{bim}};
+survey, file=result/survey_lhcb{{bim}}_{{conf.scenario}}_{{conf.name}}.tfs;
+twiss, file=result/twiss_lhcb{{bim}}_{{conf.scenario}}_{{conf.name}}.tfs;
+
+set,format="22.15e";
+select,flag=twiss,clear;
+select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dpy,mux,muy,x,y,px,py;
+twiss, file=result/twiss_ipb{{bim}}_{{conf.scenario}}_{{conf.name}}.tfs;
+{% endfor %}
+
+{% for bim in [1,2] %}
+{% for nir in [1,2,3,4,5,6,7,8] %}
+seqedit,sequence=lhcb{{bim}};flatten;cycle,start=s.ds.l{{nir}}.b{{bim}};endedit;
+use,sequence=lhcb{{bim}};
+select,flag=twiss,clear;
+select,flag=twiss,column=name,s,l,angle,k1l,k2l,hkick,vkick,kick,betx,bety,dx,dy,x,y,px,py,apertype,aper_1,aper_2,aper_3,aper_4,rtol,xtol,ytol,
+       range=s.ds.l{{nir}}.b{{bim}}/e.ds.r{{nir}}.b{{bim}};
+survey,file=result/survey_ir{{nir}}b{{bim}}_{{conf.scenario}}_{{conf.name}}.tfs;
+twiss, file=result/twiss_ir{{nir}}b{{bim}}_{{conf.scenario}}_{{conf.name}}.tfs;
+{% endfor %}
+{% endfor %}
+
+{% for bim in [1,2] %}
+{% for NARC1,NARC2 in ['12','23','34','45','56','67','78','81'] %}
+seqedit,sequence=lhcb{{bim}};cycle,start=e.ds.r{{NARC1}}.b{{bim}};endedit;
+use,sequence=lhcb{{bim}};
+select,flag=twiss,clear;
+select,flag=twiss,column=name,s,
+       l,angle,k1l,k2l,hkick,vkick,kick,
+       betx,bety,dx,dy,x,y,
+       range=e.ds.r{{NARC1}}.b{{bim}}/s.ds.l{{NARC2}}.b{{bim}};
+survey,file=result/survey_arc{{NARC1}}{{NARC2}}b{{bim}}_{{conf.scenario}}_{{conf.name}}.tfs;
+twiss,file=result/twiss_arc{{NARC1}}{{NARC2}}b{{bim}}_{{conf.scenario}}_{{conf.name}}.tfs;
+{% endfor %}
+{% endfor %}
+
+
+
+

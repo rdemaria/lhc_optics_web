@@ -19,11 +19,11 @@ Option, -echo,warn,-info;
 
 ! Beam definition
 beam, sequence=lhcb1, bv= 1,
-  particle={{conf.part1}}, charge={{conf.charge1}}, mass={{conf.pmass1}},
+  particle={{conf.part1_web}}, charge={{conf.charge1}}, mass={{conf.pmass1}},
   energy= {{conf.nrj1}},   npart={{conf.np1}},kbunch={{conf.nb1}},
   ex={{conf.emit1}},ey={{conf.emit1}};
 beam, sequence=lhcb2, bv=-1,
-  particle={{conf.part2}}, charge={{conf.charge2}}, mass={{conf.pmass2}},
+  particle={{conf.part2_web}}, charge={{conf.charge2}}, mass={{conf.pmass2}},
   energy= {{conf.nrj2}},   npart={{conf.np2}},kbunch={{conf.nb2}},
   ex={{conf.emit2}},ey={{conf.emit2}};
 
@@ -41,6 +41,13 @@ nrj=beam%lhcb1->pc/beam%lhcb1->charge;
 ! Cycle
 seqedit,sequence=lhcb1;flatten;cycle,start=s.ds.l1.b1;endedit;
 seqedit,sequence=lhcb2;flatten;cycle,start=s.ds.l1.b2;endedit;
+
+! Post Strength
+{% for line in conf.post_strength %}
+{{line}}
+{%- endfor %}
+
+
 
 ! Twiss before customized knobs
 set,format="22.15e";

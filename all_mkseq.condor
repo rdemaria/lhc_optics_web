@@ -1,0 +1,11 @@
+executable              = /afs/cern.ch/user/m/mad/bin/madx
+arguments               = job_mkseq.madx
+output                  = job.out
+error                   = job.err
+log                     = job.$(ClusterId).$(ProcId).log
+initial_dir             = $Fp(filename)
+transfer_input_files    = job_mkseq.madx
+
+request_memory = 2000
+
+queue filename matching (/eos/project/a/abpdata/lhc_optics_web/www/*/*/job.madx)
