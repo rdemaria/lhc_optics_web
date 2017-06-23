@@ -3,7 +3,8 @@ option, warn,info;
 {% for key,val in conf.madx_links.items() %}
 system,"ln -fns {{val}} {{key}}";
 {%- endfor %}
-system,"ln -fns {{resdir}} result";
+system,"mkdir result";
+!system,"ln -fns {{resdir}} result";
 
 ! Sequence definition
 Option, -echo,warn,-info;
@@ -98,3 +99,6 @@ select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
 
 {% block commands %}
 {% endblock %}
+
+system,"tar cvfz result.tgz result";
+system,"mkplots.py";

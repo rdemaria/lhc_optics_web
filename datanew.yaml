@@ -1968,7 +1968,7 @@ opt2015ion:
       template: med_template
 opt2017:
   label: LHC Run II pp physics
-  longdesc: Typicla configuration of LHC in 2017 for oo physics at 6.5 TeV. Crossing angle, spectrometer polarities, tunes, number of bunches are expected to change during the Run. Beam emittance corresponds to a reference value and changes depending on the beam production scheme and fill by fill.
+  longdesc: Typical configuration of LHC in 2017 for pp physics at 6.5 TeV. Crossing angle, spectrometer polarities, tunes, number of bunches are expected to change during the Run. Beam emittance corresponds to a reference value and changes depending on the beam production scheme and fill by fill.
   shortdesc: Optics for LHC Run II protons for physics in 2017.
   npart_unit: 11
   conf_list:

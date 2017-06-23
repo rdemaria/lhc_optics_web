@@ -303,6 +303,9 @@
     "madx_sequence": [
      "call, file=\"db5/V6.5.seq\";"
     ], 
+    "post_strength": [
+     "call,file=\"db5/toolkit/rematch_chroma.madx\";"
+    ], 
     "madx_links": {
      "db5": "/afs/cern.ch/eng/lhc/optics/V6.503"
     }, 
@@ -670,7 +673,10 @@
    "coll400": {
     "shortdesc": "LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_400_10000_400_3000_totem5.madx\";"
+     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
+    ], 
+    "madx_knobs": [
+     "on_sep1=0;on_sep2=0;on_sep5=0;on_sep8=0;"
     ], 
     "template": "med_template", 
     "label": "Collision (0.4m)"
@@ -2788,25 +2794,32 @@
    "coll400": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=0;on_x1=150.0;", 
-     "on_sep5=0;on_x5=150.0;", 
-     "on_sep2=0;on_x2=200.0;on_alice=1;", 
-     "on_sep8=0;on_x8=-250.0;on_lhcb=1;", 
-     "NRJ = 6500;"
+     "NRJ = 6500;", 
+     "on_sep1=0;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=-1.5;", 
+     "on_sep2=0;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=-2;on_oe2=0;", 
+     "on_sep8=0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -2825,25 +2838,32 @@
    "squeeze650": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=-0.55;on_x1=150.0;", 
-     "on_sep5=0.55;on_x5=150.0;", 
-     "on_sep2=1.4;on_x2=200.0;on_alice=1;", 
-     "on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;", 
-     "NRJ = 6500;"
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -2860,23 +2880,32 @@
     "label": "Squeeze (65 cm)"
    }, 
    "squeeze11000": {
-    "shortdesc": "LHC squeeze optics (11 m, 10 m, 11 m, 9.7 m) for 2198 GeV after 452 s from the beginning of the ramp.", 
-    "madx_strengths": [
-     "call, file=\"db5/opticsfile_new.1\";"
-    ], 
-    "label": "Squeeze (11m)", 
     "template": "med_template", 
+    "madx_knobs": [
+     "NRJ = 1693;", 
+     "on_sep1=-1.56260330579;on_x1=163.966942149;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=1.56260330579;on_x5=163.966942149;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=3.5;on_x2=179.049586777;on_a2=-40.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-3.5;on_x8=-194.132231405;on_a8=-40.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=15.1389548694; KOD.B1=15.1389548694; KOF.B2=15.1389548694; KOD.B2=15.1389548694;"
+    ], 
     "settings": {
      "beam2": [
       "p", 
-      2198, 
+      1693, 
       "1.2e11", 
       2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
-      2198, 
+      1693, 
       "1.2e11", 
       2556, 
       2.5e-06
@@ -2887,30 +2916,42 @@
       "off", 
       "on"
      ]
-    }
+    }, 
+    "shortdesc": "LHC squeeze optics (11.0 m, 10 m, 11.0 m, 10 m) for 1693 GeV after 365 s from the beginning of the ramp.", 
+    "madx_strengths": [
+     "call, file=\"db5/opticsfile.1\";"
+    ], 
+    "label": "Ramp Squeeze (11.0 m)"
    }, 
    "squeeze400": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=-0.55;on_x1=150.0;", 
-     "on_sep5=0.55;on_x5=150.0;", 
-     "on_sep2=1.4;on_x2=200.0;on_alice=1;", 
-     "on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;", 
-     "NRJ = 6500;"
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -2926,28 +2967,79 @@
     ], 
     "label": "Squeeze (40 cm)"
    }, 
+   "squeeze1000b": {
+    "template": "med_template", 
+    "madx_knobs": [
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;"
+    ], 
+    "settings": {
+     "beam2": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2556, 
+      2.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2556, 
+      2.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }, 
+    "shortdesc": "LHC squeeze optics (1.0 m, 10 m, 1.0 m, 3.0 m) for 6500 GeV after 1210 s from the beginning of the ramp.", 
+    "madx_strengths": [
+     "call, file=\"db5/opticsfile.14\";"
+    ], 
+    "label": "Ramp Squeeze (1.0 m)"
+   }, 
    "squeeze7400": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 3025;", 
-     "on_sep1=-1.28698347107;on_x1=160.165289256;", 
-     "on_sep5=1.28698347107;on_x5=160.165289256;on_o5=0;", 
-     "on_sep2=2.92840236686;on_x2=184.752066116;on_a2=-29.1124260355;on_alice=3025/450;", 
-     "on_sep8=-2.81952662722;on_x8=-209.338842975;on_a8=-29.1124260355;on_lhcb =3025/450;"
+     "on_sep1=-1.28698347107;on_x1=160.165289256;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=1.28698347107;on_x5=160.165289256;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=2.92840236686;on_x2=184.752066116;on_a2=-29.1124260355;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-2.81952662722;on_x8=-209.338842975;on_a8=-29.1124260355;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=13.3361045131; KOD.B1=13.3361045131; KOF.B2=13.3361045131; KOD.B2=13.3361045131;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       3025, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       3025, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -2959,9 +3051,9 @@
     }, 
     "shortdesc": "LHC squeeze optics (7.4 m, 10 m, 7.4 m, 7.4 m) for 3025 GeV after 595 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.4\";"
+     "call, file=\"db5/opticsfile.5\";"
     ], 
-    "label": "Squeeze (7.4 m)"
+    "label": "Ramp Squeeze (7.4 m)"
    }, 
    "med_template": {
     "template": "med_template", 
@@ -3008,24 +3100,31 @@
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 4687;", 
-     "on_sep1=-0.94305785124;on_x1=155.421487603;", 
-     "on_sep5=0.94305785124;on_x5=155.421487603;on_o5=0;", 
-     "on_sep2=2.21514792899;on_x2=191.867768595;on_a2=-15.5266272189;on_alice=4687/450;", 
-     "on_sep8=-1.97041420118;on_x8=-228.314049587;on_a8=-15.5266272189;on_lhcb =4687/450;"
+     "on_sep1=-0.94305785124;on_x1=155.421487603;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.94305785124;on_x5=155.421487603;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=2.21514792899;on_x2=191.867768595;on_a2=-15.5266272189;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.97041420118;on_x8=-228.314049587;on_a8=-15.5266272189;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       4687, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       4687, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3037,32 +3136,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (3.6 m, 10 m, 3.6 m, 3.6 m) for 4687 GeV after 882 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.8\";"
+     "call, file=\"db5/opticsfile.9\";"
     ], 
-    "label": "Squeeze (3.6 m)"
+    "label": "Ramp Squeeze (3.6 m)"
    }, 
    "squeeze8500": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 2684;", 
-     "on_sep1=-1.35768595041;on_x1=161.140495868;", 
-     "on_sep5=1.35768595041;on_x5=161.140495868;on_o5=0;", 
-     "on_sep2=3.0750295858;on_x2=183.289256198;on_a2=-31.9053254438;on_alice=2684/450;", 
-     "on_sep8=-2.99408284024;on_x8=-205.438016529;on_a8=-31.9053254438;on_lhcb =2684/450;"
+     "on_sep1=-1.35768595041;on_x1=161.140495868;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=1.35768595041;on_x5=161.140495868;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=3.0750295858;on_x2=183.289256198;on_a2=-31.9053254438;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-2.99408284024;on_x8=-205.438016529;on_a8=-31.9053254438;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=13.7985748219; KOD.B1=13.7985748219; KOF.B2=13.7985748219; KOD.B2=13.7985748219;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       2684, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       2684, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3074,32 +3180,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (8.5 m, 10 m, 8.5 m, 8.5 m) for 2684 GeV after 536 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.3\";"
+     "call, file=\"db5/opticsfile.4\";"
     ], 
-    "label": "Squeeze (8.5 m)"
+    "label": "Ramp Squeeze (8.5 m)"
    }, 
    "squeeze3100": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 4971;", 
-     "on_sep1=-0.884338842975;on_x1=154.611570248;", 
-     "on_sep5=0.884338842975;on_x5=154.611570248;on_o5=0;", 
-     "on_sep2=2.09337278107;on_x2=193.082644628;on_a2=-13.2071005917;on_alice=4971/450;", 
-     "on_sep8=-1.82544378698;on_x8=-231.553719008;on_a8=-13.2071005917;on_lhcb =4971/450;"
+     "on_sep1=-0.884338842975;on_x1=154.611570248;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.884338842975;on_x5=154.611570248;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=2.09337278107;on_x2=193.082644628;on_a2=-13.2071005917;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.82544378698;on_x8=-231.553719008;on_a8=-13.2071005917;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       4971, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       4971, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3111,18 +3224,25 @@
     }, 
     "shortdesc": "LHC squeeze optics (3.1 m, 10 m, 3.1 m, 3.1 m) for 4971 GeV after 931 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.9\";"
+     "call, file=\"db5/opticsfile.10\";"
     ], 
-    "label": "Squeeze (3.1 m)"
+    "label": "Ramp Squeeze (3.1 m)"
    }, 
    "inj": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 450;", 
-     "on_sep1=-2;on_x1=170;", 
-     "on_sep5=2; on_x5=170;on_o5=0;", 
-     "on_sep2=3.5;on_x2=170;on_a2=-40;on_alice=450/450;", 
-     "on_sep8=-3.5;on_x8=-170;on_a8=-40;on_lhcb=450/450;"
+     "on_sep1=-2;on_x1=170;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=2; on_x5=170;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=3.5;on_x2=170;on_a2=-40;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-3.5;on_x8=-170;on_a8=-40;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ; on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=16; KOD.B1=16; KOF.B2=16; KOD.B2=16;"
     ], 
     "settings": {
      "beam2": [
@@ -3156,24 +3276,31 @@
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 5643;", 
-     "on_sep1=-0.745330578512;on_x1=152.694214876;", 
-     "on_sep5=0.745330578512;on_x5=152.694214876;on_o5=0;", 
-     "on_sep2=1.8050887574;on_x2=195.958677686;on_a2=-7.71597633136;on_alice=5643/450;", 
-     "on_sep8=-1.48224852071;on_x8=-239.223140496;on_a8=-7.71597633136;on_lhcb =5643/450;"
+     "on_sep1=-0.745330578512;on_x1=152.694214876;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.745330578512;on_x5=152.694214876;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.8050887574;on_x2=195.958677686;on_a2=-7.71597633136;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.48224852071;on_x8=-239.223140496;on_a8=-7.71597633136;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       5643, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       5643, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3183,34 +3310,41 @@
       "on"
      ]
     }, 
-    "shortdesc": "LHC squeeze optics (1.4 m, 10 m, 1.4 m, 3.0 m) for 5643 GeV after 1047 s from the beginning of the ramp.", 
+    "shortdesc": "LHC squeeze optics (1.35 m, 10 m, 1.35 m, 3.0 m) for 5643 GeV after 1047 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.12\";"
+     "call, file=\"db5/opticsfile.13\";"
     ], 
-    "label": "Squeeze (1.4 m)"
+    "label": "Ramp Squeeze (1.35 m)"
    }, 
    "squeeze1800": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 5382;", 
-     "on_sep1=-0.799256198347;on_x1=153.438016529;", 
-     "on_sep5=0.799256198347;on_x5=153.438016529;on_o5=0;", 
-     "on_sep2=1.91692307692;on_x2=194.842975207;on_a2=-9.84615384615;on_alice=5382/450;", 
-     "on_sep8=-1.61538461538;on_x8=-236.247933884;on_a8=-9.84615384615;on_lhcb =5382/450;"
+     "on_sep1=-0.799256198347;on_x1=153.438016529;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.799256198347;on_x5=153.438016529;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.91692307692;on_x2=194.842975207;on_a2=-9.84615384615;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.61538461538;on_x8=-236.247933884;on_a8=-9.84615384615;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       5382, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       5382, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3222,32 +3356,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (1.8 m, 10 m, 1.8 m, 3.0 m) for 5382 GeV after 1002 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.11\";"
+     "call, file=\"db5/opticsfile.12\";"
     ], 
-    "label": "Squeeze (1.8 m)"
+    "label": "Ramp Squeeze (1.8 m)"
    }, 
    "squeeze9700": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 2197;", 
-     "on_sep1=-1.45834710744;on_x1=162.52892562;", 
-     "on_sep5=1.45834710744;on_x5=162.52892562;on_o5=0;", 
-     "on_sep2=3.28378698225;on_x2=181.20661157;on_a2=-35.8816568047;on_alice=2197/450;", 
-     "on_sep8=-3.2426035503;on_x8=-199.884297521;on_a8=-35.8816568047;on_lhcb =2197/450;"
+     "on_sep1=-1.45834710744;on_x1=162.52892562;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=1.45834710744;on_x5=162.52892562;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=3.28378698225;on_x2=181.20661157;on_a2=-35.8816568047;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-3.2426035503;on_x8=-199.884297521;on_a8=-35.8816568047;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=14.4570071259; KOD.B1=14.4570071259; KOF.B2=14.4570071259; KOD.B2=14.4570071259;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       2197, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       2197, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3259,32 +3400,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (9.7 m, 10 m, 9.7 m, 9.7 m) for 2197 GeV after 452 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.1\";"
+     "call, file=\"db5/opticsfile.2\";"
     ], 
-    "label": "Squeeze (9.7 m)"
+    "label": "Ramp Squeeze (9.7 m)"
    }, 
    "squeeze4400": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 4456;", 
-     "on_sep1=-0.990991735537;on_x1=156.082644628;", 
-     "on_sep5=0.990991735537;on_x5=156.082644628;on_o5=0;", 
-     "on_sep2=2.31455621302;on_x2=190.876033058;on_a2=-17.4201183432;on_alice=4456/450;", 
-     "on_sep8=-2.08875739645;on_x8=-225.669421488;on_a8=-17.4201183432;on_lhcb =4456/450;"
+     "on_sep1=-0.990991735537;on_x1=156.082644628;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.990991735537;on_x5=156.082644628;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=2.31455621302;on_x2=190.876033058;on_a2=-17.4201183432;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-2.08875739645;on_x8=-225.669421488;on_a8=-17.4201183432;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       4456, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       4456, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3296,32 +3444,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (4.4 m, 10 m, 4.4 m, 4.4 m) for 4456 GeV after 842 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.7\";"
+     "call, file=\"db5/opticsfile.8\";"
     ], 
-    "label": "Squeeze (4.4 m)"
+    "label": "Ramp Squeeze (4.4 m)"
    }, 
    "squeeze2300": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 5203;", 
-     "on_sep1=-0.836404958678;on_x1=153.950413223;", 
-     "on_sep5=0.836404958678;on_x5=153.950413223;on_o5=0;", 
-     "on_sep2=1.99396449704;on_x2=194.074380165;on_a2=-11.3136094675;on_alice=5203/450;", 
-     "on_sep8=-1.70710059172;on_x8=-234.198347107;on_a8=-11.3136094675;on_lhcb =5203/450;"
+     "on_sep1=-0.836404958678;on_x1=153.950413223;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.836404958678;on_x5=153.950413223;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.99396449704;on_x2=194.074380165;on_a2=-11.3136094675;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.70710059172;on_x8=-234.198347107;on_a8=-11.3136094675;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       5203, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       5203, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3333,32 +3488,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (2.3 m, 10 m, 2.3 m, 3.0 m) for 5203 GeV after 971 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.10\";"
+     "call, file=\"db5/opticsfile.11\";"
     ], 
-    "label": "Squeeze (2.3 m)"
+    "label": "Ramp Squeeze (2.3 m)"
    }, 
    "squeeze6300": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 3454;", 
-     "on_sep1=-1.19830578512;on_x1=158.94214876;", 
-     "on_sep5=1.19830578512;on_x5=158.94214876;on_o5=0;", 
-     "on_sep2=2.74449704142;on_x2=186.58677686;on_a2=-25.6094674556;on_alice=3454/450;", 
-     "on_sep8=-2.60059171598;on_x8=-214.231404959;on_a8=-25.6094674556;on_lhcb =3454/450;"
+     "on_sep1=-1.19830578512;on_x1=158.94214876;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=1.19830578512;on_x5=158.94214876;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=2.74449704142;on_x2=186.58677686;on_a2=-25.6094674556;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-2.60059171598;on_x8=-214.231404959;on_a8=-25.6094674556;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12.7560570071; KOD.B1=12.7560570071; KOF.B2=12.7560570071; KOD.B2=12.7560570071;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       3454, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       3454, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3370,32 +3532,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (6.3 m, 10 m, 6.3 m, 6.3 m) for 3454 GeV after 669 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.5\";"
+     "call, file=\"db5/opticsfile.6\";"
     ], 
-    "label": "Squeeze (6.3 m)"
+    "label": "Ramp Squeeze (6.3 m)"
    }, 
    "squeeze800": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=-0.55;on_x1=150.0;", 
-     "on_sep5=0.55;on_x5=150.0;", 
-     "on_sep2=1.4;on_x2=200.0;on_alice=1;", 
-     "on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;", 
-     "NRJ = 6500;"
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3414,25 +3583,32 @@
    "squeeze400b": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=-0.55;on_x1=150.0;", 
-     "on_sep5=0.55;on_x5=150.0;", 
-     "on_sep2=1.4;on_x2=200.0;on_alice=1;", 
-     "on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;", 
-     "NRJ = 6500;"
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3446,30 +3622,37 @@
     "madx_strengths": [
      "call, file=\"db5/opticsfile.19_ctpps2\";"
     ], 
-    "label": "Squeeze (40 cm)"
+    "label": "Squeeze (40 cm, ctpps2)"
    }, 
    "squeeze400a": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=-0.55;on_x1=150.0;", 
-     "on_sep5=0.55;on_x5=150.0;", 
-     "on_sep2=1.4;on_x2=200.0;on_alice=1;", 
-     "on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;", 
-     "NRJ = 6500;"
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3483,30 +3666,37 @@
     "madx_strengths": [
      "call, file=\"db5/opticsfile.19_ctpps1\";"
     ], 
-    "label": "Squeeze (40 cm)"
+    "label": "Squeeze (40 cm, ctpps1)"
    }, 
    "squeeze9200": {
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 2423;", 
-     "on_sep1=-1.41161157025;on_x1=161.884297521;", 
-     "on_sep5=1.41161157025;on_x5=161.884297521;on_o5=0;", 
-     "on_sep2=3.18686390533;on_x2=182.173553719;on_a2=-34.0355029586;on_alice=2423/450;", 
-     "on_sep8=-3.12721893491;on_x8=-202.462809917;on_a8=-34.0355029586;on_lhcb =2423/450;"
+     "on_sep1=-1.41161157025;on_x1=161.884297521;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=1.41161157025;on_x5=161.884297521;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=3.18686390533;on_x2=182.173553719;on_a2=-34.0355029586;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-3.12721893491;on_x8=-202.462809917;on_a8=-34.0355029586;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=14.1513064133; KOD.B1=14.1513064133; KOF.B2=14.1513064133; KOD.B2=14.1513064133;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       2423, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       2423, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3518,32 +3708,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (9.2 m, 10 m, 9.2 m, 9.2 m) for 2423 GeV after 491 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.2\";"
+     "call, file=\"db5/opticsfile.3\";"
     ], 
     "label": "Squeeze (9.2 m)"
    }, 
    "squeeze460": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=-0.55;on_x1=150.0;", 
-     "on_sep5=0.55;on_x5=150.0;", 
-     "on_sep2=1.4;on_x2=200.0;on_alice=1;", 
-     "on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;", 
-     "NRJ = 6500;"
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3563,24 +3760,31 @@
     "template": "med_template", 
     "madx_knobs": [
      "NRJ = 4027;", 
-     "on_sep1=-1.07966942149;on_x1=157.305785124;", 
-     "on_sep5=1.07966942149;on_x5=157.305785124;on_o5=0;", 
-     "on_sep2=2.49846153846;on_x2=189.041322314;on_a2=-20.9230769231;on_alice=4027/450;", 
-     "on_sep8=-2.30769230769;on_x8=-220.776859504;on_a8=-20.9230769231;on_lhcb =4027/450;"
+     "on_sep1=-1.07966942149;on_x1=157.305785124;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=1.07966942149;on_x5=157.305785124;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=2.49846153846;on_x2=189.041322314;on_a2=-20.9230769231;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-2.30769230769;on_x8=-220.776859504;on_a8=-20.9230769231;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.9800475059; KOD.B1=11.9800475059; KOF.B2=11.9800475059; KOD.B2=11.9800475059;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       4027, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       4027, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3592,32 +3796,39 @@
     }, 
     "shortdesc": "LHC squeeze optics (5.3 m, 10 m, 5.3 m, 5.3 m) for 4027 GeV after 768 s from the beginning of the ramp.", 
     "madx_strengths": [
-     "call, file=\"db5/opticsfile.6\";"
+     "call, file=\"db5/opticsfile.7\";"
     ], 
-    "label": "Squeeze (5.3 m)"
+    "label": "Ramp Squeeze (5.3 m)"
    }, 
    "squeeze1000": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=-0.55;on_x1=150.0;", 
-     "on_sep5=0.55;on_x5=150.0;", 
-     "on_sep2=1.4;on_x2=200.0;on_alice=1;", 
-     "on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;", 
-     "NRJ = 6500;"
+     "NRJ = 6071;", 
+     "on_sep1=-0.656652892562;on_x1=151.47107438;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.656652892562;on_x5=151.47107438;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.62118343195;on_x2=197.79338843;on_a2=-4.21301775148;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.26331360947;on_x8=-244.115702479;on_a8=-4.21301775148;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=-0.04; dQy.b1=-0.025; dQx.b2=-0.04; dQy.b2=-0.025;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;"
     ], 
     "settings": {
      "beam2": [
       "p", 
-      6500, 
+      6071, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
-      6500, 
+      6071, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3627,7 +3838,51 @@
       "on"
      ]
     }, 
-    "shortdesc": "LHC squeeze optics (1.0 m, 10 m, 1.0 m, 3.0 m) for 6500 GeV after 1210 s from the beginning of the ramp.", 
+    "shortdesc": "LHC squeeze optics (1.0 m, 10 m, 1.0 m, 3.0 m) for 6071 GeV after 1121 s from the beginning of the ramp.", 
+    "madx_strengths": [
+     "call, file=\"db5/opticsfile.14\";"
+    ], 
+    "label": "Ramp Squeeze (1.0 m)"
+   }, 
+   "squeeze1000c": {
+    "template": "med_template", 
+    "madx_knobs": [
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
+    ], 
+    "settings": {
+     "beam2": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2556, 
+      2.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2556, 
+      2.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }, 
+    "shortdesc": "LHC squeeze optics (1.0 m, 10 m, 1.0 m, 3.0 m) for 6500 GeV.", 
     "madx_strengths": [
      "call, file=\"db5/opticsfile.14\";"
     ], 
@@ -3636,25 +3891,32 @@
    "squeeze540": {
     "template": "med_template", 
     "madx_knobs": [
-     "on_sep1=-0.55;on_x1=150.0;", 
-     "on_sep5=0.55;on_x5=150.0;", 
-     "on_sep2=1.4;on_x2=200.0;on_alice=1;", 
-     "on_sep8=-1.0;on_x8=-250.0;on_lhcb =1;", 
-     "NRJ = 6500;"
+     "NRJ = 6500;", 
+     "on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;", 
+     "on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;", 
+     "on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;", 
+     "on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;", 
+     "on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;", 
+     "dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;", 
+     "dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;", 
+     "dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;", 
+     "dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;", 
+     "KOD.A56B1:=KOD.B1*4.65/6.0;", 
+     "KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;"
     ], 
     "settings": {
      "beam2": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
       6500, 
       "1.2e11", 
-      2076, 
+      2556, 
       2.5e-06
      ], 
      "exp": [
@@ -3688,6 +3950,8 @@
    "squeeze1800", 
    "squeeze1350", 
    "squeeze1000", 
+   "squeeze1000b", 
+   "squeeze1000c", 
    "squeeze800", 
    "squeeze650", 
    "squeeze540", 
@@ -3698,7 +3962,7 @@
    "coll400"
   ], 
   "npart_unit": 11, 
-  "longdesc": "Configuration LHC Run II cycle for physics with pp at 6.5 TeV.", 
+  "longdesc": "Typical configuration of LHC in 2017 for pp physics at 6.5 TeV. Crossing angle, spectrometer polarities, tunes, number of bunches are expected to change during the Run. Beam emittance corresponds to a reference value and changes depending on the beam production scheme and fill by fill.", 
   "label": "LHC Run II pp physics"
  }, 
  "opt_med": {

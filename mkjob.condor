@@ -1,0 +1,13 @@
+executable              = madx_wrapper.sh
+arguments               = job.madx
+transfer_input_files    = job.madx
+output                  = job.out
+error                   = job.err
+log                     = job.$(ClusterId).$(ProcId).log
+initial_dir             = $Fp(filename)
+transfer_output_files   = result.tgz
+
++JobFlavour = "longlunch"
+request_memory = 2000
+
+queue filename matching (/home/rdemaria/scratch/lhc_optics_web/www/*/*/job.madx)

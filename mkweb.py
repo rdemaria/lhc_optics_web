@@ -147,13 +147,6 @@ def execute_madx(path,scnname,run=False):
       fh.write(cmd)
       fh.close()
       print "Execute %s"%subname
-    elif run=='htcondor':
-      subname='/afs/cern.ch/work/l/lhcopt/work/bsub_%s_%s'%(scnname,name)
-      fh=open(subname,'a+')
-      cmd='bsub -o %s -e %s -q 8nh madx %s\n'%(fulloutname,fulloutname,fullname);
-      fh.write(cmd)
-      fh.close()
-      print "Execute %s"%subname
 
 
 
@@ -412,12 +405,13 @@ if __name__=='__main__':
   #basedir='/afs/cern.ch/user/r/rdemaria/www/www'
   #basedir='/afs/cern.ch/work/r/rdemaria/public/lhc_optics_web/www'
   #basedir='/afs/cern.ch/work/l/lhcopt/public/lhc_optics_web/www'
-  basedir='/eos/project/a/abpdata/lhc_optics_web/www'
+  #basedir='/eos/project/a/abpdata/lhc_optics_web/www'
+  basedir='/home/rdemaria/scratch/lhc_optics_web/www'
   data=yaml.load(open('datanew.yaml'))
   #data=yaml.load(open('datathin.yaml'))
   json.dump(data,open('data.json','w'),indent=True)
   #data['scenario_list']=['opt2015','opt2015vdm','opt2015hb','opt2015ion',]
-  data['scenario_list']=['opt2017']
+  #data['scenario_list']=['opt2017']
   scenarios= Scenarios(data)
   #scenarios.pop(0)
   #scenarios.pop(0)
@@ -427,10 +421,10 @@ if __name__=='__main__':
       'date':time.asctime(),
       'basedir':basedir,
       'scenarios':scenarios}
-  run_madx(run='lsf',jobs=['job_mkseq.madx','job.madx'])
+  #run_madx(run='lsf',jobs=['job_mkseq.madx','job.madx'])
   #run_madx(run='lsf',jobs=['job.madx'])
   #run_madx(run='local',jobs=['job_mkseq.madx'])
-  #run_madx(run='local',jobs=['job_mkseq.madx','job.madx'])
-  #get_data()
-  #run_html()
+  #run_madx(run=False,jobs=['job_mkseq.madx','job.madx'])
+  get_data()
+  run_html()
   #run_plot()
