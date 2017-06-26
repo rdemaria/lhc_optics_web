@@ -25,8 +25,7 @@ tmp="""\
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=0; dQpy.b1=0; dQpx.b2=0; dQpy.b2=0;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1={ko}; KOD.B1={ko}; KOF.B2={ko}; KOD.B2={ko};
+      - on_MO.B1={ko}; on_MO.B2={ko};
       template: med_template"""
 
 params="""\
@@ -73,11 +72,11 @@ for nnn,opt in enumerate(ot):
         data['a%s'%irn]=pv['LHCBEAM/IP%s-ANGLE-%s-MURAD'%(irn,p2)][nnn]
     data['o5']=0
     data['o2']=0
-    data['ko']=pv['LHCBEAM2/LANDAU DAMPING'][nnn]*-6
+    data['ko']=pv['LHCBEAM2/LANDAU DAMPING'][nnn]
     print tmp.format(**data)
 
 
-:bp='SQUEEZE-6.5TeV-ATS-1m-40cm-2017_V1'
+bp='SQUEEZE-6.5TeV-ATS-1m-40cm-2017_V1'
 ot = lsa.getOpticTable(bp)
 tvalue=[opt.time for opt in ot]
 

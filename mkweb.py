@@ -424,7 +424,7 @@ if __name__=='__main__':
   #run_madx(run='lsf',jobs=['job_mkseq.madx','job.madx'])
   #run_madx(run='lsf',jobs=['job.madx'])
   #run_madx(run='local',jobs=['job_mkseq.madx'])
-  #run_madx(run=False,jobs=['job_mkseq.madx','job.madx'])
+  run_madx(run=False,jobs=['job_mkseq.madx','job.madx'])
   get_data()
   run_html()
   #run_plot()

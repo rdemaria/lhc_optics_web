@@ -100,5 +100,5 @@ select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
 {% block commands %}
 {% endblock %}
 
+system,"/afs/cern.ch/user/r/rdemaria/public/mkplots.py";
 system,"tar cvfz result.tgz result";
-system,"mkplots.py";

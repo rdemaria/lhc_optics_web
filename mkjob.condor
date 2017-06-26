@@ -1,6 +1,6 @@
 executable              = madx_wrapper.sh
 arguments               = job.madx
-transfer_input_files    = job.madx
+transfer_input_files    = job.madx, /home/rdemaria/work/lhc_optics_web/mkplots.py
 output                  = job.out
 error                   = job.err
 log                     = job.$(ClusterId).$(ProcId).log

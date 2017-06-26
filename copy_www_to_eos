@@ -1,0 +1,1 @@
+rsync -vrltgoD --delete www/ lxplus:/eos/project/a/abpdata/lhc_optics_web/www/ >copy_www_to_eos.out 2>copy_www_to_eos.err

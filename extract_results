@@ -1,0 +1,5 @@
+for i in www/*/*/result.tgz
+  do tar xvfzC $i `dirname $i` --strip-components 1  result/
+done
+
+

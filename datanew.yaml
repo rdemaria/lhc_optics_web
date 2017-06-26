@@ -2038,8 +2038,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=16; KOD.B1=16; KOF.B2=16; KOD.B2=16;
+      - on_MO.B1=-3.0; on_MO.B2=-3.0;
     squeeze11000:
       label: Ramp Squeeze (11.0 m)
       shortdesc: LHC squeeze optics (11.0 m, 10 m, 11.0 m, 10 m) for 1693 GeV after 365 s from the beginning of the ramp.
@@ -2060,8 +2059,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=15.1389548694; KOD.B1=15.1389548694; KOF.B2=15.1389548694; KOD.B2=15.1389548694;
+      - on_MO.B1=-2.60985748219; on_MO.B2=-2.60985748219;
       template: med_template
     squeeze9700:
       label: Ramp Squeeze (9.7 m)
@@ -2083,8 +2081,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=14.4570071259; KOD.B1=14.4570071259; KOF.B2=14.4570071259; KOD.B2=14.4570071259;
+      - on_MO.B1=-2.51686460808; on_MO.B2=-2.51686460808;
       template: med_template
     squeeze9200:
       label: Squeeze (9.2 m)
@@ -2106,8 +2103,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=14.1513064133; KOD.B1=14.1513064133; KOF.B2=14.1513064133; KOD.B2=14.1513064133;
+      - on_MO.B1=-2.47517814727; on_MO.B2=-2.47517814727;
       template: med_template
     squeeze8500:
       label: Ramp Squeeze (8.5 m)
@@ -2129,8 +2125,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=13.7985748219; KOD.B1=13.7985748219; KOF.B2=13.7985748219; KOD.B2=13.7985748219;
+      - on_MO.B1=-2.4270783848; on_MO.B2=-2.4270783848;
       template: med_template
     squeeze7400:
       label: Ramp Squeeze (7.4 m)
@@ -2152,8 +2147,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=13.3361045131; KOD.B1=13.3361045131; KOF.B2=13.3361045131; KOD.B2=13.3361045131;
+      - on_MO.B1=-2.36401425178; on_MO.B2=-2.36401425178;
       template: med_template
     squeeze6300:
       label: Ramp Squeeze (6.3 m)
@@ -2175,8 +2169,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12.7560570071; KOD.B1=12.7560570071; KOF.B2=12.7560570071; KOD.B2=12.7560570071;
+      - on_MO.B1=-2.28491686461; on_MO.B2=-2.28491686461;
       template: med_template
     squeeze5300:
       label: Ramp Squeeze (5.3 m)
@@ -2198,8 +2191,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.9800475059; KOD.B1=11.9800475059; KOF.B2=11.9800475059; KOD.B2=11.9800475059;
+      - on_MO.B1=-2.17909738717; on_MO.B2=-2.17909738717;
       template: med_template
     squeeze4400:
       label: Ramp Squeeze (4.4 m)
@@ -2221,8 +2213,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;
+      - on_MO.B1=-2.1; on_MO.B2=-2.1;
       template: med_template
     squeeze3600:
       label: Ramp Squeeze (3.6 m)
@@ -2244,8 +2235,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;
+      - on_MO.B1=-2.06739130435; on_MO.B2=-2.06739130435;
       template: med_template
     squeeze3100:
       label: Ramp Squeeze (3.1 m)
@@ -2267,8 +2257,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;
+      - on_MO.B1=-2.02744565217; on_MO.B2=-2.02744565217;
       template: med_template
     squeeze2300:
       label: Ramp Squeeze (2.3 m)
@@ -2290,8 +2279,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;
+      - on_MO.B1=-1.99483695652; on_MO.B2=-1.99483695652;
       template: med_template
     squeeze1800:
       label: Ramp Squeeze (1.8 m)
@@ -2313,8 +2301,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;
+      - on_MO.B1=-1.96956521739; on_MO.B2=-1.96956521739;
       template: med_template
     squeeze1350:
       label: Ramp Squeeze (1.35 m)
@@ -2336,8 +2323,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;
+      - on_MO.B1=-1.93288043478; on_MO.B2=-1.93288043478;
       template: med_template
     squeeze1000:
       label: Ramp Squeeze (1.0 m)
@@ -2359,8 +2345,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;
+      - on_MO.B1=-1.87255434783; on_MO.B2=-1.87255434783;
       template: med_template
     squeeze1000b:
       label: Ramp Squeeze (1.0 m)
@@ -2382,8 +2367,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=11.4; KOD.B1=11.4; KOF.B2=11.4; KOD.B2=11.4;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     squeeze1000c:
       label: Squeeze (1.0 m)
@@ -2405,8 +2389,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     squeeze800:
       label: Squeeze (80 cm)
@@ -2428,8 +2411,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     squeeze650:
       label: Squeeze (65 cm)
@@ -2451,8 +2433,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     squeeze540:
       label: Squeeze (54 cm)
@@ -2474,8 +2455,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     squeeze460:
       label: Squeeze (46 cm)
@@ -2497,8 +2477,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     squeeze400:
       label: Squeeze (40 cm)
@@ -2520,8 +2499,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     squeeze400a:
       label: Squeeze (40 cm, ctpps1)
@@ -2543,8 +2521,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     squeeze400b:
       label: Squeeze (40 cm, ctpps2)
@@ -2566,8 +2543,7 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
     coll400:
       label: Collision (40 cm)
@@ -2589,6 +2565,5 @@ opt2017:
       - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
       - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
       - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
-      - KOD.A56B1:=KOD.B1*4.65/6.0;
-      - KOF.B1=12; KOD.B1=12; KOF.B2=12; KOD.B2=12;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
       template: med_template
