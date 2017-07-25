@@ -4,6 +4,7 @@ option, warn,info;
 system,"ln -fns {{val}} {{key}}";
 {%- endfor %}
 system,"mkdir result";
+system,"cp -a * result";
 !system,"ln -fns {{resdir}} result";
 
 ! Sequence definition
@@ -64,6 +65,12 @@ twiss, file=result/twiss_ip{{bim}}_flat.tfs;
 {{line}}
 {%- endfor %}
 
+
+! Post Knobs
+{% for line in conf.post_knobs %}
+{{line}}
+{%- endfor %}
+
 ! Twiss with experiments turn off
 on_alice_aux=on_alice; on_lhcb_aux=on_lhcb; on_disp_aux=on_disp;
 on_alice=0; on_lhcb=0;
@@ -99,6 +106,3 @@ select,flag=twiss,column=name,keyword,parent,kmax,kmin,calib,polarity,
 
 {% block commands %}
 {% endblock %}
-
-system,"/afs/cern.ch/user/r/rdemaria/public/mkplots.py";
-system,"tar cvfz result.tgz result";

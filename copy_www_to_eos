@@ -1,1 +1,15 @@
-rsync -vrltgoD --delete www/ lxplus:/eos/project/a/abpdata/lhc_optics_web/www/ >copy_www_to_eos.out 2>copy_www_to_eos.err
+#!/bin/bash
+
+now=`date +%Y%m%dT%H%M%S%z`
+out="copy_www_to_eos_$now.out"
+err="copy_www_to_eos_$now.err"
+
+src="/home/rdemaria/scratch/lhc_optics_web/www/"
+dst="lxplus:/eos/project/a/abpdata/lhc_optics_web/www/"
+
+rsync -vrltgoD --delete --modify-window=2  \
+      $src $dst >$out 2>$err &
+
+echo "tail -f $out"
+echo "tail -f $err"
+

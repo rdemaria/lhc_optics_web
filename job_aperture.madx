@@ -148,5 +148,8 @@ aperture,range=e.ds.r{{narc1}}.{{bim}}/s.ds.l{{narc2}}.{{bim}},
 
 ! saving sequence
 save,beam,sequence=lhcb1,lhcb2,file=result/lhc_{{scn.name}}_{{conf.name}}.seq;
+system,"/afs/cern.ch/user/r/rdemaria/public/mkplots.py";
+system,"tar cvfz result.tgz result";
 {% endblock %}
+
 

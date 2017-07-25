@@ -50,6 +50,6 @@
   {% endfor %}
 </table>
 
-<p> Last modification: {{date}}  &copy; Copyright 2015 CERN
+<p> Last modification: {{date}}  &copy; Copyright 2017 CERN
 
 </body> </html>

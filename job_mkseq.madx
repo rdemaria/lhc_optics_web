@@ -3,6 +3,7 @@
 
 {% block commands %}
 save,beam,sequence=lhcb1,lhcb2,file=result/lhc_{{scn.name}}_{{conf.name}}.seq;
-{% endblock %}
 
 system,"tar cvfz result.tgz result";
+{% endblock %}
+

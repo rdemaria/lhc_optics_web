@@ -668,90 +668,44 @@
   "longdesc": "Configuration LHC Run 1 protons. The spectrometer can be powered with positive or negative polarity. References <a href=\"https://edms.cern.ch/file/1059898/3/LHC-OP-ES-0020-rev3.pdf\"> LHC-OP-ES-0020 rev. 3 </a>", 
   "label": "LHC Run I protons"
  }, 
- "opt2015": {
+ "hllhc13": {
   "confs": {
-   "coll400": {
-    "shortdesc": "LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
+   "ions": {
+    "shortdesc": "Low-beta optics at high energy for all experiments.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
+     "call,file=\"slhc/opt_ions.madx\";"
     ], 
     "madx_knobs": [
-     "on_sep1=0;on_sep2=0;on_sep5=0;on_sep8=0;"
+     "on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:=1;on_x2:=1;on_alice:=7000/7000;on_sol_alice:=0;", 
+     "on_sep8:=1;on_x8:=1;on_lhcb :=-7000/7000;", 
+     "on_disp=0;"
     ], 
-    "template": "med_template", 
-    "label": "Collision (0.4m)"
+    "template": "hllhc_template", 
+    "label": "Low-beta"
    }, 
-   "squeeze650": {
-    "shortdesc": "LHC squeeze optics (0.65m, 10m, 0.65m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_650_10000_650_3000.madx\";"
+   "inj": {
+    "template": "hllhc_template", 
+    "madx_knobs": [
+     "on_sep1:=-2;on_x1:=295;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:=2 ;on_x5:=295;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:= 3.5;on_x2:= 170;on_a2=-40;on_alice:=7000/450;on_sol_alice:=0;", 
+     "on_sep8:=-3.5;on_x8:=-170;on_a8=-40;on_lhcb :=7000/450;", 
+     "on_disp=0;"
     ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.65m)"
-   }, 
-   "squeeze9000": {
-    "shortdesc": "LHC squeeze optics (9m, 10m, 9m, 9m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_9000_10000_9000_9000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (9m)"
-   }, 
-   "squeeze450": {
-    "shortdesc": "LHC squeeze optics (0.45m, 10m, 0.45m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_450_10000_450_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.45m)"
-   }, 
-   "squeeze3000": {
-    "shortdesc": "LHC squeeze optics (3m, 10m, 3m, 6m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_3000_10000_3000_6000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (3m)"
-   }, 
-   "squeeze1500": {
-    "shortdesc": "LHC squeeze optics (1.5m, 10m, 1.5m, 3.5m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_1500_10000_1500_3500.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (1.5m)"
-   }, 
-   "squeeze400": {
-    "shortdesc": "LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.4m)"
-   }, 
-   "squeeze1200": {
-    "shortdesc": "LHC squeeze optics (1.2m, 10m, 1.2m, 3.25m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_1200_10000_1200_3250.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (1.2m)"
-   }, 
-   "med_template": {
-    "template": "med_template", 
-    "madx_knobs": [], 
     "settings": {
      "beam2": [
       "p", 
-      6500, 
-      "1.2e11", 
+      450, 
+      220000000000.0, 
       2748, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
-      6500, 
-      "1.2e11", 
+      450, 
+      220000000000.0, 
       2748, 
       2.5e-06
      ], 
@@ -762,113 +716,74 @@
       "on"
      ]
     }, 
+    "shortdesc": "Optics at injection.", 
+    "madx_strengths": [
+     "call,file=\"slhc/opt_inj.madx\";"
+    ], 
+    "label": "Injection"
+   }, 
+   "round20": {
+    "shortdesc": "Baseline collision optics.", 
+    "madx_strengths": [
+     "call,file=\"slhc/squeeze/opt_200_200_200_200.madx\";"
+    ], 
+    "madx_knobs": [
+     "on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;", 
+     "on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;", 
+     "on_disp=0;"
+    ], 
+    "template": "hllhc_template", 
+    "label": "Collision Round 20 cm"
+   }, 
+   "round15": {
+    "shortdesc": "Baseline collision optics.", 
+    "madx_strengths": [
+     "call,file=\"slhc/squeeze/opt_150_150_150_150.madx\";"
+    ], 
+    "madx_knobs": [
+     "on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;", 
+     "on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;", 
+     "on_disp=0;"
+    ], 
+    "template": "hllhc_template", 
+    "label": "Collision Round 15 cm"
+   }, 
+   "hllhc_template": {
     "madx_aperture": [
-     "call, file=\"db5/aperture/aperture_as-built.b1.madx\";", 
-     "call, file=\"db5/aperture/aperture_as-built.b2.madx\";", 
-     "call, file=\"db5/aperture/aper_tol_as-built.b1.madx\";", 
-     "call, file=\"db5/aperture/aper_tol_as-built.b2.madx\";", 
-     "call, file=\"db5/aperture/exp_pipe_model_after_LS1.madx\";", 
-     "call, file=\"db5/aperture/exp_pipe_install_after_LS1.madx\";"
+     "call, file=\"lhc/aperture/aperture.b1.madx\";", 
+     "call, file=\"lhc/aperture/aperture.b2.madx\";", 
+     "call, file=\"lhc/aperture/aper_tol.b1.madx\";", 
+     "call, file=\"lhc/aperture/aper_tol.b2.madx\";", 
+     "call,file=\"slhc/aperture/exp_pipe_model_after_LS3.madx\";", 
+     "call,file=\"slhc/aperture/exp_pipe_install_after_LS3.madx\";", 
+     "call, file=\"slhc/aperture/aperture_upgrade_IT.madx\";", 
+     "call, file=\"slhc/aperture/aperture_upgrade_MS.madx\";"
     ], 
     "madx_sequence": [
-     "call, file=\"db5/aperture/const_for_aperture.madx\";", 
-     "call, file=\"db5/lhc_as-built.seq\";"
+     "call, file=\"slhc/aperture/const_for_aperture.madx\";", 
+     "call, file=\"lhc/lhc.seq\";", 
+     "call, file=\"slhc/hllhc_sequence.madx\";"
     ], 
     "madx_links": {
-     "db5": "/afs/cern.ch/eng/lhc/optics/runII/2015"
-    }
-   }, 
-   "squeeze550": {
-    "shortdesc": "LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_550_10000_550_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.55m)"
-   }, 
-   "squeeze500": {
-    "shortdesc": "LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_500_10000_500_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.5m)"
-   }, 
-   "squeeze2500": {
-    "shortdesc": "LHC squeeze optics (2.5m, 10m, 2.5m, 5m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_2500_10000_2500_5000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (2.5m)"
-   }, 
-   "squeeze11000": {
-    "shortdesc": "LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_11000_10000_11000_10000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (11m)"
-   }, 
-   "squeeze2000": {
-    "shortdesc": "LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_2000_10000_2000_4000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (2m)"
-   }, 
-   "squeeze900": {
-    "shortdesc": "LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_900_10000_900_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.9m)"
-   }, 
-   "squeeze800": {
-    "shortdesc": "LHC squeeze optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_800_10000_800_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.8m)"
-   }, 
-   "coll800": {
-    "shortdesc": "LHC collision optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_800_10000_800_3000_coll.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Collision (0.8m)"
-   }, 
-   "squeeze700": {
-    "shortdesc": "LHC squeeze optics (0.7m, 10m, 0.7m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_700_10000_700_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.7m)"
-   }, 
-   "inj_colltunes": {
-    "shortdesc": "LHC Injection optics for 450 GeV with collision tunes.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_inj_colltunes.madx\";"
-    ], 
-    "label": "Injection (coll. tunes)", 
-    "template": "med_template", 
+     "slhc": "/afs/cern.ch/eng/lhc/optics/HLLHCV1.3", 
+     "lhc": "/afs/cern.ch/eng/lhc/optics/runIII"
+    }, 
     "settings": {
      "beam2": [
       "p", 
-      450, 
-      "1.2e11", 
+      7000, 
+      220000000000.0, 
       2748, 
       2.5e-06
      ], 
      "beam1": [
       "p", 
-      450, 
-      "1.2e11", 
+      7000, 
+      220000000000.0, 
       2748, 
       2.5e-06
      ], 
@@ -880,107 +795,47 @@
      ]
     }
    }, 
-   "coll600": {
-    "shortdesc": "LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.", 
+   "presqueeze": {
+    "shortdesc": "Baseline collision optics.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_600_10000_600_3000_coll.madx\";"
+     "call,file=\"slhc/opt_500_500_500_500.madx\";"
     ], 
-    "template": "med_template", 
-    "label": "Collision (0.6m)"
+    "template": "hllhc_template", 
+    "madx_knobs": [
+     "on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;", 
+     "on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;", 
+     "on_disp=0;"
+    ], 
+    "label": "Presqueeze"
    }, 
-   "inj": {
-    "shortdesc": "LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.", 
+   "vdm30": {
+    "shortdesc": "High Beta Optics at high energy.", 
     "madx_strengths": [
-     "call, file=\"db5/opt_inj.madx\";"
+     "call,file=\"slhc/opt_vdm30m.madx\";"
     ], 
-    "label": "Injection", 
-    "template": "med_template", 
-    "settings": {
-     "beam2": [
-      "p", 
-      450, 
-      "1.2e11", 
-      2748, 
-      2.5e-06
-     ], 
-     "beam1": [
-      "p", 
-      450, 
-      "1.2e11", 
-      2748, 
-      2.5e-06
-     ], 
-     "exp": [
-      "off", 
-      "on", 
-      "off", 
-      "on"
-     ]
-    }
-   }, 
-   "squeeze600": {
-    "shortdesc": "LHC squeeze optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_600_10000_600_3000.madx\";"
+    "madx_knobs": [
+     "on_sep1:=-1;on_x1:= 170;phi_IR1 :=   90; on_sol_atlas:=0;on_crab1:=0;", 
+     "on_sep5:= 1;on_x5:= 170;phi_IR5 :=    0; on_sol_cms  :=0;on_crab5:=0;", 
+     "on_sep2:= 1;on_x2:= 170;on_alice:=7000/7000;on_sol_alice:=0;", 
+     "on_sep8:=-1;on_x8:=-170;on_lhcb :=-7000/7000;", 
+     "on_disp=0;"
     ], 
-    "template": "med_template", 
-    "label": "Squeeze (0.6m)"
-   }, 
-   "squeeze4000": {
-    "shortdesc": "LHC squeeze optics (4m, 10m, 4m, 7m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_4000_10000_4000_7000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (4m)"
-   }, 
-   "squeeze1000": {
-    "shortdesc": "LHC squeeze optics (1m, 10m, 1m, 3m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_1000_10000_1000_3000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (1m)"
-   }, 
-   "squeeze7000": {
-    "shortdesc": "LHC squeeze optics (7m, 10m, 7m, 8m) for 6.5 TeV.", 
-    "madx_strengths": [
-     "call, file=\"db5/opt_7000_10000_7000_8000.madx\";"
-    ], 
-    "template": "med_template", 
-    "label": "Squeeze (7m)"
+    "template": "hllhc_template", 
+    "label": "VDM 30m"
    }
   }, 
-  "shortdesc": "Optics for LHC Run II protons for physics in 2015.", 
+  "shortdesc": "Optics for HL-LHC V1.3.", 
   "conf_list": [
    "inj", 
-   "inj_colltunes", 
-   "squeeze11000", 
-   "squeeze9000", 
-   "squeeze7000", 
-   "squeeze4000", 
-   "squeeze3000", 
-   "squeeze2500", 
-   "squeeze2000", 
-   "squeeze1500", 
-   "squeeze1200", 
-   "squeeze1000", 
-   "squeeze900", 
-   "squeeze800", 
-   "coll800", 
-   "squeeze700", 
-   "squeeze650", 
-   "squeeze600", 
-   "coll600", 
-   "squeeze550", 
-   "squeeze500", 
-   "squeeze450", 
-   "squeeze400", 
-   "coll400"
+   "presqueeze", 
+   "round20", 
+   "round15"
   ], 
   "npart_unit": 11, 
-  "longdesc": "Configuration LHC Run II cycle for physics with pp at 6.5 TeV.", 
-  "label": "LHC Run II pp physics"
+  "longdesc": "Optics for  HL-LHC V1.3.\nReferences <a href=\"https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx\">HL-LHC WP2 Optics pages.</a>\n", 
+  "label": "HLLHCV1.3"
  }, 
  "hllhc12": {
   "confs": {
@@ -2787,7 +2642,8 @@
   "opt2015ion", 
   "hllhc10", 
   "hllhc11", 
-  "hllhc12"
+  "hllhc12", 
+  "hllhc13"
  ], 
  "opt2017": {
   "confs": {
@@ -3690,7 +3546,7 @@
     "madx_strengths": [
      "call, file=\"db5/opticsfile.3\";"
     ], 
-    "label": "Squeeze (9.2 m)"
+    "label": "Ramp Squeeze (9.2 m)"
    }, 
    "squeeze460": {
     "template": "med_template", 
@@ -3938,6 +3794,320 @@
   ], 
   "npart_unit": 11, 
   "longdesc": "Typical configuration of LHC in 2017 for pp physics at 6.5 TeV. Crossing angle, spectrometer polarities, tunes, number of bunches are expected to change during the Run. Beam emittance corresponds to a reference value and changes depending on the beam production scheme and fill by fill.", 
+  "label": "LHC Run II pp physics"
+ }, 
+ "opt2015": {
+  "confs": {
+   "coll400": {
+    "shortdesc": "LHC collision optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
+    ], 
+    "madx_knobs": [
+     "on_sep1=0;on_sep2=0;on_sep5=0;on_sep8=0;"
+    ], 
+    "template": "med_template", 
+    "label": "Collision (0.4m)"
+   }, 
+   "squeeze650": {
+    "shortdesc": "LHC squeeze optics (0.65m, 10m, 0.65m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_650_10000_650_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.65m)"
+   }, 
+   "squeeze9000": {
+    "shortdesc": "LHC squeeze optics (9m, 10m, 9m, 9m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_9000_10000_9000_9000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (9m)"
+   }, 
+   "squeeze450": {
+    "shortdesc": "LHC squeeze optics (0.45m, 10m, 0.45m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_450_10000_450_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.45m)"
+   }, 
+   "squeeze3000": {
+    "shortdesc": "LHC squeeze optics (3m, 10m, 3m, 6m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_3000_10000_3000_6000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (3m)"
+   }, 
+   "squeeze1500": {
+    "shortdesc": "LHC squeeze optics (1.5m, 10m, 1.5m, 3.5m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_1500_10000_1500_3500.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (1.5m)"
+   }, 
+   "squeeze400": {
+    "shortdesc": "LHC squeeze optics (0.4m, 10m, 0.4m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_400_10000_400_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.4m)"
+   }, 
+   "squeeze1200": {
+    "shortdesc": "LHC squeeze optics (1.2m, 10m, 1.2m, 3.25m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_1200_10000_1200_3250.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (1.2m)"
+   }, 
+   "med_template": {
+    "template": "med_template", 
+    "madx_knobs": [], 
+    "settings": {
+     "beam2": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2748, 
+      2.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      6500, 
+      "1.2e11", 
+      2748, 
+      2.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }, 
+    "madx_aperture": [
+     "call, file=\"db5/aperture/aperture_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aperture_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b1.madx\";", 
+     "call, file=\"db5/aperture/aper_tol_as-built.b2.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_model_after_LS1.madx\";", 
+     "call, file=\"db5/aperture/exp_pipe_install_after_LS1.madx\";"
+    ], 
+    "madx_sequence": [
+     "call, file=\"db5/aperture/const_for_aperture.madx\";", 
+     "call, file=\"db5/lhc_as-built.seq\";"
+    ], 
+    "madx_links": {
+     "db5": "/afs/cern.ch/eng/lhc/optics/runII/2015"
+    }
+   }, 
+   "squeeze550": {
+    "shortdesc": "LHC squeeze optics (0.55m, 10m, 0.55m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_550_10000_550_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.55m)"
+   }, 
+   "squeeze500": {
+    "shortdesc": "LHC squeeze optics (0.5m, 10m, 0.5m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_500_10000_500_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.5m)"
+   }, 
+   "squeeze2500": {
+    "shortdesc": "LHC squeeze optics (2.5m, 10m, 2.5m, 5m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_2500_10000_2500_5000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (2.5m)"
+   }, 
+   "squeeze11000": {
+    "shortdesc": "LHC squeeze optics (11m, 10m, 11m, 10m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_11000_10000_11000_10000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (11m)"
+   }, 
+   "squeeze2000": {
+    "shortdesc": "LHC squeeze optics (2m, 10m, 2m, 4m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_2000_10000_2000_4000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (2m)"
+   }, 
+   "squeeze900": {
+    "shortdesc": "LHC squeeze optics (0.9m, 10m, 0.9m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_900_10000_900_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.9m)"
+   }, 
+   "squeeze800": {
+    "shortdesc": "LHC squeeze optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_800_10000_800_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.8m)"
+   }, 
+   "coll800": {
+    "shortdesc": "LHC collision optics (0.8m, 10m, 0.8m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_800_10000_800_3000_coll.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Collision (0.8m)"
+   }, 
+   "squeeze700": {
+    "shortdesc": "LHC squeeze optics (0.7m, 10m, 0.7m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_700_10000_700_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.7m)"
+   }, 
+   "inj_colltunes": {
+    "shortdesc": "LHC Injection optics for 450 GeV with collision tunes.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj_colltunes.madx\";"
+    ], 
+    "label": "Injection (coll. tunes)", 
+    "template": "med_template", 
+    "settings": {
+     "beam2": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      2.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      2.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }
+   }, 
+   "coll600": {
+    "shortdesc": "LHC collision optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_600_10000_600_3000_coll.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Collision (0.6m)"
+   }, 
+   "inj": {
+    "shortdesc": "LHC Injection optics for 450 GeV with injection tunes obtained by an MQT trim.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_inj.madx\";"
+    ], 
+    "label": "Injection", 
+    "template": "med_template", 
+    "settings": {
+     "beam2": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      2.5e-06
+     ], 
+     "beam1": [
+      "p", 
+      450, 
+      "1.2e11", 
+      2748, 
+      2.5e-06
+     ], 
+     "exp": [
+      "off", 
+      "on", 
+      "off", 
+      "on"
+     ]
+    }
+   }, 
+   "squeeze600": {
+    "shortdesc": "LHC squeeze optics (0.6m, 10m, 0.6m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_600_10000_600_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (0.6m)"
+   }, 
+   "squeeze4000": {
+    "shortdesc": "LHC squeeze optics (4m, 10m, 4m, 7m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_4000_10000_4000_7000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (4m)"
+   }, 
+   "squeeze1000": {
+    "shortdesc": "LHC squeeze optics (1m, 10m, 1m, 3m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_1000_10000_1000_3000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (1m)"
+   }, 
+   "squeeze7000": {
+    "shortdesc": "LHC squeeze optics (7m, 10m, 7m, 8m) for 6.5 TeV.", 
+    "madx_strengths": [
+     "call, file=\"db5/opt_7000_10000_7000_8000.madx\";"
+    ], 
+    "template": "med_template", 
+    "label": "Squeeze (7m)"
+   }
+  }, 
+  "shortdesc": "Optics for LHC Run II protons for physics in 2015.", 
+  "conf_list": [
+   "inj", 
+   "inj_colltunes", 
+   "squeeze11000", 
+   "squeeze9000", 
+   "squeeze7000", 
+   "squeeze4000", 
+   "squeeze3000", 
+   "squeeze2500", 
+   "squeeze2000", 
+   "squeeze1500", 
+   "squeeze1200", 
+   "squeeze1000", 
+   "squeeze900", 
+   "squeeze800", 
+   "coll800", 
+   "squeeze700", 
+   "squeeze650", 
+   "squeeze600", 
+   "coll600", 
+   "squeeze550", 
+   "squeeze500", 
+   "squeeze450", 
+   "squeeze400", 
+   "coll400"
+  ], 
+  "npart_unit": 11, 
+  "longdesc": "Configuration LHC Run II cycle for physics with pp at 6.5 TeV.", 
   "label": "LHC Run II pp physics"
  }, 
  "opt_med": {

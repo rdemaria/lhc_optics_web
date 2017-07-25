@@ -9,6 +9,7 @@ scenario_list:
 - hllhc10
 - hllhc11
 - hllhc12
+- hllhc13
 hllhc10:
   label: HLLHCV1.0
   shortdesc: Optics for HL-LHC V1.0.
@@ -424,6 +425,119 @@ hllhc12:
       - on_disp=0;
       madx_strengths:
       - call,file="slhc/opt_vdm30.madx";
+      shortdesc: High Beta Optics at high energy.
+      template: hllhc_template
+    ions:
+      label: Low-beta
+      madx_knobs:
+      - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:=1;on_x2:=1;on_alice:=7000/7000;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/7000;
+      - on_disp=0;
+      madx_strengths:
+      - call,file="slhc/opt_ions.madx";
+      shortdesc: Low-beta optics at high energy for all experiments.
+      template: hllhc_template
+hllhc13:
+  label: HLLHCV1.3
+  shortdesc: Optics for HL-LHC V1.3.
+  longdesc: 'Optics for  HL-LHC V1.3.
+
+    References <a href="https://espace.cern.ch/HiLumi/WP2/task2/SitePages/Home.aspx">HL-LHC
+    WP2 Optics pages.</a>
+
+    '
+  npart_unit: 11
+  conf_list:
+  - inj
+  - presqueeze
+  - round20
+  - round15
+  confs:
+    hllhc_template:
+      madx_aperture:
+      - call, file="lhc/aperture/aperture.b1.madx";
+      - call, file="lhc/aperture/aperture.b2.madx";
+      - call, file="lhc/aperture/aper_tol.b1.madx";
+      - call, file="lhc/aperture/aper_tol.b2.madx";
+      - call,file="slhc/aperture/exp_pipe_model_after_LS3.madx";
+      - call,file="slhc/aperture/exp_pipe_install_after_LS3.madx";
+      - call, file="slhc/aperture/aperture_upgrade_IT.madx";
+      - call, file="slhc/aperture/aperture_upgrade_MS.madx";
+      madx_links:
+        lhc: /afs/cern.ch/eng/lhc/optics/runIII
+        slhc: /afs/cern.ch/eng/lhc/optics/HLLHCV1.3
+      madx_sequence:
+      - call, file="slhc/aperture/const_for_aperture.madx";
+      - call, file="lhc/lhc.seq";
+      - call, file="slhc/hllhc_sequence.madx";
+      settings:
+        beam1: [p, 7000, 220000000000.0, 2748, 2.5e-06]
+        beam2: [p, 7000, 220000000000.0, 2748, 2.5e-06]
+        exp: ['off', 'on', 'off', 'on']
+    inj:
+      label: Injection
+      madx_knobs:
+      - on_sep1:=-2;on_x1:=295;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:=2 ;on_x5:=295;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:= 3.5;on_x2:= 170;on_a2=-40;on_alice:=7000/450;on_sol_alice:=0;
+      - on_sep8:=-3.5;on_x8:=-170;on_a8=-40;on_lhcb :=7000/450;
+      - on_disp=0;
+      madx_strengths:
+      - call,file="slhc/opt_inj.madx";
+      settings:
+        beam1: [p, 450, 220000000000.0, 2748, 2.5e-06]
+        beam2: [p, 450, 220000000000.0, 2748, 2.5e-06]
+        exp: ['off', 'on', 'off', 'on']
+      shortdesc: Optics at injection.
+      template: hllhc_template
+    presqueeze:
+      label: Presqueeze
+      madx_strengths:
+      - call,file="slhc/opt_500_500_500_500.madx";
+      shortdesc: Baseline collision optics.
+      template: hllhc_template
+      madx_knobs:
+      - on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;
+      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;
+      - on_disp=0;
+    round20:
+      madx_knobs:
+      - on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;
+      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;
+      - on_disp=0;
+      label: Collision Round 20 cm
+      madx_strengths:
+      - call,file="slhc/squeeze/opt_200_200_200_200.madx";
+      shortdesc: Baseline collision optics.
+      template: hllhc_template
+    round15:
+      madx_knobs:
+      - on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;
+      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;
+      - on_disp=0;
+      label: Collision Round 15 cm
+      madx_strengths:
+      - call,file="slhc/squeeze/opt_150_150_150_150.madx";
+      shortdesc: Baseline collision optics.
+      template: hllhc_template
+    vdm30:
+      label: VDM 30m
+      madx_knobs:
+      - on_sep1:=-1;on_x1:= 170;phi_IR1 :=   90; on_sol_atlas:=0;on_crab1:=0;
+      - on_sep5:= 1;on_x5:= 170;phi_IR5 :=    0; on_sol_cms  :=0;on_crab5:=0;
+      - on_sep2:= 1;on_x2:= 170;on_alice:=7000/7000;on_sol_alice:=0;
+      - on_sep8:=-1;on_x8:=-170;on_lhcb :=-7000/7000;
+      - on_disp=0;
+      madx_strengths:
+      - call,file="slhc/opt_vdm30m.madx";
       shortdesc: High Beta Optics at high energy.
       template: hllhc_template
     ions:
@@ -2084,7 +2198,7 @@ opt2017:
       - on_MO.B1=-2.51686460808; on_MO.B2=-2.51686460808;
       template: med_template
     squeeze9200:
-      label: Squeeze (9.2 m)
+      label: Ramp Squeeze (9.2 m)
       shortdesc: LHC squeeze optics (9.2 m, 10 m, 9.2 m, 9.2 m) for 2423 GeV after 491 s from the beginning of the ramp.
       settings:
         beam1: [p, 2423, 1.2e11, 2556, 2.5e-06]

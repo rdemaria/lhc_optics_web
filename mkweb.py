@@ -342,6 +342,10 @@ def run_plot():
             tfs_to_csv(apfull)
 
 
+def extract_data():
+  for scn in scenarios:
+    os.system('extract_results %s'%scn.name)
+
 
 def get_data():
   for scn in scenarios:
@@ -365,6 +369,7 @@ def get_data():
         for ipn in [1,2,5,8]:
           i=np.where(t//('IP%d'%ipn))[0][0]
           iporb=[t.x[i]*1e3,t.y[i]*1e3,t.px[i]*1e6,t.py[i]*1e6]
+          iporb=[round(i,2) for i in iporb]
           ipdata['ip%sb%s'%(ipn,b12)].extend(iporb)
           print ipn,iporb
         for nn,ipn in enumerate([1,2,5,8]):
@@ -410,12 +415,9 @@ if __name__=='__main__':
   data=yaml.load(open('datanew.yaml'))
   #data=yaml.load(open('datathin.yaml'))
   json.dump(data,open('data.json','w'),indent=True)
-  #data['scenario_list']=['opt2015','opt2015vdm','opt2015hb','opt2015ion',]
   #data['scenario_list']=['opt2017']
+  #data['scenario_list']=['hllhc13']
   scenarios= Scenarios(data)
-  #scenarios.pop(0)
-  #scenarios.pop(0)
-  #scenarios.pop(0)
   force=True
   rdata={
       'date':time.asctime(),
@@ -424,7 +426,8 @@ if __name__=='__main__':
   #run_madx(run='lsf',jobs=['job_mkseq.madx','job.madx'])
   #run_madx(run='lsf',jobs=['job.madx'])
   #run_madx(run='local',jobs=['job_mkseq.madx'])
-  run_madx(run=False,jobs=['job_mkseq.madx','job.madx'])
+  #run_madx(run=False,jobs=['job_mkseq.madx','job.madx'])
+  #extract_data()
   get_data()
   run_html()
   #run_plot()
