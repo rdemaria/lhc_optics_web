@@ -763,6 +763,10 @@
      "call, file=\"slhc/aperture/aperture_upgrade_IT.madx\";", 
      "call, file=\"slhc/aperture/aperture_upgrade_MS.madx\";"
     ], 
+    "post_knobs": [
+     "call, file=\"slhc/toolkit/rematch_chroma.madx\";", 
+     "call, file=\"slhc/toolkit/rematch_tune.madx\";"
+    ], 
     "madx_sequence": [
      "call, file=\"slhc/aperture/const_for_aperture.madx\";", 
      "call, file=\"lhc/lhc.seq\";", 

@@ -472,6 +472,9 @@ hllhc13:
       - call, file="slhc/aperture/const_for_aperture.madx";
       - call, file="lhc/lhc.seq";
       - call, file="slhc/hllhc_sequence.madx";
+      post_knobs:
+      - call, file="slhc/toolkit/rematch_chroma.madx";
+      - call, file="slhc/toolkit/rematch_tune.madx";
       settings:
         beam1: [p, 7000, 220000000000.0, 2748, 2.5e-06]
         beam2: [p, 7000, 220000000000.0, 2748, 2.5e-06]

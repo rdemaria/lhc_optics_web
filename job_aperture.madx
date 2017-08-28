@@ -14,17 +14,18 @@ DParcx=0.273; DParcy=0.273;
 
 ! 2014-2015 updated parameters
 if(NRJ >451) {
-emittance_norm=3.5e-6;
+emittance_norm=2.5e-6;
 apbbeat=1.1;
 halor=6.0001; halox=6; haloy=6;
 DParcx=0.10; DParcy=0.10;
-COmax=0.002; dPmax=0.0002; VMAXI=30; SPECIF=12;
+COmax=0.002; dPmax=0.0002; VMAXI=30; SPECIF=14.6;
+!11.2 good phase; ! 14.6 bad phase with TCT; ! 19.4 everywhere else...
 } else {
-emittance_norm=3.5e-6;
+emittance_norm=2.5e-6;
 apbbeat=1.05;
 halor=6.0001; halox=6; haloy=6;
 DParcx=0.14; DParcy=0.14;
-COmax=0.002; dPmax=0.0006; VMAXI=30; SPECIF=9;
+COmax=0.002; dPmax=0.00086; VMAXI=30; SPECIF=12.6;
 };
 
 
