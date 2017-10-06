@@ -1,8 +1,8 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 for i in `seq $2 $3`;
 do
 echo condor_transfer_data $1.$i
-condor_transfer_data $1.$i
+condor_transfer_data $1.$i && condor_rm $1.$i && echo condor_rm $1.$i
 done
 

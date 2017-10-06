@@ -31,14 +31,47 @@ beam, sequence=lhcb2, bv=-1,
 {{line}}
 {%- endfor %}
 
+nrj=beam%lhcb1->pc/beam%lhcb1->charge;
+
 ! Cycle
 seqedit,sequence=lhcb1;flatten;cycle,start=s.ds.l1.b1;endedit;
 seqedit,sequence=lhcb2;flatten;cycle,start=s.ds.l1.b2;endedit;
+
+! Post Strength
+{% for line in conf.post_strength_win %}
+{{line}}
+{%- endfor %}
+
+
+
+! Twiss before customized knobs
+set,format="22.15e";
+select,flag=twiss,clear;
+select,flag=twiss, pattern="IP.$",column=name,s,betx,bety,alfx,alfy,dx,dpx,dy,dpy,mux,muy,x,y,px,py;
+{% for bim in ['b1','b2'] %}
+use, sequence=lhc{{bim}};
+twiss, file=result/twiss_ip{{bim}}_flat.tfs;
+{% endfor %}
 
 ! Knobs definitions
 {% for line in conf.madx_knobs_win %}
 {{line}}
 {%- endfor %}
+
+
+! Post Knobs
+{% for line in conf.post_knobs_win %}
+{{line}}
+{%- endfor %}
+
+! Twiss with experiments turn off
+on_alice_aux=on_alice; on_lhcb_aux=on_lhcb; on_disp_aux=on_disp;
+on_alice=0; on_lhcb=0;
+{% for bim in ['b1','b2'] %}
+use, sequence=lhc{{bim}};
+twiss, file=result/twiss_ip{{bim}}_noexp.tfs;
+{% endfor %}
+on_alice=on_alice_aux; on_lhcb=on_lhcb_aux; on_disp=on_disp_aux;
 
 ! Twiss with experiments turn on
 set,format="22.15e";

@@ -13,3 +13,4 @@ rsync -vrltgoD --delete --modify-window=2  \
 echo "tail -f $out"
 echo "tail -f $err"
 
+# rsync -vrltgoD --delete --modify-window=2 --include "*/" --include "*.madx" --exclude "*" $src $dst

@@ -66,9 +66,10 @@ def plot_aperture(tfsname):
       t=optics.open(tfsname)
       t.s-=t.s[0]
       if t.param['energy']>450:
-          ref=12
+          ref=14.6
       else:
-          ref=10.6
+          ref=12.6
+      print(ref,aptfsname)
       p=t.plotap(newfig=False,nlim=30,ref=ref)
       pl.title('Aperture %s'%selname.upper())
       pl.savefig(figname)
@@ -106,10 +107,10 @@ if __name__=='__main__':
      for b12 in '12':
         tfsname="result/twiss_%sb%s.tfs"%(sel.lower(),b12)
         print tfsname
-        plot_beta(tfsname)
+        #plot_beta(tfsname)
         plot_aperture(tfsname)
-        plot_orbit(tfsname)
-        tfs_to_csv(tfsname)
-        if sel.lower()!='lhc':
-          apname="result/ap_%sb%s.tfs"%(sel.lower(),b12)
-          tfs_to_csv(apname)
+        #plot_orbit(tfsname)
+        #tfs_to_csv(tfsname)
+        #if sel.lower()!='lhc':
+        #  apname="result/ap_%sb%s.tfs"%(sel.lower(),b12)
+        #  tfs_to_csv(apname)

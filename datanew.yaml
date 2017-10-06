@@ -87,8 +87,8 @@ hllhc10:
       madx_knobs:
       - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
       - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
-      - on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;
-      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;
+      - on_sep2:=1;on_x2:=1;on_alice:=7000/nrj;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/nrj;
       - on_disp=1;
       madx_strengths: ['call,file="slhc/opt_inj.madx";']
       settings:
@@ -230,8 +230,8 @@ hllhc11:
       madx_knobs:
       - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
       - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
-      - on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;
-      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;
+      - on_sep2:=1;on_x2:=1;on_alice:=7000/nrj;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/nrj;
       - on_disp=0;
       madx_strengths:
       - call,file="slhc/opt_inj.madx";
@@ -246,8 +246,8 @@ hllhc11:
       madx_knobs:
       - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
       - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
-      - on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;
-      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;
+      - on_sep2:=1;on_x2:=1;on_alice:=7000/nrj;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/nrj;
       - on_disp=0;
       madx_strengths:
       - call,file="slhc/opt_inj15.madx";
@@ -392,8 +392,8 @@ hllhc12:
       madx_knobs:
       - on_sep1:=1;on_x1:=1;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
       - on_sep5:=1;on_x5:=1;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
-      - on_sep2:=1;on_x2:=1;on_alice:=7000/450;on_sol_alice:=0;
-      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/450;
+      - on_sep2:=1;on_x2:=1;on_alice:=7000/nrj;on_sol_alice:=0;
+      - on_sep8:=1;on_x8:=1;on_lhcb :=-7000/nrj;
       - on_disp=0;
       madx_strengths:
       - call,file="slhc/opt_inj.madx";
@@ -484,8 +484,8 @@ hllhc13:
       madx_knobs:
       - on_sep1:=-2;on_x1:=295;phi_IR1 :=   90.000; on_sol_atlas:=0;on_crab1:=0;
       - on_sep5:=2 ;on_x5:=295;phi_IR5 :=    0.000; on_sol_cms  :=0;on_crab5:=0;
-      - on_sep2:= 3.5;on_x2:= 170;on_a2=-40;on_alice:=7000/450;on_sol_alice:=0;
-      - on_sep8:=-3.5;on_x8:=-170;on_a8=-40;on_lhcb :=7000/450;
+      - on_sep2:= 3.5;on_x2:= 170;on_a2=-40;on_alice:=7000/nrj;on_sol_alice:=0;
+      - on_sep8:=-3.5;on_x8:=-170;on_a8=-40;on_lhcb :=7000/nrj;
       - on_disp=0;
       madx_strengths:
       - call,file="slhc/opt_inj.madx";
@@ -504,31 +504,31 @@ hllhc13:
       madx_knobs:
       - on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;
       - on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;
-      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;
-      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;
-      - on_disp=0;
+      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/nrj;on_sol_alice:=0;
+      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/nrj;
+      - on_disp=1;
     round20:
       madx_knobs:
       - on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;
       - on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;
-      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;
-      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;
-      - on_disp=0;
+      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/nrj;on_sol_alice:=0;
+      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/nrj;
+      - on_disp=1;
       label: Collision Round 20 cm
       madx_strengths:
-      - call,file="slhc/squeeze/opt_200_200_200_200.madx";
+      - call,file="slhc/squeeze2/opt_200_200_200_200.madx";
       shortdesc: Baseline collision optics.
       template: hllhc_template
     round15:
       madx_knobs:
       - on_sep1:=-0.75;on_x1:=295;phi_IR1 := 90; on_sol_atlas:=0;on_crab1:=0;
       - on_sep5:= 0.75;on_x5:=295;phi_IR5 :=  0; on_sol_cms  :=0;on_crab5:=0;
-      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/450;on_sol_alice:=0;
-      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/450;
-      - on_disp=0;
+      - on_sep2:= 2;on_x2:= 200;on_a2=0;on_alice:=7000/nrj;on_sol_alice:=0;
+      - on_sep8:=-2;on_x8:=-250;on_a8=0;on_lhcb :=7000/nrj;
+      - on_disp=1;
       label: Collision Round 15 cm
       madx_strengths:
-      - call,file="slhc/squeeze/opt_150_150_150_150.madx";
+      - call,file="slhc/squeeze2/opt_150_150_150_150.madx";
       shortdesc: Baseline collision optics.
       template: hllhc_template
     vdm30:
@@ -790,8 +790,8 @@ pprun1:
       - on_x2:=1; on_sep2:=1; on_o2:=0; on_a2:=0;
       - on_x5:=1; on_sep5:=1; on_o5:=0;
       - on_x8:=1; on_sep8:=1; on_o8:=0; on_a8:=0;
-      - on_alice:=7000/450;
-      - on_lhcb :=-7000/450;
+      - on_alice:=7000/nrj;
+      - on_lhcb :=-7000/nrj;
       madx_strengths:
       - call, file="db5/V6.5.inj_special.str";
       settings:
@@ -828,8 +828,8 @@ pprun1:
       - on_x2:=0;  on_sep2:=1; on_o2:=1; on_a2:=1;
       - on_x5:=0;  on_sep5:=1; on_o5:=0;
       - on_x8:=0;  on_sep8:=1; on_o8:=1; on_a8:=1;
-      - on_alice:=7000/450;
-      - on_lhcb :=7000/450;
+      - on_alice:=7000/nrj;
+      - on_lhcb :=7000/nrj;
       madx_strengths:
       - call, file="db5/V6.5.inj_special.str";
       settings:
@@ -2114,6 +2114,10 @@ opt2017:
   - squeeze400a
   - squeeze400b
   - coll400
+  - squeeze370
+  - squeeze330
+  - squeeze300
+  - coll300
   confs:
     med_template:
       madx_aperture:
@@ -2676,6 +2680,94 @@ opt2017:
       - on_sep1=0;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;
       - on_sep5=0;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=-1.5;
       - on_sep2=0;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=-2;on_oe2=0;
+      - on_sep8=0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;
+      - on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;
+      - dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;
+      - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
+      - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
+      - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
+      template: med_template
+    squeeze370:
+      label: Squeeze (37 cm, ctpps2)
+      shortdesc: LHC squeeze optics (37 cm, 10 m, 37 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2556, 2.5e-06]
+        beam2: [p, 6500, 1.2e11, 2556, 2.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.20_ctpps2";
+      madx_knobs:
+      - NRJ = 6500;
+      - on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;
+      - on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;
+      - on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;
+      - on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;
+      - on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;
+      - dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;
+      - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
+      - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
+      - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
+      template: med_template
+    squeeze330:
+      label: Squeeze (33 cm, ctpps2)
+      shortdesc: LHC squeeze optics (33 cm, 10 m, 33 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2556, 2.5e-06]
+        beam2: [p, 6500, 1.2e11, 2556, 2.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.21_ctpps2";
+      madx_knobs:
+      - NRJ = 6500;
+      - on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;
+      - on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;
+      - on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;
+      - on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;
+      - on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;
+      - dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;
+      - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
+      - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
+      - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
+      template: med_template
+    squeeze300:
+      label: Squeeze (30 cm, ctpps2)
+      shortdesc: LHC squeeze optics (30 cm, 10 m, 30 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2556, 2.5e-06]
+        beam2: [p, 6500, 1.2e11, 2556, 2.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.22_ctpps2";
+      madx_knobs:
+      - NRJ = 6500;
+      - on_sep1=-0.55;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;
+      - on_sep5=0.55;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;
+      - on_sep2=1.4;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;
+      - on_sep8=-1.0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;
+      - on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;
+      - dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;
+      - dQx.b1_sq=0; dQy.b1_sq=0; dQx.b2_sq=0; dQy.b2_sq=0;
+      - dQpx.b1=13; dQpy.b1=13; dQpx.b2=13; dQpy.b2=13;
+      - dQpx.b1_sq=0; dQpy.b1_sq=0; dQpx.b2_sq=0; dQpy.b2_sq=0;
+      - on_MO.B1=-1.8; on_MO.B2=-1.8;
+      template: med_template
+    coll300:
+      label: Squeeze (30 cm, ctpps2)
+      shortdesc: LHC squeeze optics (30 cm, 10 m, 30 cm, 3.0 m) for 6500 GeV.
+      settings:
+        beam1: [p, 6500, 1.2e11, 2556, 2.5e-06]
+        beam2: [p, 6500, 1.2e11, 2556, 2.5e-06]
+        exp: ['off','on','off','on']
+      madx_strengths:
+      - call, file="db5/opticsfile.22_ctpps2";
+      madx_knobs:
+      - NRJ = 6500;
+      - on_sep1=0;on_x1=150.0;on_a1=0;on_o1=0;on_oh1=0;on_ov1=0;
+      - on_sep5=0;on_x5=150.0;on_a5=0;on_o5=0;on_oh5=0;on_ov5=0;
+      - on_sep2=0;on_x2=200.0;on_a2=0.0;on_o2=0;on_oh2=0;on_ov2=0;on_oe2=0;
       - on_sep8=0;on_x8=-250.0;on_a8=0.0;on_o8=0;on_oh8=0;on_ov8=0;on_oe8=0;
       - on_alice:=-7000/NRJ;on_lhcb:=-7000/NRJ;
       - dQx.b1=0; dQy.b1=0; dQx.b2=0; dQy.b2=0;

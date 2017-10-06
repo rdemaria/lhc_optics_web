@@ -282,14 +282,16 @@ def run_madx(run=False,jobs=['job.madx','job_mkseq.madx']):
       for jjj in jobs:
           execute_madx([confdir,jjj],scn.name,run=run)
       for part in ['madx_sequence','madx_aperture',
-                   'madx_strengths','madx_knobs']:
+                   'madx_strengths','madx_knobs',
+                   'post_strength','post_knobs']:
         pout=[]
-        for l in getattr(conf,part):
-          ll=l
-          for lname,lval in conf.madx_links.items():
-            ll=ll.replace(lname,lval)
-          #pout.append(ll.replace('/',"\\"))
-          pout.append(ll)
+        if hasattr(conf,part):
+          for l in getattr(conf,part):
+            ll=l
+            for lname,lval in conf.madx_links.items():
+              ll=ll.replace('"'+lname+'/','"'+lval+'/')
+            #pout.append(ll.replace('/',"\\"))
+            pout.append(ll)
         setattr(conf,part+'_win',pout)
       renderfile(respath,'lhc_%s.madx'%md,tmmodwin,rdata)
 
